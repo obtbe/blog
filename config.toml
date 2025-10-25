@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"  # Change to your domain later
+baseURL = "https://ombotimbe.netlify.app/"  # Change to your domain later
 languageCode = "en-us"
 title = "Zeid Ombotimbe"
 theme = "ezhil"
