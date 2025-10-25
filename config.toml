@@ -1,0 +1,80 @@
+baseURL = "http://localhost:1313/"  # Change to your domain later
+languageCode = "en-us"
+title = "Zeid Ombotimbe"
+theme = "ezhil"
+
+copyright = "© 2025 Zeid Ombotimbe"
+
+# Syntax highlighting
+pygmentsStyle = "solarized-dark"
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+
+# Pagination
+paginate = 10
+summaryLength = 20
+
+disqusShortname = "obtbe"
+
+[params]
+    subtitle = "Data Engineer • Code, Systems, and Life"
+    mainSections = ["blog"]
+    featherIconsCDN = true
+    mode = "auto"  # auto-detects OS dark mode
+    disableDisqusTypes = ["page"]   # Keeps Disqus OFF About, Contact, etc.
+
+    # Social Icons (top right)
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/obtbe"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "linkedin"
+url = "https://linkedin.com/in/obtbe"
+
+# Main Menu (exactly 8 items, in order)
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Blog"
+url = "/blog"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Books"
+url = "/books"
+weight = 4
+
+[[menu.main]]
+name = "Reading"
+url = "/reading"
+weight = 5
+
+[[menu.main]]
+name = "Projects"
+url = "/projects"
+weight = 6
+
+[[menu.main]]
+name = "Contact"
+url = "/contact"
+weight = 7
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 8
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"

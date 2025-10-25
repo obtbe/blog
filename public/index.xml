@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zeid Ombotimbe</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Zeid Ombotimbe</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2025 Zeid Ombotimbe</copyright>
+    <lastBuildDate>Sat, 05 Apr 2025 12:00:00 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building My First Data Pipeline</title>
+      <link>http://localhost:1313/blog/my-first-post/</link>
+      <pubDate>Sat, 05 Apr 2025 12:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/blog/my-first-post/</guid>
+      <description>Just deployed my first end-to-end pipeline using Airflow, S3, and Redshift. Here’s what I learned about idempotency and backfilling&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>Reach out via LinkedIn or GitHub.&#xA;For professional inquiries: zeid@ombotimbe.com</description>
+    </item>
+    <item>
+      <title>Projects</title>
+      <link>http://localhost:1313/projects/</link>
+      <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/projects/</guid>
+      <description>Personal and open-source projects in data engineering, tooling, and automation.</description>
+    </item>
+    <item>
+      <title>Reading</title>
+      <link>http://localhost:1313/books/</link>
+      <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/books/</guid>
+      <description>What I&amp;rsquo;m currently reading — papers, docs, blogs, and books.</description>
+    </item>
+    <item>
+      <title>Reading</title>
+      <link>http://localhost:1313/reading/</link>
+      <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/reading/</guid>
+      <description>What I&amp;rsquo;m currently reading — papers, docs, blogs, and books.</description>
+    </item>
+    <item>
+      <title>Mastering SQL Subqueries: Your Secret Weapon for Smarter Queries</title>
+      <link>http://localhost:1313/blog/sql-subqueries/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/sql-subqueries/</guid>
+      <description>SQL queries can feel like magic when you need exactly the right answer from your data.&#xA;And subqueries? They’re the quiet superpower behind some of the cleanest, most powerful SQL you’ll ever write.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>Ever since I was a kid, I’ve been fascinated by two things: numbers and nature. My grandad, who spent most of his life around horses, had a big hand in that.</description>
+    </item>
+  </channel>
+</rss>
