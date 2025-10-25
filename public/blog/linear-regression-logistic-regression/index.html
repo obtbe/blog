@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Linear Regression vs Logistic Regression - Understanding the Differences - Zeid Ombotimbe</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Linear Regression vs Logistic Regression - Understanding the Differences" />
+<meta property="og:description" content="Data analysis often uses two tools: linear regression and logistic regression. They sound alike, but they answer different questions. This article breaks down their differences with clear examples and the math behind them, so you can choose the right one for your data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blog/linear-regression-logistic-regression/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-12-15T12:00:00+00:00" />
+<meta property="article:modified_time" content="2024-12-15T12:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Linear Regression vs Logistic Regression - Understanding the Differences"/>
+<meta name="twitter:description" content="Data analysis often uses two tools: linear regression and logistic regression. They sound alike, but they answer different questions. This article breaks down their differences with clear examples and the math behind them, so you can choose the right one for your data."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="http://localhost:1313/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="http://localhost:1313/">
+	<h1 class="site-title"><a href="http://localhost:1313/">Zeid Ombotimbe</a></h1>
+	<div class="site-description"><h2>Data Engineer • Code, Systems, and Life</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/obtbe" title="Github"><i data-feather="github"></i></a><a href="https://linkedin.com/in/obtbe" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/reading">Reading</a>
+			</li>
+			
+			<li>
+				<a href="/projects">Projects</a>
+			</li>
+			
+			<li>
+				<a href="/contact">Contact</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Linear Regression vs Logistic Regression - Understanding the Differences</h1>
+
+			
+			
+				<div class="meta">Posted at &mdash; Dec 15, 2024</div>
+			
+		</div>
+
+		<div class="markdown">
+			<p>Data analysis often uses two tools: linear regression and logistic regression. They sound alike, but they answer different questions. This article breaks down their differences with clear examples and the math behind them, so you can choose the right one for your data.</p>
+<h2 id="linear-regression-predicting-numbers">Linear Regression: Predicting Numbers</h2>
+<p>Linear regression predicts numbers by finding a straight-line relationship between inputs and an output. Picture yourself running a lemonade stand, trying to predict daily sales based on the day’s temperature. Hotter days might mean more customers, and linear regression can model this.</p>
+<p>Imagine you track 40 days, recording temperature in degrees Fahrenheit and lemonade cups sold. On a 65°F day, you sell 120 cups, but on an 85°F day, you sell 160 cups. Linear regression creates a line that fits this pattern. The equation is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Cups <span style="color:#268bd2">Sold</span> <span style="color:#719e07">=</span> b0 + b1 * Temperature
+</span></span></code></pre></div><p>Here, b0 is the starting point (cups sold if temperature were 0°F), and b1 is the slope (extra cups per degree). Your data might give:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Cups <span style="color:#268bd2">Sold</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">30</span> + 1.5 * Temperature
+</span></span></code></pre></div><p>For a 70°F day, you’d predict 30 + 1.5 * 70 = 135 cups. The math minimizes the squared differences between actual sales and the line’s predictions, called least squares. For a 65°F day with 120 cups sold, the prediction is 30 + 1.5 * 65 = 127.5 cups, so the error is 120 - 127.5 = -7.5. Square it (7.5^2 = 56.25), sum all errors across days, and adjust b0 and b1 to make the sum as small as possible.</p>
+<p>Another example: predicting a runner’s 5K time based on weekly training hours. Data from 60 runners shows 10 hours per week gives a 25-minute finish, while 15 hours gives 22 minutes. The model might be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Finish <span style="color:#268bd2">Time</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">30</span> - 0.5 * Training Hours
+</span></span></code></pre></div><p>A runner training 12 hours would finish in 30 - 0.5 * 12 = 24 minutes. Linear regression works for number predictions, assuming a straight-line relationship and evenly spread errors.</p>
+<h2 id="logistic-regression-predicting-yes-or-no">Logistic Regression: Predicting Yes or No</h2>
+<p>Logistic regression predicts whether something happens, like if a moviegoer buys popcorn. It gives a probability between 0 and 1, which you can turn into yes or no. The model uses a logistic function to curve predictions into this range.</p>
+<p>Suppose a theater tracks 150 customers, noting their age and whether they bought popcorn. A 25-year-old has a 40% chance of buying, while a 50-year-old has a 75% chance. The logistic regression equation is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>P<span style="color:#719e07">(</span>Buy Popcorn<span style="color:#719e07">)</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span> / <span style="color:#719e07">(</span><span style="color:#2aa198">1</span> + e^<span style="color:#719e07">(</span>-<span style="color:#719e07">(</span>-3.5 + 0.08 * Age<span style="color:#719e07">)))</span>
+</span></span></code></pre></div><p>Here, P(Buy Popcorn) is the probability, b0 is the starting point, and b1 adjusts how age affects the chance. Your data might give:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>P<span style="color:#719e07">(</span>Buy Popcorn<span style="color:#719e07">)</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span> / <span style="color:#719e07">(</span><span style="color:#2aa198">1</span> + e^<span style="color:#719e07">(</span>-<span style="color:#719e07">(</span>-3.5 + 0.08 * Age<span style="color:#719e07">)))</span>
+</span></span></code></pre></div><p>For a 30-year-old, calculate -3.5 + 0.08 * 30 = -1.1, so e^(-(-1.1)) = e^1.1 ≈ 3.004. Then, P(Buy Popcorn) = 1 / (1 + 3.004) ≈ 0.25, or a 25% chance. If the probability is above 0.5, predict “yes”; otherwise, “no”. The math adjusts b0 and b1 to maximize the chance the model matches actual yes-or-no choices.</p>
+<p>Another example: predicting if a plant survives based on weekly watering days. Data from 80 plants shows 2 days of watering gives a 30% survival chance, while 5 days gives 80%. The model might be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>P<span style="color:#719e07">(</span>Survive<span style="color:#719e07">)</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span> / <span style="color:#719e07">(</span><span style="color:#2aa198">1</span> + e^<span style="color:#719e07">(</span>-<span style="color:#719e07">(</span>-4 + 0.9 * Watering Days<span style="color:#719e07">)))</span>
+</span></span></code></pre></div><p>A plant watered 3 days has a probability of 1 / (1 + e^(-(-4 + 0.9 * 3))) ≈ 0.43, or 43%, so predict “no”. Logistic regression fits yes-or-no outcomes like these.</p>
+<h2 id="how-they-differ">How They Differ</h2>
+<p>Linear and logistic regression tackle different tasks. Here’s a breakdown:</p>
+<ul>
+<li><strong>Output</strong>: Linear regression predicts numbers, like lemonade sales or 5K times. Logistic regression predicts probabilities for yes-or-no events, like buying popcorn or plant survival.</li>
+<li><strong>Inputs</strong>: Both use numbers or categories (e.g., temperature or weekday/weekend), but logistic regression often prefers simpler inputs for clear probability curves.</li>
+<li><strong>Math</strong>: Linear regression assumes a straight line and minimizes squared errors, calculated as:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#268bd2">Error</span> <span style="color:#719e07">=</span> Sum <span style="color:#719e07">(</span>Actual - Predicted<span style="color:#719e07">)</span>^2
+</span></span></code></pre></div><ul>
+<li>Logistic regression assumes a curved relationship and maximizes the likelihood of correct yes-or-no predictions.</li>
+<li><strong>Coefficients</strong>: In linear regression, b1 shows the output change per input unit (e.g., 1.5 cups per degree). In logistic regression, b1 shifts the probability curve, affecting the odds of “yes”.</li>
+</ul>
+<h2 id="when-to-use-each">When to Use Each</h2>
+<p>Use linear regression for number predictions. For example, a bakery might predict muffin sales based on the day’s foot traffic. Data from 50 days shows 200 visitors yield 80 muffins sold, while 300 visitors yield 110. The model could be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Muffins <span style="color:#268bd2">Sold</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">20</span> + 0.3 * Visitors
+</span></span></code></pre></div><p>For 250 visitors, predict 20 + 0.3 * 250 = 95 muffins. Or use it to estimate a house’s energy bill based on its size, like a 1,500-square-foot house costing $120 monthly.</p>
+<p>Use logistic regression for yes-or-no predictions. A pet store might predict if a customer adopts a puppy based on visit time. Data from 100 visits shows 10-minute visits have a 20% adoption chance, while 30-minute visits have a 60% chance. Or a teacher might predict if a student submits homework based on attendance, with 90% attendance giving an 85% chance.</p>
+<p>Can you use them interchangeably? Not really. Linear regression on yes-or-no data might predict nonsense, like a 1.4 probability. Logistic regression on numbers doesn’t fit since it’s built for binary outcomes. Match the model to your question: numbers for linear, yes-or-no for logistic.</p>
+<p>Both models are powerful for data analysis. Linear regression handles number predictions, and logistic regression solves yes-or-no problems. Pick the right one for your data’s question, and you’ll get clear, useful answers.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/statistics">statistics</a></li>
+								
+								<li><a href="/tags/regression">regression</a></li>
+								
+								<li><a href="/tags/analysis">analysis</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © 2025 Zeid Ombotimbe |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

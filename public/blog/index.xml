@@ -23,5 +23,19 @@
       <guid>http://localhost:1313/blog/sql-subqueries/</guid>
       <description>SQL queries can feel like magic when you need exactly the right answer from your data.&#xA;And subqueries? They’re the quiet superpower behind some of the cleanest, most powerful SQL you’ll ever write.</description>
     </item>
+    <item>
+      <title>Linear Regression vs Logistic Regression - Understanding the Differences</title>
+      <link>http://localhost:1313/blog/linear-regression-logistic-regression/</link>
+      <pubDate>Sun, 15 Dec 2024 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/linear-regression-logistic-regression/</guid>
+      <description>Data analysis often uses two tools: linear regression and logistic regression. They sound alike, but they answer different questions. This article breaks down their differences with clear examples and the math behind them, so you can choose the right one for your data.</description>
+    </item>
+    <item>
+      <title>What Running a Coding Boot Camp Taught Me About Programming</title>
+      <link>http://localhost:1313/blog/running-a-bootcamp/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/running-a-bootcamp/</guid>
+      <description>I’ve always loved coding. As a data nerd, I spend my days tinkering with Python scripts and digging into datasets. So when I got the chance to run a six-week coding boot camp for beginners in early 2022, I was thrilled.</description>
+    </item>
   </channel>
 </rss>
