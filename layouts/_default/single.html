@@ -8,7 +8,6 @@
 		<div class="post-header">
 			<h1 class="title">{{ .Title }}</h1>
 
-			{{/*  Show date ONLY on blog posts (section "blog")  */}}
 			{{ if eq .Section "blog" }}
 				<div class="meta">Posted at &mdash; {{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
 			{{ end }}
@@ -22,38 +21,28 @@
 			{{ if ne .Type "page" }}
 				{{ if gt .Params.tags 0 }}
 					<nav class="nav tags">
-							<ul class="flat">
-								{{ range .Params.tags }}
-								<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-								{{ end }}
-							</ul>
+						<ul class="flat">
+							{{ range .Params.tags }}
+							<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+							{{ end }}
+						</ul>
 					</nav>
 				{{ end }}
 			{{ end }}
 		</div>
-		{{- $.Scratch.Set "isDisqus" true -}}
 
-		<!-- Disable if content type is excluded in config -->
-		{{- if and (isset .Params "type") (in .Site.Params.disableDisqusTypes .Params.type) -}}
-		{{- $.Scratch.Set "isDisqus" false -}}
-		{{- end -}}
-
-		<!-- Check if content has flag to enable/disable disqus explicitly -->
-		{{- if and (isset .Params "disqus") (eq .Params.disqus false) -}}
-		{{- $.Scratch.Set "isDisqus" false -}}
-		{{- else if and (isset .Params "disqus") (eq .Params.disqus true) -}}
-		{{- $.Scratch.Set "isDisqus" true -}}
-		{{- end -}}
-
-		<!-- Check if disqus short name is given -->
-		{{ if not .Site.DisqusShortname }}
-		{{- $.Scratch.Set "isDisqus" false -}}
+		<!-- Email Feedback (Only on Blog Posts) -->
+		{{ if eq .Section "blog" }}
+		<div style="margin-top:3rem;padding:1.5rem;background:#f9f9f9;border-left:4px solid #007acc;font-style:italic;">
+			<p><strong>Thoughts? Feedback?</strong> Email me: 
+				<a href="mailto:zeid@yourdomain.com?subject=Re: {{ .Title | urlize }}">
+					zobtbe@gmail.com
+				</a>
+			</p>
+		</div>
 		{{ end }}
-
-		{{- if eq ($.Scratch.Get "isDisqus") true -}}
-		{{- partial "disqus.html" . -}}
-		{{- end -}}
 	</div>
+
 	{{ partial "footer.html" . }}
 </body>
 </html>
