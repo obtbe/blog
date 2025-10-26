@@ -4,14 +4,14 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Contact - Zeid Ombotimbe</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Contact" />
-<meta property="og:description" content="Feel free to get in touch about anything you see here. I am zobtbe at gmail, and you can find me on Telegram as well." />
+<meta property="og:description" content="Feel free to get in touch about anything you see here. I am zobtbe at gmail, and you can find me on Telegram." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/contact/" /><meta property="article:section" content="" />
 <meta property="article:published_time" content="2025-04-05T10:00:00+05:30" />
 <meta property="article:modified_time" content="2025-04-05T10:00:00+05:30" />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Contact"/>
-<meta name="twitter:description" content="Feel free to get in touch about anything you see here. I am zobtbe at gmail, and you can find me on Telegram as well."/>
+<meta name="twitter:description" content="Feel free to get in touch about anything you see here. I am zobtbe at gmail, and you can find me on Telegram."/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
@@ -78,12 +78,45 @@
 		</div>
 
 		<div class="markdown">
-			<p>Feel free to get in touch about anything you see here. I am zobtbe at gmail, and you can find me on <a href="https://t.me/obtbe">Telegram</a> as well.</p>
-<p>I maintain a mailing list where I announce new data and programming-focused articles and resources. If you’re interested in receiving these notifications, you can sign up here. I don’t send emails often, and you can unsubscribe at any time.</p>
-<form action="https://obtbe.substack.com/subscribe" method="post" target="popupwindow" onsubmit="window.open('https://obtbe.substack.com/subscribe', 'popupwindow', 'scrollbars=yes,width=600,height=800');return true">
-  <input type="email" name="email" placeholder="you@example.com" required style="padding:0.8rem;width:70%;max-width:300px;">
-  <button type="submit" style="padding:0.8rem 1.2rem;background:#007acc;color:white;border:none;cursor:pointer;">Subscribe</button>
+			<p>Feel free to get in touch about anything you see here. I am zobtbe at gmail, and you can find me on <a href="https://t.me/obtbe">Telegram</a>.</p>
+<p>I maintain a mailing list where I announce new data and programming-focused articles and resources. If you’re interested in receiving these notifications, you can sign up below. I don’t send emails often, and you can unsubscribe at any time.</p>
+<form id="substack-form" style="margin-top:1rem;">
+  <input 
+    type="email" 
+    id="substack-email" 
+    placeholder="Enter your email" 
+    required 
+    style="padding:0.8rem; width:70%; max-width:300px; border:1px solid #CCC;">
+  <button 
+    type="submit" 
+    style="padding:0.8rem 1.2rem; background:#007acc; color:white; border:none; cursor:pointer;">
+    Subscribe
+  </button>
 </form>
+<p id="substack-result" style="margin-top:0.5rem; font-size:0.9rem;"></p>
+<script>
+document.getElementById('substack-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const email = document.getElementById('substack-email').value;
+  const result = document.getElementById('substack-result');
+
+  try {
+    const res = await fetch('https://obtbe.substack.com/api/v1/free', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+
+    if (res.status === 200) {
+      result.textContent = "Check your email to confirm your subscription.";
+    } else {
+      result.textContent = "Something went wrong. Try again.";
+    }
+  } catch (err) {
+    result.textContent = "Network error. Try again.";
+  }
+});
+</script>
 
 		</div>
 
