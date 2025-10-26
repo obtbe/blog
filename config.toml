@@ -32,6 +32,12 @@ name = "LinkedIn"
 icon = "linkedin"
 url = "https://linkedin.com/in/obtbe"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+
 # Main Menu (exactly 8 items, in order)
 [[menu.main]]
 name = "Home"
