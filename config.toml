@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "Zeid Ombotimbe"
 theme = "ezhil"
 
-copyright = "© 2025 Zeid Ombotimbe"
+copyright = "© 2025 Zeid Ombotimbe. All rights reserved."
 
 # Syntax highlighting
 pygmentsStyle = "solarized-dark"
