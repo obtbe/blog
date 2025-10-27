@@ -9,7 +9,7 @@
 			<h1 class="title">{{ .Title }}</h1>
 
 			{{ if eq .Section "blog" }}
-				<div class="meta">Posted at &mdash; {{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
+				<div class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
 			{{ end }}
 		</div>
 

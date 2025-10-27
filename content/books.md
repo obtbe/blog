@@ -1,6 +1,12 @@
 ---
-title: "Reading"
+title: "Books & Papers"
 date: 2025-04-05T10:00:00+05:30
 ---
 
-What I'm currently reading — papers, docs, blogs, and books.
+
+**No book yet** 
+
+Right now I’m working on **papers** that actually mean something.
+
+Curious what’s been feeding my brain?  
+Check out the my [readings →](/reading)

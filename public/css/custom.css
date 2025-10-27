@@ -1,0 +1,24 @@
+cat > static/css/custom.css << 'EOF'
+.tag-pill {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  margin: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #007acc;
+  background-color: #f0f8ff;
+  border: 1.5px solid #007acc;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.tag-pill:hover {
+  background-color: #007acc;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+EOF

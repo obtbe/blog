@@ -24,6 +24,13 @@
       <description>Currently Reading Fooled by Randomness, by Nassim Nicholas Taleb After reading Antifragile, I fell in love with Nassim&amp;rsquo;s wit and insights into randomness and uncertainty.</description>
     </item>
     <item>
+      <title>Books &amp; Papers</title>
+      <link>http://localhost:1313/books/</link>
+      <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/books/</guid>
+      <description>No book yet&#xA;Right now I’m working on papers that actually mean something.&#xA;Curious what’s been feeding my brain?&#xA;Check out the my readings →</description>
+    </item>
+    <item>
       <title>Contact</title>
       <link>http://localhost:1313/contact/</link>
       <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
@@ -36,13 +43,6 @@
       <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:1313/projects/</guid>
       <description>Personal and open-source projects in data engineering, tooling, and automation.&#xA;If you have questions or comments about any of these projects, please feel free to get in touch.</description>
-    </item>
-    <item>
-      <title>Reading</title>
-      <link>http://localhost:1313/books/</link>
-      <pubDate>Sat, 05 Apr 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:1313/books/</guid>
-      <description>What I&amp;rsquo;m currently reading — papers, docs, blogs, and books.</description>
     </item>
     <item>
       <title>Mastering SQL Subqueries: Your Secret Weapon for Smarter Queries</title>
