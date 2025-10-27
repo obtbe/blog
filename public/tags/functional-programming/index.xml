@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on Zeid Ombotimbe</title>
-    <link>http://localhost:1313/tags/programming/</link>
-    <description>Recent content in Programming on Zeid Ombotimbe</description>
+    <title>Functional-Programming on Zeid Ombotimbe</title>
+    <link>http://localhost:1313/tags/functional-programming/</link>
+    <description>Recent content in Functional-Programming on Zeid Ombotimbe</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2025 Zeid Ombotimbe. All rights reserved.</copyright>
     <lastBuildDate>Mon, 27 Oct 2025 10:00:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Higher-Order Thinking: How Scala Simplifies Functional Abstractions</title>
       <link>http://localhost:1313/blog/higher-order-thinking-scala/</link>
       <pubDate>Mon, 27 Oct 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:1313/blog/higher-order-thinking-scala/</guid>
       <description>Higher-Order Thinking: How Scala Makes You Feel Like a Wizard (Even When You&amp;rsquo;re Not) I still remember the night I almost threw my laptop out the window.</description>
-    </item>
-    <item>
-      <title>What Running a Coding Boot Camp Taught Me About Programming</title>
-      <link>http://localhost:1313/blog/running-a-bootcamp/</link>
-      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/running-a-bootcamp/</guid>
-      <description>I’ve always loved coding. As a data nerd, I spend my days tinkering with Python scripts and digging into datasets. So when I got the chance to run a six-week coding boot camp for beginners in early 2022, I was thrilled.</description>
     </item>
   </channel>
 </rss>
