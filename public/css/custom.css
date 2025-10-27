@@ -1,4 +1,58 @@
-cat > static/css/custom.css << 'EOF'
+/* === POST CTA BLOCK === */
+.post-cta {
+  margin: 3rem 0;
+  padding: 1.8rem;
+  background: var(--cta-bg, #f9f9f9);
+  border-left: 4px solid #007acc;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text, #222);
+}
+
+.post-cta p {
+  margin: 0 0 0.8rem;
+}
+
+.post-cta p:last-child {
+  margin-bottom: 0;
+}
+
+.post-cta .cta-title {
+  font-weight: 600;
+  color: #007acc;
+  margin-bottom: 0.8rem;
+}
+
+.post-cta a {
+  color: #007acc;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* === DARK MODE === */
+[data-theme="dark"] .post-cta {
+  --cta-bg: #2a2a2a;
+  --text: #e0e0e0;
+  background: var(--cta-bg);
+  color: var(--text);
+}
+
+[data-theme="dark"] .post-cta .cta-title,
+[data-theme="dark"] .post-cta a {
+  color: #4da6ff;
+}
+
+/* === MOBILE === */
+@media (max-width: 600px) {
+  .post-cta {
+    padding: 1.4rem;
+    font-size: 0.9rem;
+    margin: 2.5rem 0;
+  }
+}
+
+/* === PILL TAGS (IF YOU WANT THEM LATER) === */
 .tag-pill {
   display: inline-block;
   padding: 0.45rem 0.9rem;
@@ -17,8 +71,17 @@ cat > static/css/custom.css << 'EOF'
 .tag-pill:hover {
   background-color: #007acc;
   color: white;
-  text-decoration: none;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-EOF
+
+[data-theme="dark"] .tag-pill {
+  color: #4da6ff;
+  background-color: #1a1a1a;
+  border-color: #4da6ff;
+}
+
+[data-theme="dark"] .tag-pill:hover {
+  background-color: #4da6ff;
+  color: #1a1a1a;
+}
