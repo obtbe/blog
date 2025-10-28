@@ -206,4 +206,3 @@ When I first encountered these concepts, they felt abstract. The breakthrough ca
 Each of these became an opportunity to apply higher-order functions. The result was code that was not just shorter, but fundamentally clearer and more reliable.
 
 The transition requires changing how you think about data transformation, but the payoff is substantial: code that scales in complexity without becoming harder to understand or maintain.
-```
