@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Higher-Order Thinking: How Scala's Functional Abstractions Simplify Complex Logic"
 date: 2025-10-27T10:00:00+05:30
