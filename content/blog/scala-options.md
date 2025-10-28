@@ -239,3 +239,5 @@ Stay safe, and may all your boxes contain gifts.
 ---
 
 *Still getting Option anxiety? Leave a comment with your most confusing Option moment - I'll help you unpack it in the next post.*
+
+---

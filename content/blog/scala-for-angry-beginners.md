@@ -172,3 +172,5 @@ Stay angry, but keep coding. The other side is worth it.
 ---
 
 *P.S. This blog post is part of my "Scala for Angry Beginners" series. If you're still angry after reading this, good - that means you're learning. Leave a comment about what made you rage quit last time!*
+
+---
