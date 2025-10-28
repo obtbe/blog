@@ -17,6 +17,13 @@
       <description>I still remember the night I almost threw my laptop out the window.&#xA;It was 3 AM. I had a list of user events in Python.</description>
     </item>
     <item>
+      <title>Scala Options: Stop Fearing Null, Start Loving Safety</title>
+      <link>http://localhost:1313/blog/scala-options/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/scala-options/</guid>
+      <description>If you&amp;rsquo;re coming from Python, you&amp;rsquo;re probably used to this pattern:&#xA;user = get_user(user_id) if user is not None: process_user(user) else: print(&amp;#34;User not found&amp;#34;) And you&amp;rsquo;re probably also used to this happening in production:</description>
+    </item>
+    <item>
       <title>Building My First Data Pipeline</title>
       <link>http://localhost:1313/blog/my-first-post/</link>
       <pubDate>Sat, 05 Apr 2025 12:00:00 +0530</pubDate>
@@ -64,6 +71,13 @@
       <pubDate>Sun, 15 Dec 2024 12:00:00 +0000</pubDate>
       <guid>http://localhost:1313/blog/linear-regression-logistic-regression/</guid>
       <description>Data analysis often uses two tools: linear regression and logistic regression. They sound alike, but they answer different questions. This article breaks down their differences with clear examples and the math behind them, so you can choose the right one for your data.</description>
+    </item>
+    <item>
+      <title>Scala for Angry Beginners: From Frustration to Functional</title>
+      <link>http://localhost:1313/blog/scala-for-angry-beginners/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/scala-for-angry-beginners/</guid>
+      <description>Let me guess: you&amp;rsquo;re a perfectly competent Python developer who&amp;rsquo;s been told you need to learn Scala. Maybe it&amp;rsquo;s for a new job, maybe it&amp;rsquo;s for that Spark project, or maybe you just heard it pays well.</description>
     </item>
     <item>
       <title>What Running a Coding Boot Camp Taught Me About Programming</title>

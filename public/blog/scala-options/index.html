@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Scala Options: Stop Fearing Null, Start Loving Safety - Zeid Ombotimbe</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Scala Options: Stop Fearing Null, Start Loving Safety" />
+<meta property="og:description" content="If you&rsquo;re coming from Python, you&rsquo;re probably used to this pattern:
+user = get_user(user_id) if user is not None: process_user(user) else: print(&#34;User not found&#34;) And you&rsquo;re probably also used to this happening in production:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blog/scala-options/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-06-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-06-22T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Scala Options: Stop Fearing Null, Start Loving Safety"/>
+<meta name="twitter:description" content="If you&rsquo;re coming from Python, you&rsquo;re probably used to this pattern:
+user = get_user(user_id) if user is not None: process_user(user) else: print(&#34;User not found&#34;) And you&rsquo;re probably also used to this happening in production:"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="http://localhost:1313/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="http://localhost:1313/">
+	<h1 class="site-title"><a href="http://localhost:1313/">Zeid Ombotimbe</a></h1>
+	<div class="site-description"><h2>Data Engineer • Code, Systems, and Life</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/obtbe" title="Github"><i data-feather="github"></i></a><a href="https://linkedin.com/in/obtbe" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/reading">Reading</a>
+			</li>
+			
+			<li>
+				<a href="/projects">Projects</a>
+			</li>
+			
+			<li>
+				<a href="/contact">Contact</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Scala Options: Stop Fearing Null, Start Loving Safety</h1>
+
+			
+				<div class="meta">Jun 22, 2025</div>
+			
+		</div>
+
+		<div class="markdown">
+			<p>If you&rsquo;re coming from Python, you&rsquo;re probably used to this pattern:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>user <span style="color:#719e07">=</span> get_user(user_id)
+</span></span><span style="display:flex;"><span><span style="color:#719e07">if</span> user <span style="color:#719e07">is</span> <span style="color:#719e07">not</span> <span style="color:#cb4b16">None</span>:
+</span></span><span style="display:flex;"><span>    process_user(user)
+</span></span><span style="display:flex;"><span><span style="color:#719e07">else</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#b58900">print</span>(<span style="color:#2aa198">&#34;User not found&#34;</span>)
+</span></span></code></pre></div><p>And you&rsquo;re probably also used to this happening in production:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cb4b16">AttributeError</span>: <span style="color:#2aa198">&#39;NoneType&#39;</span> <span style="color:#b58900">object</span> has no attribute <span style="color:#2aa198">&#39;name&#39;</span>
+</span></span></code></pre></div><p>Welcome to the billion-dollar mistake. But Scala has a better way: Options.</p>
+<h2 id="what-are-options-and-why-should-you-care">What Are Options and Why Should You Care?</h2>
+<p>Options are Scala&rsquo;s polite way of saying &ldquo;this might not exist, but let&rsquo;s handle it gracefully.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> maybeUser<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">User</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> getUser<span style="color:#719e07">(</span>userId<span style="color:#719e07">)</span>
+</span></span></code></pre></div><p>Think of <code>Option</code> as a box that might contain a value, or might be empty. But unlike Python&rsquo;s <code>None</code>, the compiler forces you to acknowledge the emptiness.</p>
+<h2 id="the-3-ways-options-will-save-your-sanity">The 3 Ways Options Will Save Your Sanity</h2>
+<h3 id="1-no-more-nullpointerexceptions-at-2-am">1. No More NullPointerExceptions at 2 AM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#586e75"># Python: This blows up if user is None</span>
+</span></span><span style="display:flex;"><span>email <span style="color:#719e07">=</span> user<span style="color:#719e07">.</span>email<span style="color:#719e07">.</span>lower()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#586e75">// Scala: This won&#39;t even compile if you don&#39;t handle the empty case
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">val</span> email <span style="color:#719e07">=</span> user<span style="color:#719e07">.</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>email<span style="color:#719e07">.</span>toLowerCase<span style="color:#719e07">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Wait, what? Let me explain...
+</span></span></span></code></pre></div><h3 id="2-the-option-box-analogy">2. The Option Box Analogy</h3>
+<p>Think of <code>Option</code> as a gift box:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> present<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> <span style="color:#268bd2">Some</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Awesome gift&#34;</span><span style="color:#719e07">)</span>  <span style="color:#586e75">// Box with a gift
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">val</span> emptyBox<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> <span style="color:#268bd2">None</span>                <span style="color:#586e75">// Empty box
+</span></span></span></code></pre></div><p>You can&rsquo;t just assume the box has a gift. You have to check first.</p>
+<h2 id="your-first-date-with-options">Your First Date with Options</h2>
+<h3 id="pattern-matching-the-safe-way-to-unwrap">Pattern Matching: The Safe Way to Unwrap</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>getUser<span style="color:#719e07">(</span>userId<span style="color:#719e07">)</span> <span style="color:#719e07">match</span> <span style="color:#719e07">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">case</span> <span style="color:#268bd2">Some</span><span style="color:#719e07">(</span>user<span style="color:#719e07">)</span> <span style="color:#719e07">=&gt;</span> println<span style="color:#719e07">(</span><span style="color:#2aa198">s&#34;Found user: </span><span style="color:#2aa198">${</span>user<span style="color:#719e07">.</span>name<span style="color:#2aa198">}</span><span style="color:#2aa198">&#34;</span><span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">case</span> <span style="color:#268bd2">None</span> <span style="color:#719e07">=&gt;</span> println<span style="color:#719e07">(</span><span style="color:#2aa198">&#34;User not found&#34;</span><span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">}</span>
+</span></span></code></pre></div><p>This is like Python&rsquo;s <code>if user is not None</code>, but the compiler checks that you handled both cases.</p>
+<h3 id="map-transform-without-unwrapping">map: Transform Without Unwrapping</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> maybeEmail<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> getUser<span style="color:#719e07">(</span>userId<span style="color:#719e07">).</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>email<span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// If user exists, get email. If not, stays None
+</span></span></span></code></pre></div><p>This is huge. You can chain operations without worrying about null checks at every step.</p>
+<h3 id="getorelse-the-safety-net">getOrElse: The Safety Net</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> userName <span style="color:#719e07">=</span> getUser<span style="color:#719e07">(</span>userId<span style="color:#719e07">).</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>name<span style="color:#719e07">).</span>getOrElse<span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Anonymous User&#34;</span><span style="color:#719e07">)</span>
+</span></span></code></pre></div><p>&ldquo;If there&rsquo;s a name, use it. Otherwise, use this default.&rdquo; No more <code>or &quot;&quot;</code> scattered everywhere.</p>
+<h2 id="real-data-engineering-example">Real Data Engineering Example</h2>
+<p>Let&rsquo;s process some messy user data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#586e75"># Python: The defensive programming dance</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">def</span> <span style="color:#268bd2">get_user_email</span>(user_data):
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> user_data <span style="color:#719e07">is</span> <span style="color:#719e07">not</span> <span style="color:#cb4b16">None</span>:
+</span></span><span style="display:flex;"><span>        profile <span style="color:#719e07">=</span> user_data<span style="color:#719e07">.</span>get(<span style="color:#2aa198">&#39;profile&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">if</span> profile <span style="color:#719e07">is</span> <span style="color:#719e07">not</span> <span style="color:#cb4b16">None</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">return</span> profile<span style="color:#719e07">.</span>get(<span style="color:#2aa198">&#39;email&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">return</span> <span style="color:#cb4b16">None</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#586e75">// Scala: Clean and composable
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">def</span> getUserEmail<span style="color:#719e07">(</span>userData<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">UserData</span><span style="color:#719e07">])</span><span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> 
+</span></span><span style="display:flex;"><span>  userData<span style="color:#719e07">.</span>flatMap<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>profile<span style="color:#719e07">).</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>email<span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Or even better with for-comprehensions:
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">def</span> getUserEmail<span style="color:#719e07">(</span>userData<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">UserData</span><span style="color:#719e07">])</span><span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> <span style="color:#719e07">{</span>
+</span></span><span style="display:flex;"><span>    user <span style="color:#719e07">&lt;-</span> userData
+</span></span><span style="display:flex;"><span>    profile <span style="color:#719e07">&lt;-</span> user<span style="color:#719e07">.</span>profile
+</span></span><span style="display:flex;"><span>    email <span style="color:#719e07">&lt;-</span> profile<span style="color:#719e07">.</span>email
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">}</span> <span style="color:#719e07">yield</span> email
+</span></span></code></pre></div><p>See how we chain operations without a single null check?</p>
+<h2 id="the-for-comprehension-magic">The for-comprehension Magic</h2>
+<p>This looks weird at first, but it&rsquo;s your best friend:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> result<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> <span style="color:#719e07">for</span> <span style="color:#719e07">{</span>
+</span></span><span style="display:flex;"><span>  user <span style="color:#719e07">&lt;-</span> getUser<span style="color:#719e07">(</span>userId<span style="color:#719e07">)</span>        <span style="color:#586e75">// If this is None, stop here
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  profile <span style="color:#719e07">&lt;-</span> user<span style="color:#719e07">.</span>profile        <span style="color:#586e75">// If this is None, stop here  
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  email <span style="color:#719e07">&lt;-</span> profile<span style="color:#719e07">.</span>email         <span style="color:#586e75">// If this is None, stop here
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">}</span> <span style="color:#719e07">yield</span> email<span style="color:#719e07">.</span>toUpperCase<span style="color:#719e07">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// result is either Some(email) or None
+</span></span></span></code></pre></div><p>It&rsquo;s like a pipeline that short-circuits when any step returns <code>None</code>. No nested if-statements, no early returns.</p>
+<h2 id="common-aha-moments">Common &ldquo;Aha!&rdquo; Moments</h2>
+<h3 id="when-youre-tempted-to-use-get-dont">When You&rsquo;re Tempted to Use .get (Don&rsquo;t!)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#586e75">// BAD: This can throw an exception
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">val</span> userName <span style="color:#719e07">=</span> getUser<span style="color:#719e07">(</span>userId<span style="color:#719e07">).</span>get<span style="color:#719e07">.</span>name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// GOOD: This is safe
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">val</span> userName <span style="color:#719e07">=</span> getUser<span style="color:#719e07">(</span>userId<span style="color:#719e07">).</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>name<span style="color:#719e07">).</span>getOrElse<span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Unknown&#34;</span><span style="color:#719e07">)</span>
+</span></span></code></pre></div><h3 id="converting-from-javapython-world">Converting from Java/Python World</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#586e75">// Java/Python libraries often return null
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">val</span> javaUser<span style="color:#719e07">:</span> <span style="color:#dc322f">User</span> <span style="color:#719e07">=</span> javaService<span style="color:#719e07">.</span>findUser<span style="color:#719e07">(</span>id<span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">val</span> safeUser<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">User</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> <span style="color:#268bd2">Option</span><span style="color:#719e07">(</span>javaUser<span style="color:#719e07">)</span>  <span style="color:#586e75">// Converts null to None
+</span></span></span></code></pre></div><h3 id="working-with-collections">Working with Collections</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> userEmails<span style="color:#719e07">:</span> <span style="color:#dc322f">List</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> userList<span style="color:#719e07">.</span>flatMap<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>email<span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Automatically filters out None values and unwraps the Some values
+</span></span></span></code></pre></div><h2 id="your-options-cheat-sheet">Your Options Cheat Sheet</h2>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> maybeUser<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">User</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> getUser<span style="color:#719e07">(</span>id<span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Check if exists
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>maybeUser<span style="color:#719e07">.</span>isDefined    <span style="color:#586e75">// true if Some
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>maybeUser<span style="color:#719e07">.</span>isEmpty      <span style="color:#586e75">// true if None
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Transform if exists
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>maybeUser<span style="color:#719e07">.</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>name<span style="color:#719e07">)</span>              <span style="color:#586e75">// Option[String]
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>maybeUser<span style="color:#719e07">.</span>flatMap<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>profile<span style="color:#719e07">)</span>       <span style="color:#586e75">// Option[Profile]
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Get value safely
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>maybeUser<span style="color:#719e07">.</span>getOrElse<span style="color:#719e07">(</span>defaultUser<span style="color:#719e07">)</span>   <span style="color:#586e75">// User
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>maybeUser<span style="color:#719e07">.</span>getOrElse <span style="color:#719e07">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// Compute default lazily
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  createDefaultUser<span style="color:#719e07">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Pattern matching (most explicit)
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>maybeUser <span style="color:#719e07">match</span> <span style="color:#719e07">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">case</span> <span style="color:#268bd2">Some</span><span style="color:#719e07">(</span>user<span style="color:#719e07">)</span> <span style="color:#719e07">=&gt;</span> doSomething<span style="color:#719e07">(</span>user<span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">case</span> <span style="color:#268bd2">None</span> <span style="color:#719e07">=&gt;</span> handleMissingUser<span style="color:#719e07">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">}</span>
+</span></span></code></pre></div><h2 id="try-this-in-scastie">Try This in Scastie</h2>
+<p>Paste this and watch how Options protect you:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">case</span> <span style="color:#719e07">class</span> <span style="color:#268bd2">User</span><span style="color:#719e07">(</span>name<span style="color:#719e07">:</span> <span style="color:#dc322f">String</span><span style="color:#719e07">,</span> email<span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">val</span> goodUser <span style="color:#719e07">=</span> <span style="color:#268bd2">User</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Zeid&#34;</span><span style="color:#719e07">,</span> <span style="color:#268bd2">Some</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;zeid@example.com&#34;</span><span style="color:#719e07">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">val</span> incompleteUser <span style="color:#719e07">=</span> <span style="color:#268bd2">User</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Mariam&#34;</span><span style="color:#719e07">,</span> <span style="color:#268bd2">None</span><span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">def</span> getEmailLength<span style="color:#719e07">(</span>user<span style="color:#719e07">:</span> <span style="color:#dc322f">User</span><span style="color:#719e07">)</span><span style="color:#719e07">:</span> <span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">Int</span><span style="color:#719e07">]</span> <span style="color:#719e07">=</span> 
+</span></span><span style="display:flex;"><span>  user<span style="color:#719e07">.</span>email<span style="color:#719e07">.</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>length<span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>println<span style="color:#719e07">(</span><span style="color:#2aa198">s&#34;Zeid&#39;s email length: </span><span style="color:#2aa198">${</span>getEmailLength<span style="color:#719e07">(</span>goodUser<span style="color:#719e07">)</span><span style="color:#2aa198">}</span><span style="color:#2aa198">&#34;</span><span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>println<span style="color:#719e07">(</span><span style="color:#2aa198">s&#34;Mariam&#39;s email length: </span><span style="color:#2aa198">${</span>getEmailLength<span style="color:#719e07">(</span>incompleteUser<span style="color:#719e07">)</span><span style="color:#2aa198">}</span><span style="color:#2aa198">&#34;</span><span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Now try the dangerous version:
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75">// println(s&#34;Bob&#39;s email: ${incompleteUser.email.get}&#34;) // Throws exception!
+</span></span></span></code></pre></div><h2 id="why-youll-love-options-in-production">Why You&rsquo;ll Love Options in Production</h2>
+<ol>
+<li><strong>The compiler becomes your testing suite</strong> - it catches null handling errors before runtime</li>
+<li><strong>Your code documents itself</strong> - <code>Option[String]</code> clearly says &ldquo;this might be missing&rdquo;</li>
+<li><strong>Refactoring is safe</strong> - change a field to optional? The compiler shows all affected code</li>
+<li><strong>No more defensive programming</strong> - the types handle it for you</li>
+</ol>
+<h2 id="the-data-engineers-bonus">The Data Engineer&rsquo;s Bonus</h2>
+<p>When you work with Spark and Scala, you get this for free:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">val</span> df <span style="color:#719e07">=</span> spark<span style="color:#719e07">.</span>read<span style="color:#719e07">.</span>json<span style="color:#719e07">(</span><span style="color:#2aa198">&#34;users.json&#34;</span><span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">val</span> emails <span style="color:#719e07">=</span> df<span style="color:#719e07">.</span>select<span style="color:#719e07">(</span><span style="color:#2aa198">&#34;email&#34;</span><span style="color:#719e07">).</span>as<span style="color:#719e07">[</span><span style="color:#dc322f">Option</span><span style="color:#719e07">[</span><span style="color:#dc322f">String</span><span style="color:#719e07">]].</span>collect<span style="color:#719e07">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// All the Option safety with big data performance
+</span></span></span></code></pre></div><h2 id="your-homework">Your Homework</h2>
+<ol>
+<li><strong>Replace one null-check function</strong> in your mental model with Options</li>
+<li><strong>Try the Scastie example</strong> and break it (then fix it)</li>
+<li><strong>Notice where you write <code>if x is not None</code></strong> in Python - that&rsquo;s an Option waiting to happen</li>
+</ol>
+<p>Yes, Options feel weird at first. Yes, you&rsquo;ll miss the simplicity of just accessing attributes. But when you ship code to production that can&rsquo;t throw NullPointerExceptions, you&rsquo;ll understand why we put up with the extra typing.</p>
+<p>Stay safe, and may all your boxes contain gifts.</p>
+<hr>
+<p><em>Still getting Option anxiety? Leave a comment with your most confusing Option moment - I&rsquo;ll help you unpack it in the next post.</em></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+						<ul class="flat">
+							
+							<li><a href="/tags/scala">scala</a></li>
+							
+							<li><a href="/tags/beginners">beginners</a></li>
+							
+							<li><a href="/tags/options">options</a></li>
+							
+							<li><a href="/tags/null-safety">null-safety</a></li>
+							
+						</ul>
+					</nav>
+				
+			
+		</div>
+
+		
+		
+		<p style="margin-top: 3rem; font-size: 0.95rem; color: #555;">
+		  If this made you nod, laugh, or have butterflies in the stomach or elsewhere — <a href="/contact" style="color: #007acc; font-weight: 600; text-decoration: underline;"> tell me about it.</a>
+		</p>
+		
+	</div>
+
+	<div class="footer wrapper">
+  <nav class="nav">
+    <div>© 2025 Zeid Ombotimbe. All rights reserved.</div>
+  </nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

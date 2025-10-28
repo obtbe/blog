@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Options on Zeid Ombotimbe</title>
+    <link>http://localhost:1313/tags/options/</link>
+    <description>Recent content in Options on Zeid Ombotimbe</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2025 Zeid Ombotimbe. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/options/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala Options: Stop Fearing Null, Start Loving Safety</title>
+      <link>http://localhost:1313/blog/scala-options/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/scala-options/</guid>
+      <description>If you&amp;rsquo;re coming from Python, you&amp;rsquo;re probably used to this pattern:&#xA;user = get_user(user_id) if user is not None: process_user(user) else: print(&amp;#34;User not found&amp;#34;) And you&amp;rsquo;re probably also used to this happening in production:</description>
+    </item>
+  </channel>
+</rss>
