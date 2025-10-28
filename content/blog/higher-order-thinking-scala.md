@@ -63,11 +63,7 @@ Same function. Infinite power.
 I once built a retry system in Java.  
 It took **200 lines**, 3 exceptions, and one nervous breakdown.
 
-```scala
-// Don't look at this. It's haunted.
-```
-
-Then in Scala:
+But in Scala it took me just a few lines of code:
 
 ```scala
 def retry[T](n: Int)(action: => T): T =
@@ -91,7 +87,7 @@ Imagine you're cleaning your inbox.
 
 You want:
 1. Only unread emails
-2. From people named "Alex"
+2. From people named "Mariam"
 3. Subject in uppercase
 
 **Bad way (JavaScript style):**
@@ -99,7 +95,7 @@ You want:
 ```javascript
 let result = [];
 for (let email of inbox) {
-  if (!email.read && email.from.includes("Alex")) {
+  if (!email.read && email.from.includes("Mariam")) {
     result.push(email.subject.toUpperCase());
   }
 }
@@ -108,7 +104,7 @@ Sorry but people still write code like that.
 **Here is the Scala way:**
 ```scala
 inbox
-  .filter(e => !e.read && e.from.contains("Alex"))
+  .filter(e => !e.read && e.from.contains("Mariam"))
   .map(_.subject.toUpperCase)
 ```
 
@@ -139,9 +135,9 @@ Go to [Scastie](https://scastie.scala-lang.org) and run:
 case class Cat(name: String, sleepy: Boolean)
 
 val cats = List(
-  Cat("Whiskers", true),
-  Cat("Mittens", false),
-  Cat("Shadow", true)
+  Cat("Piye", true),
+  Cat("Boomer", false),
+  Cat("Dune", true)
 )
 
 cats
@@ -151,8 +147,8 @@ cats
 ```
 Output:
 ```scala
-Whiskers is napping
-Shadow is napping
+Piye is napping
+Dune is napping
 ```
 
 

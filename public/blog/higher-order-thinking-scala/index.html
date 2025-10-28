@@ -119,8 +119,7 @@ A <strong>higher-order function</strong> is the <em>menu</em> — it lets you pi
 <h2 id="my-real-life-struggle-youre-not-alone">My Real-Life Struggle (You&rsquo;re Not Alone)</h2>
 <p>I once built a retry system in Java.<br>
 It took <strong>200 lines</strong>, 3 exceptions, and one nervous breakdown.</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#586e75">// Don&#39;t look at this. It&#39;s haunted.
-</span></span></span></code></pre></div><p>Then in Scala:</p>
+<p>But in Scala it took me just a few lines of code:</p>
 <div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">def</span> retry<span style="color:#719e07">[</span><span style="color:#dc322f">T</span><span style="color:#719e07">](</span>n<span style="color:#719e07">:</span> <span style="color:#dc322f">Int</span><span style="color:#719e07">)(</span>action<span style="color:#719e07">:</span> <span style="color:#719e07">=&gt;</span> T<span style="color:#719e07">)</span><span style="color:#719e07">:</span> <span style="color:#dc322f">T</span> <span style="color:#719e07">=</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> <span style="color:#719e07">(</span>n <span style="color:#719e07">==</span> <span style="color:#2aa198">0</span><span style="color:#719e07">)</span> <span style="color:#719e07">throw</span> <span style="color:#719e07">new</span> <span style="color:#268bd2">Exception</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Failed&#34;</span><span style="color:#719e07">)</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#719e07">else</span> <span style="color:#719e07">try</span> action <span style="color:#719e07">catch</span> <span style="color:#719e07">{</span> <span style="color:#719e07">case</span> <span style="color:#719e07">_</span> <span style="color:#719e07">=&gt;</span> retry<span style="color:#719e07">(</span>n<span style="color:#719e07">-</span><span style="color:#2aa198">1</span><span style="color:#719e07">)(</span>action<span style="color:#719e07">)</span> <span style="color:#719e07">}</span>
@@ -134,20 +133,20 @@ Just kidding. I don&rsquo;t drink.</p>
 <p>You want:</p>
 <ol>
 <li>Only unread emails</li>
-<li>From people named &ldquo;Alex&rdquo;</li>
+<li>From people named &ldquo;Mariam&rdquo;</li>
 <li>Subject in uppercase</li>
 </ol>
 <p><strong>Bad way (JavaScript style):</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> [];
 </span></span><span style="display:flex;"><span><span style="color:#719e07">for</span> (<span style="color:#268bd2">let</span> email <span style="color:#719e07">of</span> inbox) {
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> (<span style="color:#719e07">!</span>email.read <span style="color:#719e07">&amp;&amp;</span> email.from.includes(<span style="color:#2aa198">&#34;Alex&#34;</span>)) {
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> (<span style="color:#719e07">!</span>email.read <span style="color:#719e07">&amp;&amp;</span> email.from.includes(<span style="color:#2aa198">&#34;Mariam&#34;</span>)) {
 </span></span><span style="display:flex;"><span>    result.push(email.subject.toUpperCase());
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Sorry but people still write code like that.
 <strong>Here is the Scala way:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>inbox
-</span></span><span style="display:flex;"><span>  <span style="color:#719e07">.</span>filter<span style="color:#719e07">(</span>e <span style="color:#719e07">=&gt;</span> <span style="color:#719e07">!</span>e<span style="color:#719e07">.</span>read <span style="color:#719e07">&amp;&amp;</span> e<span style="color:#719e07">.</span>from<span style="color:#719e07">.</span>contains<span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Alex&#34;</span><span style="color:#719e07">))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">.</span>filter<span style="color:#719e07">(</span>e <span style="color:#719e07">=&gt;</span> <span style="color:#719e07">!</span>e<span style="color:#719e07">.</span>read <span style="color:#719e07">&amp;&amp;</span> e<span style="color:#719e07">.</span>from<span style="color:#719e07">.</span>contains<span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Mariam&#34;</span><span style="color:#719e07">))</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#719e07">.</span>map<span style="color:#719e07">(</span><span style="color:#719e07">_</span><span style="color:#719e07">.</span>subject<span style="color:#719e07">.</span>toUpperCase<span style="color:#719e07">)</span>
 </span></span></code></pre></div><p>Same result.<br>
 10x less code.<br>
@@ -169,9 +168,9 @@ Just kidding. I don&rsquo;t drink.</p>
 <div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#719e07">case</span> <span style="color:#719e07">class</span> <span style="color:#268bd2">Cat</span><span style="color:#719e07">(</span>name<span style="color:#719e07">:</span> <span style="color:#dc322f">String</span><span style="color:#719e07">,</span> sleepy<span style="color:#719e07">:</span> <span style="color:#dc322f">Boolean</span><span style="color:#719e07">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#719e07">val</span> cats <span style="color:#719e07">=</span> <span style="color:#268bd2">List</span><span style="color:#719e07">(</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">Cat</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Whiskers&#34;</span><span style="color:#719e07">,</span> <span style="color:#cb4b16">true</span><span style="color:#719e07">),</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">Cat</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Mittens&#34;</span><span style="color:#719e07">,</span> <span style="color:#cb4b16">false</span><span style="color:#719e07">),</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">Cat</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Shadow&#34;</span><span style="color:#719e07">,</span> <span style="color:#cb4b16">true</span><span style="color:#719e07">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">Cat</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Piye&#34;</span><span style="color:#719e07">,</span> <span style="color:#cb4b16">true</span><span style="color:#719e07">),</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">Cat</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Boomer&#34;</span><span style="color:#719e07">,</span> <span style="color:#cb4b16">false</span><span style="color:#719e07">),</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#268bd2">Cat</span><span style="color:#719e07">(</span><span style="color:#2aa198">&#34;Dune&#34;</span><span style="color:#719e07">,</span> <span style="color:#cb4b16">true</span><span style="color:#719e07">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#719e07">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>cats
@@ -179,8 +178,8 @@ Just kidding. I don&rsquo;t drink.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#719e07">.</span>map<span style="color:#719e07">(</span>cat <span style="color:#719e07">=&gt;</span> <span style="color:#2aa198">s&#34;</span><span style="color:#2aa198">${</span>cat<span style="color:#719e07">.</span>name<span style="color:#2aa198">}</span><span style="color:#2aa198"> is napping&#34;</span><span style="color:#719e07">)</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#719e07">.</span>foreach<span style="color:#719e07">(</span>println<span style="color:#719e07">)</span>
 </span></span></code></pre></div><p>Output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#268bd2">Whiskers</span> is napping
-</span></span><span style="display:flex;"><span><span style="color:#268bd2">Shadow</span> is napping
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#268bd2">Piye</span> is napping
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">Dune</span> is napping
 </span></span></code></pre></div><p>You just filtered, mapped, and printed — <strong>without writing a single loop</strong>.</p>
 <h2 id="final-confession">Final Confession</h2>
 <p>I still write <code>for</code> loops sometimes.<br>
