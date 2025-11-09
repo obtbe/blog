@@ -1,6 +1,6 @@
 ---
 title: "SQL Joins: The Ultimate Guide to Not Breaking Your Database"
-date: 2025-11-10
+date: 2025-11-9
 tags: ["sql", "databases", "beginners", "performance"]
 draft: false
 ---
