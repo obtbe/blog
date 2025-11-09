@@ -7,14 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2025 Zeid Ombotimbe. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 15 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala Options: Stop Fearing Null, Start Loving Safety</title>
+      <link>http://localhost:1313/blog/scala-options/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/scala-options/</guid>
+      <description>If you&amp;rsquo;re coming from Python, you&amp;rsquo;re probably used to this pattern:&#xA;user = get_user(user_id) if user is not None: process_user(user) else: print(&amp;#34;User not found&amp;#34;) And you&amp;rsquo;re probably also used to this happening in production:</description>
+    </item>
     <item>
       <title>Scala for Angry Beginners: From Frustration to Functional</title>
       <link>http://localhost:1313/blog/scala-for-angry-beginners/</link>
-      <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/blog/scala-for-angry-beginners/</guid>
-      <description>Scala can feel intimidating sometimes especially if you come from languages like Python. I have been writing code in Python, SQL and Julia for the past 5 years but last year when I decided to pick up Scala I personally haven&amp;rsquo;t struggled because I&amp;rsquo;m familiar with functional languages (I actually wrote my first lines of code in Haskell).</description>
+      <description>Let me guess: you&amp;rsquo;re a perfectly competent Python developer who&amp;rsquo;s been told you need to learn Scala. Maybe it&amp;rsquo;s for a new job, maybe it&amp;rsquo;s for that Spark project, or maybe you just heard it pays well.</description>
+    </item>
+    <item>
+      <title>SQL Joins: The Ultimate Guide to Not Breaking Your Database</title>
+      <link>http://localhost:1313/blog/sql-joins/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/sql-joins/</guid>
+      <description>Hey there, SQL enthusiast! Ever felt the thrill of joining two tables and getting exactly the data you wanted? Or the panic when your query runs for hours and your database starts smoking?</description>
     </item>
   </channel>
 </rss>

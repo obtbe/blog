@@ -17,7 +17,7 @@
       <description></description>
     </item>
     <item>
-      <title>Functional-Programming</title>
+      <title>Functional Programming</title>
       <link>http://localhost:1313/tags/functional-programming/</link>
       <pubDate>Mon, 27 Oct 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:1313/tags/functional-programming/</guid>
@@ -35,6 +35,27 @@
       <link>http://localhost:1313/tags/scala/</link>
       <pubDate>Mon, 27 Oct 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:1313/tags/scala/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Beginners</title>
+      <link>http://localhost:1313/tags/beginners/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/beginners/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Null-Safety</title>
+      <link>http://localhost:1313/tags/null-safety/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/null-safety/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Options</title>
+      <link>http://localhost:1313/tags/options/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/options/</guid>
       <description></description>
     </item>
     <item>
@@ -98,6 +119,13 @@
       <link>http://localhost:1313/tags/statistics/</link>
       <pubDate>Sun, 15 Dec 2024 12:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/statistics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Performance</title>
+      <link>http://localhost:1313/tags/performance/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/performance/</guid>
       <description></description>
     </item>
     <item>

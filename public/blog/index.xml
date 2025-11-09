@@ -10,11 +10,11 @@
     <lastBuildDate>Mon, 27 Oct 2025 10:00:00 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Higher-Order Thinking: How Scala Simplifies Functional Abstractions</title>
+      <title>Higher-Order Thinking: How Scala&#39;s Functional Abstractions Simplify Complex Logic</title>
       <link>http://localhost:1313/blog/higher-order-thinking-scala/</link>
       <pubDate>Mon, 27 Oct 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:1313/blog/higher-order-thinking-scala/</guid>
-      <description>I still remember the night I almost threw my laptop out the window.&#xA;It was 3 AM. I had a list of user events in Python.</description>
+      <description>I remember staring at a Python script at 2 AM, tracing through nested loops and conditional logic that processed user analytics data.</description>
     </item>
     <item>
       <title>Scala Options: Stop Fearing Null, Start Loving Safety</title>
@@ -50,6 +50,13 @@
       <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/blog/scala-for-angry-beginners/</guid>
       <description>Let me guess: you&amp;rsquo;re a perfectly competent Python developer who&amp;rsquo;s been told you need to learn Scala. Maybe it&amp;rsquo;s for a new job, maybe it&amp;rsquo;s for that Spark project, or maybe you just heard it pays well.</description>
+    </item>
+    <item>
+      <title>SQL Joins: The Ultimate Guide to Not Breaking Your Database</title>
+      <link>http://localhost:1313/blog/sql-joins/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/sql-joins/</guid>
+      <description>Hey there, SQL enthusiast! Ever felt the thrill of joining two tables and getting exactly the data you wanted? Or the panic when your query runs for hours and your database starts smoking?</description>
     </item>
     <item>
       <title>What Running a Coding Boot Camp Taught Me About Programming</title>

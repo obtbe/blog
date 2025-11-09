@@ -10,11 +10,11 @@
     <lastBuildDate>Mon, 27 Oct 2025 10:00:00 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Higher-Order Thinking: How Scala Simplifies Functional Abstractions</title>
+      <title>Higher-Order Thinking: How Scala&#39;s Functional Abstractions Simplify Complex Logic</title>
       <link>http://localhost:1313/blog/higher-order-thinking-scala/</link>
       <pubDate>Mon, 27 Oct 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:1313/blog/higher-order-thinking-scala/</guid>
-      <description>I still remember the night I almost threw my laptop out the window.&#xA;It was 3 AM. I had a list of user events in Python.</description>
+      <description>I remember staring at a Python script at 2 AM, tracing through nested loops and conditional logic that processed user analytics data.</description>
     </item>
     <item>
       <title>What Running a Coding Boot Camp Taught Me About Programming</title>

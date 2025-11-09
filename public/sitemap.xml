@@ -23,6 +23,18 @@
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-10-27T10:00:00+05:30</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/beginners/</loc>
+    <lastmod>2025-06-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/null-safety/</loc>
+    <lastmod>2025-06-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/options/</loc>
+    <lastmod>2025-06-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/scala-options/</loc>
+    <lastmod>2025-06-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/airflow/</loc>
     <lastmod>2025-04-05T12:00:00+05:30</lastmod>
   </url><url>
@@ -74,13 +86,20 @@
     <loc>http://localhost:1313/tags/statistics/</loc>
     <lastmod>2024-12-15T12:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/blog/scala-for-angry-beginners/</loc>
+    <lastmod>2024-10-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/performance/</loc>
+    <lastmod>2023-10-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/sql-joins/</loc>
+    <lastmod>2023-10-16T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/teaching/</loc>
     <lastmod>2023-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/running-a-bootcamp/</loc>
     <lastmod>2023-09-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/scala-for-angry-beginners/</loc>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
   </url>

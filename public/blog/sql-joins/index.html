@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>SQL Joins: The Ultimate Guide to Not Breaking Your Database - Zeid Ombotimbe</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="SQL Joins: The Ultimate Guide to Not Breaking Your Database" />
+<meta property="og:description" content="Hey there, SQL enthusiast! Ever felt the thrill of joining two tables and getting exactly the data you wanted? Or the panic when your query runs for hours and your database starts smoking?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blog/sql-joins/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-10-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-16T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SQL Joins: The Ultimate Guide to Not Breaking Your Database"/>
+<meta name="twitter:description" content="Hey there, SQL enthusiast! Ever felt the thrill of joining two tables and getting exactly the data you wanted? Or the panic when your query runs for hours and your database starts smoking?"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="http://localhost:1313/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="http://localhost:1313/">
+	<h1 class="site-title"><a href="http://localhost:1313/">Zeid Ombotimbe</a></h1>
+	<div class="site-description"><h2>Data Engineer • Code, Systems, and Life</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/obtbe" title="Github"><i data-feather="github"></i></a><a href="https://linkedin.com/in/obtbe" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/reading">Reading</a>
+			</li>
+			
+			<li>
+				<a href="/projects">Projects</a>
+			</li>
+			
+			<li>
+				<a href="/contact">Contact</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">SQL Joins: The Ultimate Guide to Not Breaking Your Database</h1>
+
+			
+				<div class="meta">Oct 16, 2023</div>
+			
+		</div>
+
+		<div class="markdown">
+			<p>Hey there, SQL enthusiast! Ever felt the thrill of joining two tables and getting exactly the data you wanted? Or the panic when your query runs for hours and your database starts smoking?</p>
+<p>I&rsquo;ve been there too. Today, let&rsquo;s talk about SQL joins - the good, the bad, and the &ldquo;oh no, I just cross-joined two million-row tables.&rdquo;</p>
+<h2 id="what-are-joins-anyway">What Are Joins Anyway?</h2>
+<p>Think of joins like arranging a blind date between tables. You&rsquo;re telling your database: &ldquo;Hey, find all the users and match them with their orders&hellip; but only if they actually know each other (have matching IDs).&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- The SQL equivalent of &#34;you two should meet!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> users.name, orders.total
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users
+</span></span><span style="display:flex;"><span><span style="color:#719e07">INNER</span> <span style="color:#719e07">JOIN</span> orders <span style="color:#719e07">ON</span> users.id <span style="color:#719e07">=</span> orders.user_id;
+</span></span></code></pre></div><h2 id="the-join-family-meet-the-relatives">The Join Family: Meet the Relatives</h2>
+<h3 id="1-inner-join---the-exclusive-party">1. INNER JOIN - The Exclusive Party</h3>
+<p>Only brings records that have matches in both tables. It&rsquo;s that friend who only introduces people who actually want to meet.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#719e07">SELECT</span> employees.name, departments.department_name
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> employees
+</span></span><span style="display:flex;"><span><span style="color:#719e07">INNER</span> <span style="color:#719e07">JOIN</span> departments <span style="color:#719e07">ON</span> employees.dept_id <span style="color:#719e07">=</span> departments.id;
+</span></span></code></pre></div><p><strong>When to use:</strong> When you only care about perfect matches.</p>
+<h3 id="2-left-join---the-everyone-gets-an-invite-host">2. LEFT JOIN - The &ldquo;Everyone Gets an Invite&rdquo; Host</h3>
+<p>Brings all records from the left table, and matching records from the right. Null values fill in for no-shows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#719e07">SELECT</span> customers.name, orders.order_date
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> customers
+</span></span><span style="display:flex;"><span><span style="color:#719e07">LEFT</span> <span style="color:#719e07">JOIN</span> orders <span style="color:#719e07">ON</span> customers.id <span style="color:#719e07">=</span> orders.customer_id;
+</span></span></code></pre></div><p><strong>When to use:</strong> When you want all records from the main table, regardless of matches.</p>
+<h3 id="3-right-join---the-less-popular-sibling">3. RIGHT JOIN - The Less Popular Sibling</h3>
+<p>The same as LEFT JOIN, but from the other table&rsquo;s perspective. So unpopular that many developers avoid it entirely and just use LEFT JOIN with reversed tables.</p>
+<h3 id="4-full-join---the-why-choose-option">4. FULL JOIN - The &ldquo;Why Choose?&rdquo; Option</h3>
+<p>Brings all records from both tables, matching where possible. The ultimate FOMO join.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#719e07">SELECT</span> products.name, inventory.quantity
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> products
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FULL</span> <span style="color:#719e07">JOIN</span> inventory <span style="color:#719e07">ON</span> products.id <span style="color:#719e07">=</span> inventory.product_id;
+</span></span></code></pre></div><p><strong>When to use:</strong> When you need to see everything, matches or not.</p>
+<h3 id="5-cross-join---the-dangerous-one-">5. CROSS JOIN - The Dangerous One ⚠️</h3>
+<p>Matches every row from the first table with every row from the second. Handle with care!</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Creates a massive grid of all combinations
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> sizes.<span style="color:#719e07">size</span>, colors.color
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> sizes
+</span></span><span style="display:flex;"><span><span style="color:#719e07">CROSS</span> <span style="color:#719e07">JOIN</span> colors;
+</span></span></code></pre></div><p><strong>When to use:</strong> Only with small tables, or when you&rsquo;re absolutely sure you want billions of rows.</p>
+<h2 id="performance-pitfalls-dont-be-that-person">Performance Pitfalls: Don&rsquo;t Be &ldquo;That Person&rdquo;</h2>
+<p>We&rsquo;ve all been the developer who took down the staging database. Here&rsquo;s how to avoid it:</p>
+<h3 id="the-cross-join-catastrophe">The Cross Join Catastrophe</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Friendly reminder: this will create 1,000,000 x 1,000,000 = 1 trillion rows
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> <span style="color:#719e07">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> huge_customers_table  <span style="color:#586e75">-- 1,000,000 rows
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">CROSS</span> <span style="color:#719e07">JOIN</span> massive_orders_table; <span style="color:#586e75">-- 1,000,000 rows
+</span></span></span></code></pre></div><p><strong>Moral of the story:</strong> Cross joins are like all-you-can-eat buffets - great in theory, dangerous in practice.</p>
+<h3 id="missing-indexes--slow-dances">Missing Indexes = Slow Dances</h3>
+<p>Imagine trying to find someone in a crowded room without knowing their name. That&rsquo;s your database without indexes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Without an index on user_id, this is slooooow
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> <span style="color:#719e07">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> orders <span style="color:#719e07">ON</span> users.id <span style="color:#719e07">=</span> orders.user_id;
+</span></span></code></pre></div><p><strong>Pro tip:</strong> Index your foreign keys. Your database will thank you.</p>
+<h3 id="joining-on-calculated-columns">Joining on Calculated Columns</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- This makes your database work overtime
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> <span style="color:#719e07">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> products
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> sales <span style="color:#719e07">ON</span> <span style="color:#719e07">UPPER</span>(products.name) <span style="color:#719e07">=</span> <span style="color:#719e07">UPPER</span>(sales.product_name);
+</span></span></code></pre></div><p>Better to clean your data first, then join.</p>
+<h2 id="best-practices-join-like-a-pro">Best Practices: Join Like a Pro</h2>
+<h3 id="1-be-explicit-about-your-intentions">1. Be Explicit About Your Intentions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Good: Clear what you&#39;re doing
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> users.name
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users
+</span></span><span style="display:flex;"><span><span style="color:#719e07">INNER</span> <span style="color:#719e07">JOIN</span> orders <span style="color:#719e07">ON</span> users.id <span style="color:#719e07">=</span> orders.user_id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Bad: Are you joining? Filtering? Who knows!
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> users.name
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users, orders
+</span></span><span style="display:flex;"><span><span style="color:#719e07">WHERE</span> users.id <span style="color:#719e07">=</span> orders.user_id;
+</span></span></code></pre></div><h3 id="2-use-table-aliases-but-keep-them-sensible">2. Use Table Aliases (But Keep Them Sensible)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Clear and readable
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> u.name, o.total, p.product_name
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users u
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> orders o <span style="color:#719e07">ON</span> u.id <span style="color:#719e07">=</span> o.user_id
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> products p <span style="color:#719e07">ON</span> o.product_id <span style="color:#719e07">=</span> p.id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Please don&#39;t do this
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> a.n, b.t, <span style="color:#719e07">c</span>.pn
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users a
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> orders b <span style="color:#719e07">ON</span> a.i <span style="color:#719e07">=</span> b.ui
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> products <span style="color:#719e07">c</span> <span style="color:#719e07">ON</span> b.pi <span style="color:#719e07">=</span> <span style="color:#719e07">c</span>.i;
+</span></span></code></pre></div><h3 id="3-filter-early-filter-often">3. Filter Early, Filter Often</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Better: Filter before joining
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> u.name, o.total
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> (<span style="color:#719e07">SELECT</span> <span style="color:#719e07">*</span> <span style="color:#719e07">FROM</span> users <span style="color:#719e07">WHERE</span> active <span style="color:#719e07">=</span> <span style="color:#719e07">true</span>) u
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> (<span style="color:#719e07">SELECT</span> <span style="color:#719e07">*</span> <span style="color:#719e07">FROM</span> orders <span style="color:#719e07">WHERE</span> <span style="color:#719e07">year</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">2023</span>) o <span style="color:#719e07">ON</span> u.id <span style="color:#719e07">=</span> o.user_id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Worse: Join everything, then filter
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> u.name, o.total
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users u
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> orders o <span style="color:#719e07">ON</span> u.id <span style="color:#719e07">=</span> o.user_id
+</span></span><span style="display:flex;"><span><span style="color:#719e07">WHERE</span> u.active <span style="color:#719e07">=</span> <span style="color:#719e07">true</span> <span style="color:#719e07">AND</span> o.<span style="color:#719e07">year</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">2023</span>;
+</span></span></code></pre></div><h3 id="4-understand-your-data-relationships">4. Understand Your Data Relationships</h3>
+<p>Before joining, ask:</p>
+<ul>
+<li>Is this a one-to-one, one-to-many, or many-to-many relationship?</li>
+<li>Do I have foreign keys set up?</li>
+<li>Are there any NULL values that might surprise me?</li>
+</ul>
+<h2 id="common-oops-moments">Common &ldquo;Oops&rdquo; Moments</h2>
+<h3 id="the-accidental-cross-join">The Accidental Cross Join</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Oops, forgot the WHERE clause!
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> <span style="color:#719e07">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> customers, orders;
+</span></span><span style="display:flex;"><span><span style="color:#586e75">-- Congratulations, you now have customers × orders rows!
+</span></span></span></code></pre></div><h3 id="the-mysterious-null">The Mysterious NULL</h3>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Why am I missing data?
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> users.name, orders.total
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users
+</span></span><span style="display:flex;"><span><span style="color:#719e07">LEFT</span> <span style="color:#719e07">JOIN</span> orders <span style="color:#719e07">ON</span> users.id <span style="color:#719e07">=</span> orders.user_id
+</span></span><span style="display:flex;"><span><span style="color:#719e07">WHERE</span> orders.total <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">100</span>; <span style="color:#586e75">-- This turns your LEFT JOIN into an INNER JOIN!
+</span></span></span></code></pre></div><p><strong>Fix:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#719e07">SELECT</span> users.name, orders.total
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> users
+</span></span><span style="display:flex;"><span><span style="color:#719e07">LEFT</span> <span style="color:#719e07">JOIN</span> orders <span style="color:#719e07">ON</span> users.id <span style="color:#719e07">=</span> orders.user_id <span style="color:#719e07">AND</span> orders.total <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">100</span>;
+</span></span></code></pre></div><h2 id="testing-your-joins-start-small">Testing Your Joins: Start Small!</h2>
+<p>Before running that 10-table join on production:</p>
+<ol>
+<li>Use LIMIT to test</li>
+<li>Check your WHERE conditions</li>
+<li>Look at the query execution plan</li>
+<li>Ask: &ldquo;Do I really need all these tables?&rdquo;</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#586e75">-- Test with a sample first
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">SELECT</span> <span style="color:#719e07">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">FROM</span> large_table lt
+</span></span><span style="display:flex;"><span><span style="color:#719e07">JOIN</span> another_large_table alt <span style="color:#719e07">ON</span> lt.id <span style="color:#719e07">=</span> alt.lt_id
+</span></span><span style="display:flex;"><span><span style="color:#719e07">LIMIT</span> <span style="color:#2aa198">100</span>;
+</span></span></code></pre></div><h2 id="wrapping-up">Wrapping Up</h2>
+<p>Joins are powerful tools, but with great power comes great responsibility. Remember:</p>
+<ul>
+<li>Choose the right join type for your needs</li>
+<li>Use indexes on join columns</li>
+<li>Test with small datasets first</li>
+<li>Be mindful of table sizes</li>
+<li>Understand your data relationships</li>
+</ul>
+<p>Now go forth and join responsibly! Your database (and your fellow developers) will thank you.</p>
+<p>Got any join horror stories or pro tips? Share them with <a href="/contact">me</a></p>
+<p><em>Enjoyed this article? <a href="obtbe.substack.com">Subscribe</a> to get notified when I post about window functions, CTEs, and other SQL magic!</em></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+						<ul class="flat">
+							
+							<li><a href="/tags/sql">sql</a></li>
+							
+							<li><a href="/tags/databases">databases</a></li>
+							
+							<li><a href="/tags/beginners">beginners</a></li>
+							
+							<li><a href="/tags/performance">performance</a></li>
+							
+						</ul>
+					</nav>
+				
+			
+		</div>
+
+		
+		
+		<p style="margin-top: 3rem; font-size: 0.95rem; color: #555;">
+		  If this made you nod, laugh, or have butterflies in the stomach or elsewhere — <a href="/contact" style="color: #007acc; font-weight: 600; text-decoration: underline;"> tell me about it.</a>
+		</p>
+		
+	</div>
+
+	<div class="footer wrapper">
+  <nav class="nav">
+    <div>© 2025 Zeid Ombotimbe. All rights reserved.</div>
+  </nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>
