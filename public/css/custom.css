@@ -1,87 +1,28 @@
-/* === POST CTA BLOCK === */
-.post-cta {
-  margin: 3rem 0;
-  padding: 1.8rem;
-  background: var(--cta-bg, #f9f9f9);
-  border-left: 4px solid #007acc;
-  border-radius: 0 6px 6px 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text, #222);
+/* Custom css, and overrides. */
+
+/* --- Tags --- */
+.tag-cloud a {
+    display: inline-block;
+    border: 1px solid #41719D;
+    border-radius: 4px;
+    padding: 6px 6px;
+    color: #41719D;
+    line-height: 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    margin: 5px 5px;
 }
 
-.post-cta p {
-  margin: 0 0 0.8rem;
+.tag-cloud a:hover {
+    background-color: #41719D;
+    color: white;
+    text-decoration: none;
 }
 
-.post-cta p:last-child {
-  margin-bottom: 0;
+/* --- Navigation separator --- */
+.header nav {
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 10px;
 }
 
-.post-cta .cta-title {
-  font-weight: 600;
-  color: #007acc;
-  margin-bottom: 0.8rem;
-}
-
-.post-cta a {
-  color: #007acc;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-/* === DARK MODE === */
-[data-theme="dark"] .post-cta {
-  --cta-bg: #2a2a2a;
-  --text: #e0e0e0;
-  background: var(--cta-bg);
-  color: var(--text);
-}
-
-[data-theme="dark"] .post-cta .cta-title,
-[data-theme="dark"] .post-cta a {
-  color: #4da6ff;
-}
-
-/* === MOBILE === */
-@media (max-width: 600px) {
-  .post-cta {
-    padding: 1.4rem;
-    font-size: 0.9rem;
-    margin: 2.5rem 0;
-  }
-}
-
-/* === PILL TAGS (IF YOU WANT THEM LATER) === */
-.tag-pill {
-  display: inline-block;
-  padding: 0.45rem 0.9rem;
-  margin: 0.25rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #007acc;
-  background-color: #f0f8ff;
-  border: 1.5px solid #007acc;
-  border-radius: 2rem;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-
-.tag-pill:hover {
-  background-color: #007acc;
-  color: white;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-[data-theme="dark"] .tag-pill {
-  color: #4da6ff;
-  background-color: #1a1a1a;
-  border-color: #4da6ff;
-}
-
-[data-theme="dark"] .tag-pill:hover {
-  background-color: #4da6ff;
-  color: #1a1a1a;
-}
+/* Add all the other custom styles from ehmatthes.com... */
