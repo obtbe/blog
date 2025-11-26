@@ -22,6 +22,13 @@ date: 2025-04-05T10:00:00+05:30
 - *[Basic Economics](https://www.amazon.com/Basic-Economics-Thomas-Sowell/dp/0465060730)*, by [Thomas Sowel](https://www.hoover.org/profiles/thomas-sowell)    
   Fun fact: I've read this book more than 7 times, and I'm not stopping there. I found it in my father's office for the first time and was immediately captivated by its insights into fundamental economic principles. It's a timeless read that deepens my understanding of economic concepts with each revisit.
 
+<div style="text-align: center; margin: 50px 0;">
+<svg width="100" height="45" viewBox="0 0 100 45">
+  <path d="M 20,45 Q 50,25 80,45" stroke="#a00" stroke-width="1.5" fill="none"/>
+  <path d="M 30,45 Q 50,15 70,45" stroke="#a00" stroke-width="1" fill="none"/>
+  <path d="M 40,45 Q 50,5 60,45" stroke="#a00" stroke-width="0.5" fill="none"/>
+</svg>
+</div>
 
 <div style="border-bottom: 1px solid #ccc; margin: 20px 0;"></div>
 
