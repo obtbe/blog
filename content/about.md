@@ -9,7 +9,7 @@ Thank you for visiting my Blog. I hope you find both the beauty and power of dat
 <!-- ![Mariam](themes/ezhil/images/zmariam.png) -->
 
 <div style="border-bottom: 1px solid #ccc; margin: 20px 0;"></div>
-## Tech I use (among others)
+<!-- ## Tech I use (among others) -->
 
 <!-- <div class="tool-icons">
   <img src="/images/sql.png" alt="SQL Icon" width="48" height="48">
@@ -40,9 +40,18 @@ Thank you for visiting my Blog. I hope you find both the beauty and power of dat
 * [Eckhart Tolle: Essential Teachings](https://podcasts.apple.com/us/podcast/eckhart-tolle-essential-teachings/id1458654443) - Eckhart Tolle & Oprah Winfrey
 * [Hidden Brain](https://podcasts.apple.com/us/podcast/hidden-brain/id1028908750) - Shankar Vedantam
 * [Making Sense with Sam Harris](https://podcasts.apple.com/us/podcast/making-sense-with-sam-harris/id733163012) - Sam Harris
-* [The Glenn Show](https://podcasts.apple.com/us/podcast/the-glenn-show/id505824976) - Glenn Loury
 * [Y Combinator Startup Podcast](https://podcasts.apple.com/us/podcast/y-combinator-startup-podcast/id1236907421) - Y Combinator
 * [StarTalk Radio](https://podcasts.apple.com/us/podcast/startalk-radio/id325404506) - Neil deGrasse Tyson
 * [Lightcone Podcast](https://podcasts.apple.com/us/podcast/lightcone-podcast/id1743860177) - Y Combinator
+
+
+
+<div style="text-align: center; margin: 50px 0;">
+<svg width="100" height="35" viewBox="0 0 100 35">
+  <path d="M 10,35 Q 25,15 40,35" stroke="#a00" stroke-width="1" fill="none"/>
+  <path d="M 35,35 Q 50,10 65,35" stroke="#a00" stroke-width="1" fill="none"/>
+  <path d="M 60,35 Q 75,15 90,35" stroke="#a00" stroke-width="1" fill="none"/>
+</svg>
+</div>
 
 <div style="border-bottom: 1px solid #ccc; margin: 20px 0;"></div>
