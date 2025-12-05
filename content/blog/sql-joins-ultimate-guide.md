@@ -208,4 +208,4 @@ Now go forth and join responsibly! Your database (and your fellow developers) wi
 
 Got any join horror stories or pro tips? Share them with [me](/contact)
 
-<!-- *Enjoyed this article? [Subscribe](obtbe.substack.com) to get notified when I post about window functions, CTEs, and other SQL magic!* -->
+*Enjoyed this article? [Subscribe](http://obtbe.substack.com) to get notified when I post about window functions, CTEs, and other SQL magic!*
