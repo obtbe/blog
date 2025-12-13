@@ -10,7 +10,7 @@ And **subqueries**? They’re the quiet superpower behind some of the cleanest, 
 
 Think of them as a query *inside* another query — like slipping a sticky note into a sales log with the exact number you need. Whether you’re filtering high spenders, calculating dynamic thresholds, or updating records with precision, subqueries get the job done.
 
-Let’s walk through what they are, how they work, and when to use them — using a **realistic coffee shop dataset** to keep things grounded.
+Let’s walk through what they are, how they work, and when to use them — using a **coffee shop dataset**.
 
 ---
 
@@ -45,14 +45,14 @@ Let’s use two tables:
 **`Sales`** 
 | CustomerName | Total | OrderDate  | BaristaID |
 |--------------|-------|------------|-----------|
-| Alice        | 6.50  | 2023-01-01 | 101       |
-| Bob          | 12.00 | 2023-01-02 | 102       |
+| Mariam        | 6.50  | 2023-01-01 | 101       |
+| Zeid          | 12.00 | 2023-01-02 | 102       |
 
 **`Employees`**  
 | ID  | Name  | Salary | ManagerID |
 |-----|-------|--------|-----------|
-| 101 | Mia   | 32000  | 201       |
-| 102 | Leo   | 35000  | 201       |
+| 101 | Semyon   | 32000  | 201       |
+| 102 | Hsu   | 35000  | 201       |
 
 
 ### 1. **Single-Row Subqueries**  
