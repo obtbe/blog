@@ -34,19 +34,19 @@ COPY . .
 CMD ["python", "app.py"]
 ```
 
-Let's break this down line by line:
+Let's break down the build process line by line:
 
-`FROM python:3.11-slim` - Start with a base image that has Python 3.11 installed. The `slim` version is smaller than the full image.
+* **`FROM python:3.11-slim`** Starts the build with a Python 3.11 base image. The `slim` variant excludes unnecessary standard libraries, keeping the final image size small and secure.
 
-`WORKDIR /app` - Set the working directory inside the container to `/app`. All following commands will run from here.
+* **`WORKDIR /app`** Sets the working directory inside the container. All subsequent commands (like `COPY` and `RUN`) will be executed relative to this folder.
 
-`COPY requirements.txt .` - Copy the `requirements.txt` file from your computer into the container.
+* **`COPY requirements.txt .`** Copies the dependency file first. This is a best practice for **layer caching**; it ensures dependencies aren't re-installed unless this specific file changes.
 
-`RUN pip install --no-cache-dir -r requirements.txt` - Install the Python packages listed in requirements.txt.
+* **`RUN pip install --no-cache-dir -r requirements.txt`** Installs the necessary Python packages. The `--no-cache-dir` flag prevents Docker from storing the temporary installer files, further reducing image size.
 
-`COPY . .` - Copy all files from your current directory into the container.
+* **`COPY . .`** Copies the remaining source code from your local directory into the container's `/app` folder.
 
-`CMD ["python", "app.py"]` - Specify the command to run when the container starts.
+* **`CMD ["python", "app.py"]`** Defines the default command to run when the container launches. Unlike `RUN`, which happens during the build, `CMD` happens at runtime.
 
 ## Building and Running
 
