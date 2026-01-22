@@ -7,7 +7,7 @@ tags: [docker, containers, devops, beginners]
 
 Picture this. You have a Python script. It needs specific versions: Python 3.11, pandas 2.1.3, and a Postgres database. It runs perfectly on your laptop. You send it to your colleague Blue. She spends two hours installing the right Python version, debugging why pandas won't install, and figuring out why Postgres won't start. Eventually she gets it working. Then she sends it to Red, and the process starts again. BTW we're going full Reservoir Dogs with this one (Excuse my calculated clumsiness).
 
-This is the problem Docker solves. It packages your application with all its dependencies into a single unit called a container. That container runs exactly the same way on any computer with Docker installed.
+This is the problem Docker solves. It packages your application with all its dependencies into a single unit called a `container`. That container runs exactly the same way on any computer with Docker installed.
 
 ## What Exactly is a Container?
 
