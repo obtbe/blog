@@ -1,8 +1,8 @@
 ---
 title: "Docker for Hungry Beginners"
 date: 2026-01-21
-description: "How Docker solves 'it works on my machine' problems once and for all"
-tags: ["docker", "containers", "devops", "beginners"]
+draft: false
+tags: [docker, containers, devops, beginners]
 ---
 
 Picture this. You have a Python script. It needs specific versions: Python 3.11, pandas 2.1.3, and a Postgres database. It runs perfectly on your laptop. You send it to your colleague Blue. She spends two hours installing the right Python version, debugging why pandas won't install, and figuring out why Postgres won't start. Eventually she gets it working. Then she sends it to Red, and the process starts again. BTW we're going full Reservoir Dogs with this one (Excuse my calculated clumsiness).
@@ -260,6 +260,5 @@ This covers the basics of running applications with Docker. The next step is lea
 
 The key takeaway: Docker eliminates environment differences as a source of bugs. You define the environment once in the Dockerfile, and it works consistently everywhere.
 
----
+
 *This is the first article in a Docker series. Next: making Docker images smaller and faster.*
-```
