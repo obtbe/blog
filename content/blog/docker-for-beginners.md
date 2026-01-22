@@ -36,17 +36,17 @@ CMD ["python", "app.py"]
 
 Let's break down the build process line by line:
 
-* **`FROM python:3.11-slim`** Starts the build with a Python 3.11 base image. The `slim` variant excludes unnecessary standard libraries, keeping the final image size small and secure.
+* **`FROM python:3.11-slim`** - Starts the build with a Python 3.11 base image. The `slim` variant excludes unnecessary standard libraries, keeping the final image size small and secure.
 
-* **`WORKDIR /app`** Sets the working directory inside the container. All subsequent commands (like `COPY` and `RUN`) will be executed relative to this folder.
+* **`WORKDIR /app`** - Sets the working directory inside the container. All subsequent commands (like `COPY` and `RUN`) will be executed relative to this folder.
 
-* **`COPY requirements.txt .`** Copies the dependency file first. This is a best practice for **layer caching**; it ensures dependencies aren't re-installed unless this specific file changes.
+* **`COPY requirements.txt .`** - Copies the dependency file first. This is a best practice for **layer caching**; it ensures dependencies aren't re-installed unless this specific file changes.
 
-* **`RUN pip install --no-cache-dir -r requirements.txt`** Installs the necessary Python packages. The `--no-cache-dir` flag prevents Docker from storing the temporary installer files, further reducing image size.
+* **`RUN pip install --no-cache-dir -r requirements.txt`** - Installs the necessary Python packages. The `--no-cache-dir` flag prevents Docker from storing the temporary installer files, further reducing image size.
 
-* **`COPY . .`** Copies the remaining source code from your local directory into the container's `/app` folder.
+* **`COPY . .`** - Copies the remaining source code from your local directory into the container's `/app` folder.
 
-* **`CMD ["python", "app.py"]`** Defines the default command to run when the container launches. Unlike `RUN`, which happens during the build, `CMD` happens at runtime.
+* **`CMD ["python", "app.py"]`** - Defines the default command to run when the container launches. Unlike `RUN`, which happens during the build, `CMD` happens at runtime.
 
 ## Building and Running
 
