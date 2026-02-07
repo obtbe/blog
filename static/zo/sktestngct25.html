@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skoltech Math Test Problems Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .problem-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(52, 152, 219, 0.1);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .problem-number {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .problem-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .problem-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .problem-tag {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--secondary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .difficulty {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .difficulty i {
+            margin-right: 5px;
+        }
+
+        .easy { color: #2ecc71; }
+        .medium { color: #f39c12; }
+        .hard { color: #e74c3c; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            color: var(--primary);
+            opacity: 0.8;
+            border-top: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        .math-display {
+            background: rgba(236, 240, 241, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--secondary);
+            overflow-x: auto;
+        }
+
+        .code-block {
+            background: var(--dark);
+            color: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            color: var(--secondary);
+        }
+
+        .problem-card:nth-child(odd) .floating-icon {
+            top: 20px;
+            right: 20px;
+        }
+
+        .problem-card:nth-child(even) .floating-icon {
+            bottom: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-brain"></i> Mathematical Problems</h1>
+            <p class="subtitle">A collection of challenging problems across various mathematical domains</p>
+        </header>
+
+        <div class="problems-grid">
+            <!-- Problem 1 -->
+            <div class="problem-card">
+                <div class="problem-number">1</div>
+                <div class="floating-icon"><i class="fas fa-integral"></i></div>
+                <h3 class="problem-title">Integral Computation</h3>
+                <div class="problem-content">
+                    <p>Evaluate the indefinite integral:</p>
+                    <div class="math-display">
+                        \[
+                        \int \left( x^7 \log(x^2) + \log(x^2) e^x \right) dx
+                        \]
+                    </div>
+                </div>
+                <div class="problem-tag">Calculus</div>
+                <div class="problem-tag">Integration</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 2 -->
+            <div class="problem-card">
+                <div class="problem-number">2</div>
+                <div class="floating-icon"><i class="fas fa-calculator"></i></div>
+                <h3 class="problem-title">Derivative of Exponential-Trigonometric Function</h3>
+                <div class="problem-content">
+                    <p>Find the derivative of the function:</p>
+                    <div class="math-display">
+                        \[
+                        (\cos x)^{\sin x}
+                        \]
+                    </div>
+                </div>
+                <div class="problem-tag">Calculus</div>
+                <div class="problem-tag">Differentiation</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 3 -->
+            <div class="problem-card">
+                <div class="problem-number">3</div>
+                <div class="floating-icon"><i class="fas fa-infinity"></i></div>
+                <h3 class="problem-title">Definite Integral Evaluation</h3>
+                <div class="problem-content">
+                    <p>Compute the definite integral:</p>
+                    <div class="math-display">
+                        \[
+                        \int_{-\pi/2}^{\pi/2} e^x \cos x \, dx
+                        \]
+                    </div>
+                </div>
+                <div class="problem-tag">Calculus</div>
+                <div class="problem-tag">Definite Integrals</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 4 -->
+            <div class="problem-card">
+                <div class="problem-number">4</div>
+                <div class="floating-icon"><i class="fas fa-chart-line"></i></div>
+                <h3 class="problem-title">Limit Calculation</h3>
+                <div class="problem-content">
+                    <p>Find the limit as \( x \to 0 \):</p>
+                    <div class="math-display">
+                        \[
+                        \lim_{x \to 0} \frac{\tanh\left(\frac{x^2}{2}\right)}{\left(\sin\left(\frac{x}{2}\right)\right)^2}
+                        \]
+                    </div>
+                </div>
+                <div class="problem-tag">Calculus</div>
+                <div class="problem-tag">Limits</div>
+                <div class="difficulty"><i class="fas fa-star"></i> Easy</div>
+            </div>
+
+            <!-- Problem 5 -->
+            <div class="problem-card">
+                <div class="problem-number">5</div>
+                <div class="floating-icon"><i class="fas fa-ruler"></i></div>
+                <h3 class="problem-title">Distance to Hyperplane</h3>
+                <div class="problem-content">
+                    <p>Compute the distance from point \( \mathbf{x} = (2, 0, 1, -3) \) to the plane:</p>
+                    <div class="math-display">
+                        \[
+                        3x_1 - 2x_2 + 2x_3 - 4x_4 = 1
+                        \]
+                    </div>
+                </div>
+                <div class="problem-tag">Linear Algebra</div>
+                <div class="problem-tag">Geometry</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 6 -->
+            <div class="problem-card">
+                <div class="problem-number">6</div>
+                <div class="floating-icon"><i class="fas fa-th"></i></div>
+                <h3 class="problem-title">Matrix Expression Simplification</h3>
+                <div class="problem-content">
+                    <p>Let \( A, B, C \) be \( n \times n \) invertible matrices. Simplify:</p>
+                    <div class="math-display">
+                        \[
+                        C^{-1}(A^2B^{-1})^{-2}A^{-2}(CA^{-3})^{-2}(CB^{-1})^2
+                        \]
+                    </div>
+                </div>
+                <div class="problem-tag">Linear Algebra</div>
+                <div class="problem-tag">Matrix Algebra</div>
+                <div class="difficulty"><i class="fas fa-star hard"></i> Hard</div>
+            </div>
+
+            <!-- Problem 7 -->
+            <div class="problem-card">
+                <div class="problem-number">7</div>
+                <div class="floating-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3 class="problem-title">Eigenvalue Analysis</h3>
+                <div class="problem-content">
+                    <p>Let \( A \) be the matrix:</p>
+                    <div class="math-display">
+                        \[
+                        A = \begin{pmatrix}
+                        4 & 1 & 1 \\
+                        1 & 2 & 3 \\
+                        1 & 3 & 2
+                        \end{pmatrix}
+                        \]
+                    </div>
+                    <p>Find the maximal eigenvalue of \( A^3 \).</p>
+                </div>
+                <div class="problem-tag">Linear Algebra</div>
+                <div class="problem-tag">Eigenvalues</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 8 -->
+            <div class="problem-card">
+                <div class="problem-number">8</div>
+                <div class="floating-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3 class="problem-title">Matrix Rank Analysis</h3>
+                <div class="problem-content">
+                    <p>Let \( A \in \mathbb{R}^{n \times n} \) be a full rank matrix. If you are allowed to modify any \( m < n \) entries of \( A \), what is the achievable lower-bound on the rank of the modified matrix?</p>
+                </div>
+                <div class="problem-tag">Linear Algebra</div>
+                <div class="problem-tag">Matrix Theory</div>
+                <div class="difficulty"><i class="fas fa-star hard"></i> Hard</div>
+            </div>
+
+            <!-- Problem 9 -->
+            <div class="problem-card">
+                <div class="problem-number">9</div>
+                <div class="floating-icon"><i class="fas fa-dice"></i></div>
+                <h3 class="problem-title">Expected Maximum of Uniform Variables</h3>
+                <div class="problem-content">
+                    <p>Let \( X_i \) be independent and identically distributed random variables with uniform distribution on \([0,1]\). Find the mean value of:</p>
+                    <div class="math-display">
+                        \[
+                        Y = \max\{X_1, X_2, \dots, X_{2025}\}
+                        \]
+                    </div>
+                </div>
+                <div class="problem-tag">Probability</div>
+                <div class="problem-tag">Expectation</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 10 -->
+            <div class="problem-card">
+                <div class="problem-number">10</div>
+                <div class="floating-icon"><i class="fas fa-coins"></i></div>
+                <h3 class="problem-title">Coin Tossing Patterns</h3>
+                <div class="problem-content">
+                    <p>A fair coin is tossed repeatedly. Find:</p>
+                    <ul>
+                        <li>\( E[l(HH)] \): Expected tosses until first "HH" appears</li>
+                        <li>\( E[l(HT)] \): Expected tosses until first "HT" appears</li>
+                    </ul>
+                </div>
+                <div class="problem-tag">Probability</div>
+                <div class="problem-tag">Stochastic Processes</div>
+                <div class="difficulty"><i class="fas fa-star hard"></i> Hard</div>
+            </div>
+
+            <!-- Problem 11 -->
+            <div class="problem-card">
+                <div class="problem-number">11</div>
+                <div class="floating-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3 class="problem-title">Traveler's Expected Journey</h3>
+                <div class="problem-content">
+                    <p>Consider 3 cities: A, B, and C. A traveler in city A moves according to given probabilities between cities. Find the expected number of days for the traveler to get from A to C.</p>
+                </div>
+                <div class="problem-tag">Probability</div>
+                <div class="problem-tag">Markov Chains</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 12 -->
+            <div class="problem-card">
+                <div class="problem-number">12</div>
+                <div class="floating-icon"><i class="fas fa-cube"></i></div>
+                <h3 class="problem-title">Polynomial Space Dimension</h3>
+                <div class="problem-content">
+                    <p>Find the dimension of the space of polynomials of 4 variables with degree not greater than 3.</p>
+                </div>
+                <div class="problem-tag">Algebra</div>
+                <div class="problem-tag">Combinatorics</div>
+                <div class="difficulty"><i class="fas fa-star"></i> Easy</div>
+            </div>
+
+            <!-- Problem 13 -->
+            <div class="problem-card">
+                <div class="problem-number">13</div>
+                <div class="floating-icon"><i class="fas fa-network-wired"></i></div>
+                <h3 class="problem-title">Random Graph Triangles</h3>
+                <div class="problem-content">
+                    <p>In a graph with \( n = 10 \) nodes, each pair is connected with probability \( p = 1/4 \). Find the expectation of the number of triangles.</p>
+                </div>
+                <div class="problem-tag">Probability</div>
+                <div class="problem-tag">Graph Theory</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 14 -->
+            <div class="problem-card">
+                <div class="problem-number">14</div>
+                <div class="floating-icon"><i class="fas fa-vector-square"></i></div>
+                <h3 class="problem-title">Vector Counting</h3>
+                <div class="problem-content">
+                    <p>Let \( \mathbf{v} = (v_1, v_2, \dots, v_n) \) where each \( v_i \in \{0, 1, \dots, q-1\} \).</p>
+                    <p>Find:</p>
+                    <ol>
+                        <li>Total number of such vectors</li>
+                        <li>Number differing from zero vector in exactly \( t \) positions</li>
+                        <li>Number differing from zero vector in at most \( t \) positions</li>
+                    </ol>
+                </div>
+                <div class="problem-tag">Combinatorics</div>
+                <div class="problem-tag">Counting</div>
+                <div class="difficulty"><i class="fas fa-star"></i> Easy</div>
+            </div>
+
+            <!-- Problem 15 -->
+            <div class="problem-card">
+                <div class="problem-number">15</div>
+                <div class="floating-icon"><i class="fas fa-sync-alt"></i></div>
+                <h3 class="problem-title">Recurrence Relation Solution</h3>
+                <div class="problem-content">
+                    <p>Given the recurrence:</p>
+                    <div class="math-display">
+                        \[
+                        a_{n+1} = \frac{a_n}{1 + n a_n}, \quad n \geq 1
+                        \]
+                    </div>
+                    <p>with \( a_1 = 1 \), find \( a_n \) in closed form.</p>
+                </div>
+                <div class="problem-tag">Discrete Math</div>
+                <div class="problem-tag">Recurrence Relations</div>
+                <div class="difficulty"><i class="fas fa-star medium"></i> Medium</div>
+            </div>
+
+            <!-- Problem 16 -->
+            <div class="problem-card">
+                <div class="problem-number">16</div>
+                <div class="floating-icon"><i class="fas fa-code"></i></div>
+                <h3 class="problem-title">Python Program Analysis</h3>
+                <div class="problem-content">
+                    <p>What will be the output of this Python program?</p>
+                    <div class="code-block">
+func = lambda a, b: a if b == 0 else func(b, a%b)
+a = 144
+b = 336
+print(func(a,b))
+                    </div>
+                </div>
+                <div class="problem-tag">Algorithms</div>
+                <div class="problem-tag">Programming</div>
+                <div class="difficulty"><i class="fas fa-star"></i> Easy</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Mathematical Problems Collection • Designed for serious problem solvers</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <i class="fas fa-graduation-cap"></i> 
+                Problems span calculus, linear algebra, probability, combinatorics, and algorithms
+            </p>
+        </footer>
+    </div>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // Add hover effects
+        document.querySelectorAll('.problem-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
