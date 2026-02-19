@@ -3,374 +3,540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skoltech ACS interview prep – clean classic</title>
+    <title>Skoltech ACS interview prep – thorough & clean</title>
     <style>
-        /* classic, clean, readable – no emojis, no clutter */
+        /* simple, clean, organized, no emojis, no blockquotes, easy to deliver */
         body {
             background: #ffffff;
-            font-family: 'Palatino', 'Georgia', 'Times New Roman', serif;
+            font-family: 'Helvetica', 'Arial', sans-serif;
             font-size: 16px;
-            line-height: 1.7;
+            line-height: 1.6;
             margin: 2rem auto;
-            max-width: 950px;
-            padding: 0 35px;
-            color: #1e2a3a;
+            max-width: 1000px;
+            padding: 0 30px;
+            color: #1e2b3a;
         }
         h1 {
             font-size: 2.2rem;
-            font-weight: 500;
-            border-bottom: 2px solid #2c3e50;
+            font-weight: 600;
+            border-bottom: 3px solid #1e3c5c;
             padding-bottom: 0.3rem;
             margin-top: 2rem;
             margin-bottom: 1.5rem;
-            letter-spacing: -0.3px;
-            font-family: 'Helvetica Neue', 'Arial', sans-serif;
         }
         h2 {
-            font-size: 1.7rem;
-            font-weight: 500;
+            font-size: 1.8rem;
+            font-weight: 600;
             margin: 2.5rem 0 1.2rem;
-            background: #f0f4f9;
-            padding: 0.5rem 1.2rem;
+            background: #eef3f9;
+            padding: 0.6rem 1rem;
             border-left: 8px solid #1e3c5c;
-            font-family: 'Helvetica Neue', sans-serif;
         }
         h3 {
             font-size: 1.4rem;
             font-weight: 600;
             margin: 2rem 0 1rem;
             color: #1e3c5c;
-            border-bottom: 1px solid #b8ccdd;
-            padding-bottom: 0.2rem;
+            border-bottom: 2px solid #cbdae9;
+            padding-bottom: 0.3rem;
         }
         h4 {
             font-size: 1.2rem;
             font-weight: 600;
-            margin: 1.6rem 0 0.5rem;
+            margin: 1.5rem 0 0.5rem;
             color: #2c3e50;
         }
         p {
             margin: 0.8rem 0;
-            text-align: left;
         }
         ul, ol {
-            margin: 0.5rem 0 1.2rem 1.8rem;
-            padding-left: 0;
+            margin: 0.5rem 0 1.2rem 1.5rem;
+            padding-left: 0.5rem;
         }
         li {
-            margin: 0.5rem 0;
+            margin: 0.6rem 0;
         }
-        pre {
-            background: #f2f6fc;
-            border-left: 5px solid #8ba3c0;
-            padding: 1rem 1.5rem;
-            overflow-x: auto;
-            font-family: 'Courier New', 'Fira Code', monospace;
-            font-size: 0.95rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.2rem 0;
-        }
-        code {
-            background: #ecf2f9;
-            padding: 0.2rem 0.5rem;
-            border-radius: 5px;
-            font-size: 0.95rem;
-            font-family: 'Courier New', monospace;
-        }
-        hr {
-            border: none;
-            border-top: 2px dotted #a0b8d0;
-            margin: 2.5rem 0;
-        }
-        .qa-block {
-            margin: 1.5rem 0 2rem 0;
-            padding-left: 1rem;
-            border-left: 4px solid #d0deed;
+        .qa-section {
+            margin: 1.8rem 0 2.2rem 0;
+            padding: 0.5rem 0 0.5rem 1.2rem;
+            border-left: 4px solid #a0bbd4;
+            background: #fafdff;
         }
         .question {
             font-weight: 700;
             font-size: 1.2rem;
-            color: #153e5c;
+            color: #0a3147;
             margin-bottom: 0.5rem;
+        }
+        hr {
+            border: none;
+            border-top: 2px dashed #9bb3cc;
+            margin: 2.5rem 0;
+        }
+        code {
+            background: #e8eff8;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+        pre {
+            background: #eef4fa;
+            padding: 1rem 1.5rem;
+            border-left: 5px solid #1e3c5c;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin: 1rem 0;
         }
         table {
             border-collapse: collapse;
-            width: 85%;
+            width: 80%;
             margin: 1.5rem 0;
-            background: #fafdff;
-            font-size: 1rem;
+            background: #fbfdff;
         }
         th {
-            background: #e1eaf2;
+            background: #dde6f0;
+            padding: 0.5rem;
             font-weight: 600;
-            padding: 0.6rem;
         }
         td {
-            border: 1px solid #b9cfdf;
-            padding: 0.6rem;
+            border: 1px solid #b3c9de;
+            padding: 0.5rem;
         }
-        .note-box {
-            background: #f5f9fe;
-            border: 1px solid #acc4db;
-            padding: 1.2rem 2rem;
-            border-radius: 12px;
-            font-style: italic;
-            margin: 2.2rem 0;
-        }
-        .tag {
-            background: #1e3c5c;
-            color: white;
-            font-size: 0.75rem;
-            padding: 0.2rem 0.9rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-block;
-            margin-right: 0.6rem;
+        .highlight {
+            background: #f2f7ff;
+            padding: 0.2rem 0.3rem;
+            border-radius: 3px;
         }
     </style>
 </head>
 <body>
 
-<h1>Skoltech ACS · interview preparation</h1>
-<p><strong>Advanced Computational Science</strong> – distributed graph analytics / supercomputing</p>
+<h1>Skoltech ACS – interview preparation</h1>
+<p><strong>Advanced Computational Science · distributed graph analytics · supercomputing</strong></p>
 
-<!-- ========== SECTION 1 – MOTIVATION ========== -->
-<h2>1.  motivation & personal fit</h2>
+<!-- SECTION 1 – MOTIVATION -->
+<h2>Part 1: Motivation and personal fit</h2>
 
-<div class="qa-block">
-    <div class="question">“Why ACS instead of a standard CS or Data Science master?”</div>
+<div class="qa-section">
+    <div class="question">1. Why ACS instead of a standard CS or Data Science master?</div>
     <ul>
-        <li>ACS sits at the intersection of high‑performance computing, applied mathematics, and large‑scale scientific data – not just software engineering or business analytics.</li>
-        <li>I aim to build parallel and distributed algorithms that run on supercomputers, not only web or ML pipelines.</li>
+        <li><strong>ACS combines HPC, applied math, and large-scale scientific data</strong> – whereas standard CS focuses on software engineering, and DS on business analytics.</li>
+        <li>I want to <strong>build parallel and distributed algorithms that run on supercomputers</strong>, not just web or ML pipelines.</li>
         <li>Skoltech’s project‑based model and world‑class computing facilities are ideal for developing code that scales to thousands of nodes.</li>
+        <li>The program’s emphasis on numerical algorithms and scientific computing matches my goal of solving real scientific problems at scale.</li>
     </ul>
 </div>
 
-<div class="qa-block">
-    <div class="question">“Which research area within ACS attracts you most?”</div>
-    <p><strong>Distributed Graph Analytics on Modern Supercomputing Architectures</strong> – because:</p>
+<div class="qa-section">
+    <div class="question">2. Which research area within ACS attracts you most?</div>
+    <p><strong>Distributed Graph Analytics on Modern Supercomputing Architectures</strong> – detailed reasons:</p>
     <ul>
-        <li>Graphs are everywhere (social networks, biology, transport) and already at billion‑node scale.</li>
-        <li>Modern supercomputers involve hybrid parallelism (MPI+X), heterogeneous nodes (CPU+GPU), and deep memory hierarchies – algorithms must adapt.</li>
-        <li>Key questions I find exciting:
-            <ul style="margin-top:0.3rem;">
-                <li>How to partition massive graphs for load balance and low communication?</li>
-                <li>Communication‑avoiding or asynchronous graph algorithms?</li>
-                <li>Scaling graph neural networks across distributed memory?</li>
-            </ul>
-        </li>
-        <li>I have followed frameworks like D‑Galois, Gemini, and MPI‑based graph libraries – eager to contribute.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">“What would you like to work on in your master’s thesis?”</div>
-    <ul>
-        <li><strong>Communication‑avoiding graph algorithms</strong> – exploit mathematical structure to minimise data movement (new partitioning, asynchronous models, redundant computation vs communication).</li>
-        <li><strong>Heterogeneous graph analytics</strong> – orchestrate CPUs and GPUs for irregular workloads, memory hierarchies, work distribution.</li>
-        <li><strong>Scaling graph neural networks</strong> – distributed training, mini‑batch sampling across partitions, gradient synchronisation, handling graph dependencies.</li>
-        <li>Open to refinement based on Skoltech’s ongoing projects and supervisor input – aim for a publication‑worthy contribution.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">“Where do you see yourself in five years?”</div>
-    <ul>
-        <li>Pursuing a PhD in computational science or HPC at a top international institution – the ACS foundation (mathematics, parallel computing, research) is perfect preparation.</li>
-        <li>Longer term: develop exascale algorithms for real‑world problems (scientific discovery, infrastructure optimisation), either in a national lab or deep‑tech R&amp;D.</li>
-        <li>Also drawn to the intersection of HPC and AI – training massive models on supercomputers.</li>
-    </ul>
-</div>
-
-<hr>
-
-<!-- ========== SECTION 2 – TECHNICAL ========== -->
-<h2>2.  technical fundamentals</h2>
-
-<h3>mathematics – linear algebra</h3>
-
-<div class="qa-block">
-    <div class="question">Geometric meaning of eigenvectors and eigenvalues?</div>
-    <ul>
-        <li>Eigenvector = direction preserved under transformation (only scaled, not rotated). Eigenvalue = scaling factor.</li>
-        <li>|λ| > 1 stretches, |λ| < 1 compresses, λ negative flips, λ = 0 collapses to null space.</li>
-        <li>Graph example: eigenvectors of the Laplacian (Fiedler vector) give spectral embedding → used for partitioning. Number of zero eigenvalues = connected components.</li>
-        <li>Data science: PCA eigenvectors = directions of maximum variance, eigenvalues = variance explained.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">Matrix decomposition – why is SVD fundamental?</div>
-    <ul>
-        <li>Factorisation into simpler matrices (like prime factors). SVD: A = UΣVᵀ, with U,V orthonormal, Σ singular values.</li>
-        <li>Why crucial:
+        <li><strong>Ubiquity of graphs:</strong> social networks, biological networks, transportation, the web – all generate massive graphs (billions of nodes, trillions of edges).</li>
+        <li><strong>Supercomputing complexity:</strong> modern machines have hybrid parallelism (MPI+X), heterogeneous nodes (CPUs + GPUs), deep memory hierarchies – algorithms must be redesigned to exploit these.</li>
+        <li><strong>Core research questions I find exciting:</strong>
             <ul>
-                <li>Best low‑rank approximation (PCA, compression) – Eckart‑Young theorem.</li>
-                <li>Condition number κ = σₘₐₓ / σₘᵢₙ.</li>
-                <li>Stable pseudoinverse.</li>
-                <li>Latent factors in recommendation, spectral graph analysis (community detection via adjacency SVD).</li>
+                <li>How to partition massive graphs for load balance and minimal communication?</li>
+                <li>Communication‑avoiding or asynchronous graph algorithms – trading redundant computation for less data movement.</li>
+                <li>Scaling graph neural network training across distributed memory – mini‑batch sampling, gradient sync, handling graph dependencies.</li>
             </ul>
         </li>
-        <li>In my area: graph partitioning and embedding often use SVD or eigen‑decomposition.</li>
+        <li><strong>Background:</strong> I have studied frameworks like D‑Galois, Gemini, and MPI‑based graph libraries, and I am eager to contribute to this area.</li>
     </ul>
 </div>
 
-<div class="qa-block">
-    <div class="question">Condition number – why care in numerical work?</div>
+<div class="qa-section">
+    <div class="question">3. What would you like to work on in your master’s thesis?</div>
     <ul>
-        <li>κ = σₘₐₓ / σₘᵢₙ measures sensitivity of Ax = b to input errors.</li>
-        <li>Large κ → ill‑conditioned → small rounding or measurement noise blows up.</li>
-        <li>Impacts: algorithm choice (direct vs iterative), need for preconditioning, trust in solutions.</li>
-        <li>Graph Laplacians often become ill‑conditioned as size grows – affects iterative solvers for spectral methods.</li>
+        <li><strong>Option 1 – Communication‑avoiding graph algorithms:</strong> exploit mathematical structure (e.g., graph partitioning, asynchronous models) to minimise communication, which is the main bottleneck in distributed systems.</li>
+        <li><strong>Option 2 – Heterogeneous graph analytics:</strong> design algorithms that effectively use both CPUs and GPUs for irregular graph workloads – work distribution, memory hierarchy management, and handling the irregular nature of graph computations.</li>
+        <li><strong>Option 3 – Scaling graph neural networks:</strong> address challenges in distributed GNN training – sampling across partitions, efficient gradient synchronisation, handling graph dependencies without excessive communication.</li>
+        <li><strong>Flexibility:</strong> I am open to refining these ideas based on Skoltech’s ongoing projects and supervisor input – my goal is to produce a publication‑worthy contribution.</li>
     </ul>
 </div>
 
-<h3>mathematics – calculus & optimisation</h3>
-
-<div class="qa-block">
-    <div class="question">Gradient descent, learning rate, stochastic gradient descent</div>
+<div class="qa-section">
+    <div class="question">4. Where do you see yourself in five years?</div>
     <ul>
-        <li>θ ← θ – η∇J(θ) – step down the gradient.</li>
-        <li>Learning rate η: too small → slow or stuck; too large → overshoot or diverge.</li>
-        <li>SGD: use one random sample (or mini‑batch) – noisy but fast, escapes shallow minima, online learning, implicit regularisation.</li>
-        <li>Distributed training variants: data/model parallelism, sync/async – relevant for scaling GNNs.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">Lagrange multiplier – idea and applications</div>
-    <ul>
-        <li>Optimise f(x) subject to g(x) = c → at optimum ∇f = λ∇g. λ = multiplier, measures sensitivity to constraint.</li>
-        <li>Used in: SVM (dual, support vectors), PCA (variance under orthogonality), graph partitioning (min‑cut + balance → eigenvalue problem), duality for distributed optimisation, max‑ent distributions.</li>
-    </ul>
-</div>
-
-<h3>mathematics – probability & statistics</h3>
-
-<div class="qa-block">
-    <div class="question">MLE vs MAP – difference?</div>
-    <ul>
-        <li>MLE: θ = argmax P(data|θ) – no prior, only data.</li>
-        <li>MAP: θ = argmax P(data|θ) P(θ) – includes prior (Bayesian point estimate).</li>
-        <li>MAP = MLE + regularisation (Gaussian prior → L2, Laplace → L1).</li>
-        <li>In graph problems: priors can encode community size, smoothness, etc. As data grows, MAP → MLE.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">Bias‑variance tradeoff explained</div>
-    <ul>
-        <li>Total error = bias² + variance + irreducible noise.</li>
-        <li>Bias: systematic underfitting (simple model).</li>
-        <li>Variance: sensitivity to training fluctuations (overfitting).</li>
-        <li>Complexity ↑ → bias ↓, variance ↑ → optimum in between.</li>
-        <li>In distributed graph analytics: GNN depth (bias vs over‑smoothing), graph sampling (variance), communication approximations (bias) to lower network variance.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">Central Limit Theorem – why useful?</div>
-    <ul>
-        <li>Sample mean ≈ normal for large n, regardless of original distribution.</li>
-        <li>Use cases: confidence intervals, hypothesis tests, Monte Carlo error bounds (∝ 1/√n), performance analysis (mean of runs), distributed aggregation, graph sampling error estimates.</li>
-    </ul>
-</div>
-
-<h3>computer science & algorithms</h3>
-
-<div class="qa-block">
-    <div class="question">O(n log n) vs O(n²) – examples and relevance</div>
-    <ul>
-        <li>n = 1e6: n log n ≈ 20M ops (feasible), n² ≈ 1e12 ops (infeasible).</li>
-        <li>O(n log n) algorithms: merge sort, heap sort, FFT, Dijkstra (binary heap), many sparse graph algorithms.</li>
-        <li>O(n²): bubble sort, naive matrix multiply, Floyd‑Warshall, all‑pairs checks.</li>
-        <li>For massive graphs, we need near‑linear in edges, plus communication‑aware distributed designs.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">Hash table (dict) vs list – when to use?</div>
-    <ul>
-        <li>Hash table: O(1) lookup by key, uniqueness, set ops, counting, caching. Example: global→local node id mapping.</li>
-        <li>List: order, index access, sequential iteration, memory compact. Example: local adjacency storage.</li>
-        <li>Distributed frameworks often hybrid: array for local nodes (fast index) + hash for cross‑partition references.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">CNN in simple terms – link to graphs</div>
-    <ul>
-        <li>CNN learns hierarchical features: convolutions (small filters slide), parameter sharing (translation invariance), pooling (downsampling).</li>
-        <li>Inspires GNNs: graph convolutions (neighbour aggregation), message passing, graph pooling.</li>
-        <li>Distributed GNN training needs partitioning, boundary handling, communication minimisation – connects to my interest.</li>
-    </ul>
-</div>
-
-<h3>Python – practical</h3>
-
-<div class="qa-block">
-    <div class="question">Python proficiency – NumPy, SciPy, PyTorch?</div>
-    <ul>
-        <li>Core: data structures, OOP, generators, comprehensions.</li>
-        <li>NumPy: vectorisation, broadcasting, linear algebra, random.</li>
-        <li>SciPy: sparse matrices (key for graphs!), optimisation, stats.</li>
-        <li>PyTorch/TF: custom layers, autograd, data loaders, basics of distributed training.</li>
-        <li>Graph libs: NetworkX (prototype), PyG/DGL (conceptual).</li>
-        <li>Strengthening: mpi4py, CUDA, ParMETIS concepts – for real distributed graph analytics.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">List vs tuple – when to pick which?</div>
-    <ul>
-        <li>List: mutable, [ ], slower, overallocates – for dynamic sequences (adjacency builder, BFS queue).</li>
-        <li>Tuple: immutable, ( ), faster, less memory, hashable – fixed coordinates, edge keys for caching.</li>
-        <li>In billion‑scale graphs, fixed‑size tuples reduce memory overhead.</li>
-    </ul>
-</div>
-
-<div class="qa-block">
-    <div class="question">List comprehension – examples</div>
-    <ul>
-        <li>Syntax: [expr for item in iterable if cond] – concise and fast.</li>
-        <li>Examples: filtering heavy edges, flattening adjacency, parsing graph input.</li>
-        <li>For massive data, use generator expressions (lazy) to avoid large intermediates when streaming between nodes.</li>
+        <li><strong>Short‑term (after ACS):</strong> Pursue a PhD in computational science, computer science, or HPC at a top international institution. The ACS foundation in mathematics, parallel computing, and research methodology will prepare me well.</li>
+        <li><strong>Long‑term:</strong> Develop exascale algorithms for real‑world problems – scientific discovery, infrastructure optimisation, or working at a national laboratory / deep‑tech R&amp;D.</li>
+        <li><strong>Alternative:</strong> I am also drawn to the intersection of HPC and AI – training massive models on supercomputers, which requires similar distributed algorithms expertise.</li>
     </ul>
 </div>
 
 <hr>
 
-<!-- ========== SECTION 3 – QUICK REASONING ========== -->
-<h2>3.  on‑the‑feet reasoning (practice aloud)</h2>
+<!-- SECTION 2 – TECHNICAL FUNDAMENTALS -->
+<h2>Part 2: Technical fundamentals – thorough explanations</h2>
 
-<div class="qa-block">
-    <div class="question">“90% accuracy on a dataset with 90% class A, 10% class B – good model?”</div>
+<h3>Mathematics – Linear Algebra</h3>
+
+<div class="qa-section">
+    <div class="question">Explain the geometric interpretation of eigenvectors and eigenvalues.</div>
     <ul>
-        <li>Not necessarily – baseline “always A” gives 90%.</li>
-        <li>Need precision, recall, F1, confusion matrix.</li>
-        <li>For imbalanced data, focus on recall for minority class and possibly ROC‑AUC or PR‑AUC.</li>
-        <li>Example: cancer detection – missing 10% (false negatives) is unacceptable.</li>
+        <li><strong>Core idea:</strong> An eigenvector is a direction that is preserved under a linear transformation – it gets scaled but not rotated. The eigenvalue tells how much scaling occurs.</li>
+        <li><strong>Detailed interpretation:</strong>
+            <ul>
+                <li>If |λ| > 1: the vector stretches.</li>
+                <li>If |λ| < 1: the vector compresses.</li>
+                <li>If λ is negative: the vector flips direction.</li>
+                <li>If λ = 0: the vector lies in the null space (collapses to zero).</li>
+            </ul>
+        </li>
+        <li><strong>Physical intuition:</strong> Imagine a transformation that stretches space. Certain directions simply get longer or shorter without changing orientation – these are eigen‑directions.</li>
+        <li><strong>Graph theory example:</strong> The eigenvectors of the graph Laplacian reveal structural properties. The Fiedler vector (eigenvector for smallest non‑zero eigenvalue) gives a spectral embedding used for graph partitioning – directly relevant to my interest in distributed graph analytics. The number of zero eigenvalues equals the number of connected components.</li>
+        <li><strong>Data science example:</strong> In PCA, eigenvectors of the covariance matrix point to directions of maximum variance; eigenvalues indicate how much variance each principal component captures.</li>
     </ul>
 </div>
 
-<div class="qa-block">
-    <div class="question">“How to detect anomalies in streaming network traffic?”</div>
+<div class="qa-section">
+    <div class="question">What is a matrix decomposition? Why is SVD so important in data science and scientific computing?</div>
     <ul>
-        <li>Extract features (packet rate, byte rate, protocol mix, entropy of addresses).</li>
-        <li>Statistical methods: moving average / EWMA, deviation > threshold.</li>
-        <li>Unsupervised ML: isolation forest, one‑class SVM, autoencoders (reconstruction error).</li>
-        <li>Streaming considerations: sliding windows, incremental models, alert cooldown.</li>
-        <li>Multi‑stage: lightweight filter → if suspicious, deep ML → correlation engine.</li>
+        <li><strong>Definition:</strong> A matrix decomposition factors a matrix into simpler, constituent matrices that reveal properties or make computations easier – analogous to factoring a number into primes.</li>
+        <li><strong>Singular Value Decomposition (SVD):</strong> A = U Σ Vᵀ, where:
+            <ul>
+                <li>U and V are orthonormal matrices (left/right singular vectors).</li>
+                <li>Σ is diagonal with singular values (non‑negative, sorted descending).</li>
+            </ul>
+        </li>
+        <li><strong>Why SVD is crucial:</strong>
+            <ul>
+                <li><strong>Dimensionality reduction:</strong> Keeping largest k singular values gives best rank‑k approximation (Eckart‑Young theorem) – foundation of PCA.</li>
+                <li><strong>Data compression:</strong> Storage reduces from m×n to k(m+n+1).</li>
+                <li><strong>Condition number:</strong> κ = σₘₐₓ / σₘᵢₙ measures numerical stability.</li>
+                <li><strong>Pseudoinverse:</strong> Provides stable way to compute Moore‑Penrose pseudoinverse for non‑square or singular matrices.</li>
+                <li><strong>Recommendation systems:</strong> Uncovers latent factors in collaborative filtering.</li>
+                <li><strong>Graph analytics:</strong> SVD of adjacency or Laplacian reveals community structure – used in spectral partitioning, directly relevant to my research.</li>
+            </ul>
+        </li>
     </ul>
 </div>
 
-<div class="note-box">
-    <strong>Note:</strong> Sections on deep project dive and further thinking‑on‑feet questions should be prepared personally – practice explaining your own projects with context, and always think out loud.
+<div class="qa-section">
+    <div class="question">What is the condition number of a matrix and why does it matter for numerical computations?</div>
+    <ul>
+        <li><strong>Definition:</strong> κ(A) = σₘₐₓ / σₘᵢₙ – the ratio of largest to smallest singular value.</li>
+        <li><strong>Interpretation:</strong>
+            <ul>
+                <li>κ close to 1: well‑conditioned – small input changes lead to small output changes.</li>
+                <li>κ very large: ill‑conditioned – small rounding errors or noise get amplified, potentially making solutions meaningless.</li>
+            </ul>
+        </li>
+        <li><strong>Why it matters:</strong>
+            <ul>
+                <li><strong>Error amplification:</strong> If κ = 10⁶, you lose about 6 digits of precision. In double precision (15‑16 digits), you might have only 9‑10 accurate digits.</li>
+                <li><strong>Algorithm selection:</strong> Ill‑conditioned problems may require iterative methods with preconditioning; direct methods might fail.</li>
+                <li><strong>Preconditioning:</strong> In iterative solvers for large sparse systems (common in PDEs and graph problems), preconditioners transform the system to reduce κ.</li>
+                <li><strong>Graph Laplacians:</strong> Their condition number grows with graph size and structure, affecting convergence of solvers for spectral partitioning – directly relevant to my work.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<h3>Mathematics – Calculus & Optimization</h3>
+
+<div class="qa-section">
+    <div class="question">Explain gradient descent. What is the role of the learning rate? What is stochastic gradient descent?</div>
+    <ul>
+        <li><strong>Gradient descent:</strong> Iterative algorithm to find minimum of differentiable function: θ_new = θ_old – η ∇J(θ_old). Intuition: step downhill in steepest direction.</li>
+        <li><strong>Learning rate η:</strong>
+            <ul>
+                <li>Too small: convergence very slow, may get stuck in local minima.</li>
+                <li>Too large: overshoot minimum, diverge, or oscillate.</li>
+                <li>Adaptive methods (Adam, RMSprop) adjust η per parameter based on gradient history.</li>
+            </ul>
+        </li>
+        <li><strong>Stochastic gradient descent (SGD):</strong> Uses single random sample (or mini‑batch) instead of full dataset.
+            <ul>
+                <li><strong>Advantages:</strong> Much faster per iteration, escapes shallow minima, enables online learning, often generalizes better due to noise.</li>
+                <li><strong>Disadvantages:</strong> Oscillates around minimum, requires careful learning rate scheduling.</li>
+            </ul>
+        </li>
+        <li><strong>Connection to distributed computing:</strong> Distributed training uses variants – data parallelism (each node computes gradients on subset), model parallelism, synchronous/asynchronous updates. For large‑scale GNNs, distributed SGD with careful graph dependency handling is active research.</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">What is a Lagrange multiplier? Where is it used?</div>
+    <ul>
+        <li><strong>Core idea:</strong> Technique for optimizing f(x) subject to equality constraint g(x) = c. At optimum, gradients are parallel: ∇f = λ ∇g. λ is Lagrange multiplier, representing sensitivity of optimal value to constraint relaxation.</li>
+        <li><strong>Geometric intuition:</strong> Walking on a hill (f) while staying on path (g). At highest point on path, steepest ascent direction is exactly along path – you can't go higher without leaving path.</li>
+        <li><strong>Applications relevant to ACS:</strong>
+            <ul>
+                <li><strong>SVM:</strong> Dual formulation uses Lagrange multipliers; support vectors correspond to non‑zero λ.</li>
+                <li><strong>PCA:</strong> Finding directions of maximum variance under orthogonality constraints.</li>
+                <li><strong>Graph partitioning:</strong> Spectral methods derived from optimization with constraints (min‑cut with balance) lead to eigenvalue problems.</li>
+                <li><strong>Duality theory:</strong> Leads to dual problems with computational advantages – used in distributed optimization.</li>
+                <li><strong>Information theory:</strong> Maximum entropy distributions use Lagrange multipliers.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<h3>Mathematics – Probability & Statistics</h3>
+
+<div class="qa-section">
+    <div class="question">What is the difference between maximum likelihood estimation (MLE) and maximum a posteriori estimation (MAP)?</div>
+    <ul>
+        <li><strong>MLE:</strong> θ_MLE = argmax P(data|θ). Treats parameters as fixed but unknown – uses only data, no prior assumptions.</li>
+        <li><strong>MAP:</strong> θ_MAP = argmax P(θ|data) = argmax P(data|θ)P(θ). By Bayes' theorem, incorporates prior P(θ).</li>
+        <li><strong>Key differences table:</strong></li>
+    </ul>
+    <table>
+        <tr><th>Aspect</th><th>MLE</th><th>MAP</th></tr>
+        <tr><td>Prior information</td><td>None</td><td>Incorporated via prior</td></tr>
+        <tr><td>Philosophy</td><td>Frequentist</td><td>Bayesian (point estimate)</td></tr>
+        <tr><td>Regularization</td><td>None inherent</td><td>Prior acts as regularizer</td></tr>
+        <tr><td>Asymptotics</td><td>Converges to true value</td><td>Converges to MLE as data increases</td></tr>
+    </table>
+    <ul>
+        <li><strong>Connection to regularization:</strong> Gaussian prior → L2 regularization (weight decay). Laplace prior → L1 regularization (sparsity).</li>
+        <li><strong>Relevance to graph analytics:</strong> Priors can encode graph structure (smoothness in semi‑supervised learning), domain knowledge, or hierarchical models.</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">Explain the bias‑variance tradeoff.</div>
+    <ul>
+        <li><strong>Formal decomposition:</strong> Expected error = (Bias)² + Variance + Irreducible error.</li>
+        <li><strong>Definitions:</strong>
+            <ul>
+                <li><strong>Bias:</strong> Error from overly simplistic assumptions – model underfits, misses patterns.</li>
+                <li><strong>Variance:</strong> Error from sensitivity to training fluctuations – model overfits, captures noise.</li>
+                <li><strong>Irreducible error:</strong> Noise inherent in problem.</li>
+            </ul>
+        </li>
+        <li><strong>The tradeoff:</strong> As model complexity increases:
+            <ul>
+                <li>Bias decreases (model captures true patterns).</li>
+                <li>Variance increases (model too sensitive to training data).</li>
+                <li>Optimal complexity minimizes total error.</li>
+            </ul>
+        </li>
+        <li><strong>Relevance to distributed graph analytics:</strong>
+            <ul>
+                <li><strong>GNNs:</strong> Deep GNNs suffer from over‑smoothing (nodes indistinguishable) – a form of bias. Depth‑width tradeoff involves bias‑variance.</li>
+                <li><strong>Graph sampling:</strong> Sampling introduces variance – tradeoff between full graph (high compute, low variance) and sampled (lower cost, higher variance).</li>
+                <li><strong>Distributed algorithms:</strong> Communication‑reducing approximations introduce bias to reduce variance from network delays.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">What is the Central Limit Theorem and why is it useful?</div>
+    <ul>
+        <li><strong>Statement:</strong> For large random samples from any population with finite mean μ and variance σ², the distribution of sample means approximates normal: X̄ ≈ N(μ, σ²/n).</li>
+        <li><strong>Key insights:</strong>
+            <ul>
+                <li>Works for almost any distribution (exceptions: Cauchy, infinite variance).</li>
+                <li>Approximation improves with n (rule of thumb: n ≥ 30).</li>
+                <li>Standard error = σ/√n.</li>
+            </ul>
+        </li>
+        <li><strong>Why useful in computational science:</strong>
+            <ul>
+                <li><strong>Statistical inference:</strong> Confidence intervals, hypothesis tests (t‑tests, z‑tests).</li>
+                <li><strong>Monte Carlo methods:</strong> Error decreases as 1/√n.</li>
+                <li><strong>Performance analysis:</strong> Benchmarking parallel algorithms – means from multiple runs become normal, enabling confidence intervals.</li>
+                <li><strong>Distributed computing:</strong> Aggregated results from many nodes become normal – enables statistical quality control.</li>
+                <li><strong>Graph sampling:</strong> Estimating properties of massive graphs via sampling – CLT justifies normality of estimates and error bounds.</li>
+            </ul>
+        </li>
+        <li><strong>Example in my area:</strong> When benchmarking a distributed graph algorithm across runs with different seeds, CLT lets me report: "Algorithm processes 1B edges/sec with 95% confidence interval ±2%."</li>
+    </ul>
+</div>
+
+<h3>Computer Science & Algorithms</h3>
+
+<div class="qa-section">
+    <div class="question">What is the difference between O(n log n) and O(n²) time complexity? Give examples.</div>
+    <ul>
+        <li><strong>Growth comparison:</strong> For n = 1 million:
+            <ul>
+                <li>O(n log n) ≈ 20 million operations – feasible on modern hardware.</li>
+                <li>O(n²) ≈ 1 trillion operations – infeasible (days or years).</li>
+            </ul>
+        </li>
+        <li><strong>O(n log n) algorithms:</strong> Merge sort, heap sort, FFT, Dijkstra (with binary heap), many sparse graph algorithms (O((n+m) log n) where m ≈ n).</li>
+        <li><strong>O(n²) algorithms:</strong> Bubble sort, insertion sort, naive matrix multiplication, Floyd‑Warshall, all‑pairs distance computation.</li>
+        <li><strong>Relevance to distributed graph analytics:</strong>
+            <ul>
+                <li>A graph with 1B nodes has ~10¹⁸ potential edges – impossible to process explicitly. Must use algorithms that scale linearly (or near‑linearly) in actual edges.</li>
+                <li>Distributed algorithms add communication complexity: O(n log n) computation may become O(n log n + communication overhead).</li>
+                <li>Partitioning strategies aim to keep computation local to minimize communication.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">When would you use a hash table (dictionary) versus a list?</div>
+    <ul>
+        <li><strong>Hash table (dict) when:</strong>
+            <ul>
+                <li>Fast lookups by key are critical: O(1) average vs O(n) for list.</li>
+                <li>Uniqueness matters: mapping global node IDs to local indices in distributed graph partition.</li>
+                <li>Set operations: membership, unions, intersections (common neighbors).</li>
+                <li>Counting frequencies: degree distribution.</li>
+                <li>Caching/memoization: store computed PageRank contributions.</li>
+            </ul>
+        </li>
+        <li><strong>List when:</strong>
+            <ul>
+                <li>Order matters: maintain insertion order, sort data.</li>
+                <li>Index‑based access: node attributes where node ID = array index.</li>
+                <li>Sequential iteration through all elements: iterating edges in partition.</li>
+                <li>Memory constrained: hash tables have overhead.</li>
+                <li>Small datasets: overhead not worth it.</li>
+            </ul>
+        </li>
+        <li><strong>Hybrid pattern in distributed graph frameworks:</strong>
+            <ul>
+                <li>Array for local node data (node IDs often 0..n-1).</li>
+                <li>Hash table for global→local mapping (when IDs are arbitrary).</li>
+                <li>Adjacency stored as arrays per node.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">Explain the concept of a convolutional neural network (CNN) in simple terms. How does it connect to graphs?</div>
+    <ul>
+        <li><strong>Core ideas of CNN:</strong>
+            <ul>
+                <li><strong>Convolution:</strong> Small filters slide across image, detecting features – edges in early layers, textures in middle, objects in deep layers.</li>
+                <li><strong>Parameter sharing:</strong> Same filter used everywhere – translation invariance, fewer parameters.</li>
+                <li><strong>Pooling:</strong> Downsampling to reduce dimensions, provide invariance, prevent overfitting.</li>
+                <li><strong>Hierarchical learning:</strong> Network automatically learns features from simple to complex.</li>
+            </ul>
+        </li>
+        <li><strong>Connection to Graph Neural Networks (GNNs):</strong>
+            <ul>
+                <li><strong>Graph convolutions:</strong> Aggregate information from node's neighbors (analogous to image convolution).</li>
+                <li><strong>Message passing:</strong> Nodes exchange information along edges.</li>
+                <li><strong>Graph pooling:</strong> Coarsen graphs for hierarchical representations.</li>
+                <li><strong>Distributed challenges:</strong> Training GNNs on massive graphs requires partitioning, handling boundary nodes (need neighbor info from other partitions), minimizing communication during message passing – directly connected to my research interest.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<h3>Python Programming</h3>
+
+<div class="qa-section">
+    <div class="question">How comfortable are you with Python? (NumPy, SciPy, PyTorch/TensorFlow?)</div>
+    <ul>
+        <li><strong>Overall:</strong> Intermediate‑advanced. Using Python for [X years] in coursework, research, personal projects.</li>
+        <li><strong>Core Python:</strong> Data structures, OOP, list comprehensions, generators, context managers, error handling, profiling.</li>
+        <li><strong>NumPy:</strong> Vectorized operations, broadcasting, advanced indexing, linear algebra (dot, eig, svd), random number generation.</li>
+        <li><strong>SciPy:</strong> Sparse matrices (critical for large graphs!), optimization routines, signal processing, statistical functions, sparse linear algebra solvers.</li>
+        <li><strong>PyTorch/TensorFlow:</strong> Custom layers, loss functions, automatic differentiation, data loaders, GPU acceleration, basics of distributed training.</li>
+        <li><strong>Graph‑specific libraries:</strong> NetworkX for prototyping, PyTorch Geometric / DGL (conceptual understanding).</li>
+        <li><strong>For research interests:</strong> Strengthening mpi4py, performance profiling, graph partitioning libraries (Metis/ParMETIS concepts), CUDA for GPU‑accelerated graph algorithms.</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">Explain the difference between a list and a tuple in Python.</div>
+    <ul>
+        <li><strong>Mutability:</strong> List – mutable (can modify after creation). Tuple – immutable (cannot change).</li>
+        <li><strong>Syntax:</strong> List: [1,2,3]; Tuple: (1,2,3) (parentheses optional).</li>
+        <li><strong>Performance:</strong> Tuple slightly faster (immutability allows optimization). List slower but flexible, overallocates memory.</li>
+        <li><strong>Memory:</strong> Tuple uses less memory (exact size). List uses more (overallocates for appends).</li>
+        <li><strong>Hashability:</strong> Tuple can be dict key (if elements hashable); List cannot.</li>
+        <li><strong>Use cases in computational science:</strong>
+            <ul>
+                <li><strong>Tuple:</strong> Fixed coordinates (x,y,z), function return values, dictionary keys for caching, graph edges in prototyping (source, target, weight).</li>
+                <li><strong>List:</strong> Dynamic adjacency lists, collecting results during iteration, BFS queue, sequences that will be modified.</li>
+            </ul>
+        </li>
+        <li><strong>Performance note:</strong> In billion‑scale graphs, using tuples for fixed‑size data reduces memory overhead – matters when processing billions of elements.</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">What is a list comprehension? Give examples relevant to computational science.</div>
+    <ul>
+        <li><strong>Definition:</strong> Concise syntax: [expression for item in iterable if condition] – compact, readable, faster than manual loops for simple transformations.</li>
+        <li><strong>Examples:</strong>
+            <ul>
+                <li><code>squares = [x**2 for x in range(10)]</code></li>
+                <li><code>heavy_edges = [(u,v) for u,v,w in edges if w > threshold]</code></li>
+                <li><code>edges = [(node, neighbor) for node, neighbors in enumerate(adjacency) for neighbor in neighbors if node < neighbor]</code> (flatten adjacency, avoid duplicates)</li>
+                <li><code>categories = ["high-degree" if degree > 100 else "low-degree" for degree in node_degrees]</code></li>
+                <li><code>column_j = [row[j] for row in matrix]</code></li>
+                <li><code>edges = [tuple(map(int, line.split())) for line in file if not line.startswith('#')]</code> (parse graph input)</li>
+            </ul>
+        </li>
+        <li><strong>When to use vs avoid:</strong>
+            <ul>
+                <li>Use: simple transformations/filters, when comprehension remains readable.</li>
+                <li>Avoid: complex nested logic, side effects, very large lists (use generator expressions instead).</li>
+            </ul>
+        </li>
+        <li><strong>Related for large‑scale data:</strong>
+            <ul>
+                <li>Generator expression: <code>(x**2 for x in range(10**9))</code> – lazy evaluation, memory efficient.</li>
+                <li>Dictionary comprehension: <code>{node: degree for node, degree in enumerate(degrees)}</code></li>
+                <li>Set comprehension: <code>{neighbor for node in nodes for neighbor in adjacency[node]}</code></li>
+            </ul>
+        </li>
+        <li>In distributed graph processing, generator expressions avoid materializing large intermediate lists when streaming between nodes.</li>
+    </ul>
 </div>
 
 <hr>
-<p style="text-align:right; color:#2f4f6f;">— prepared for Skoltech ACS / distributed graph analytics —</p>
+
+<!-- SECTION 3 – ON-THE-FEET REASONING -->
+<h2>Part 3: On‑the‑feet reasoning – practice aloud</h2>
+
+<div class="qa-section">
+    <div class="question">“You have a dataset with 90% class A and 10% class B. You build a model that is 90% accurate. Is it a good model? Why or why not?”</div>
+    <ul>
+        <li><strong>Not necessarily good</strong> – baseline “always predict A” also gives 90% accuracy without learning anything.</li>
+        <li><strong>Why accuracy is misleading:</strong> It weights both classes equally. Model could misclassify all class B and still get 90%.</li>
+        <li><strong>Better metrics for imbalanced data:</strong>
+            <ul>
+                <li>Confusion matrix (true positives, false negatives, etc.)</li>
+                <li>Precision = TP/(TP+FP) – of predicted B, how many are actually B?</li>
+                <li>Recall = TP/(TP+FN) – of actual B, how many did we catch?</li>
+                <li>F1‑score (harmonic mean of precision and recall)</li>
+                <li>ROC‑AUC, Precision‑Recall AUC (better for imbalance)</li>
+            </ul>
+        </li>
+        <li><strong>Example:</strong> If class B is “cancer patient” (10%) and class A is “healthy”, a model with 90% accuracy but 0% recall misses every cancer case – unacceptable.</li>
+        <li><strong>What to do:</strong> Use appropriate metrics, resampling techniques, class weights, or anomaly detection approaches.</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <div class="question">“Explain how you would detect anomalies in a stream of network traffic data.”</div>
+    <ul>
+        <li><strong>Step 1 – Understand data and define anomaly:</strong> Packet‑level (size, protocol, IPs), flow‑level (duration, bytes), time features.</li>
+        <li><strong>Step 2 – Feature engineering:</strong> Volume metrics (packets/sec, bytes/sec), statistical summaries, protocol distribution, connection patterns (unique destinations), entropy measures.</li>
+        <li><strong>Step 3 – Detection approaches (multiple layers):</strong>
+            <ul>
+                <li><strong>Statistical:</strong> Moving averages, EWMA, seasonal decomposition – flag deviations >3σ.</li>
+                <li><strong>Unsupervised ML:</strong> Isolation Forest, One‑Class SVM, autoencoders (reconstruction error).</li>
+                <li><strong>Time series:</strong> ARIMA/SARIMA forecast errors, LSTM prediction errors.</li>
+            </ul>
+        </li>
+        <li><strong>Step 4 – Streaming implementation:</strong> Sliding windows, incremental learning, computational efficiency (must keep up with packet rate), alert throttling.</li>
+        <li><strong>Step 5 – Multi‑stage pipeline:</strong>
+            <ul>
+                <li>Lightweight statistical filter → if suspicious, pass to heavier ML models → correlation engine → alert with context.</li>
+            </ul>
+        </li>
+        <li><strong>Step 6 – Feedback loop:</strong> Track false positives/negatives, incorporate analyst feedback, retrain periodically.</li>
+    </ul>
+</div>
+
+<hr>
+
+<p style="text-align:right; color:#2f4f6f;">— prepared for Skoltech ACS interview · distributed graph analytics —</p>
 
 </body>
 </html>
