@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skoltech ACS · interview prep</title>
+    <style>
+        /* minimal, classic, small font */
+        body {
+            background: #f8fafc;
+            font-family: 'Courier New', 'Lucida Console', 'Liberation Mono', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 2rem auto;
+            max-width: 1000px;
+            padding: 0 20px;
+            color: #1e293b;
+        }
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 0.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.3px;
+        }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            background: #e9edf2;
+            padding: 0.3rem 0.5rem;
+            border-left: 5px solid #0f172a;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.5rem;
+            border-bottom: 1px dashed #64748b;
+            padding-bottom: 0.2rem;
+        }
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.2rem;
+            color: #0f172a;
+        }
+        p, li {
+            margin: 0.5rem 0;
+            text-align: justify;
+        }
+        ul, ol {
+            margin: 0.3rem 0 0.8rem 1.5rem;
+            padding-left: 0;
+        }
+        li {
+            margin: 0.2rem 0;
+        }
+        pre {
+            background: #1e293b;
+            color: #dee2e6;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #475569;
+            margin: 1rem 0;
+        }
+        code {
+            background: #e2e8f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #0b1e33;
+        }
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        hr {
+            border: none;
+            border-top: 2px dotted #94a3b8;
+            margin: 1.8rem 0;
+        }
+        .note {
+            background: #f1f5f9;
+            border-left: 5px solid #475569;
+            padding: 0.8rem 1.2rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            border: 1px solid #b9c7da;
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        th {
+            background: #d1dbe8;
+            font-weight: 600;
+        }
+        .question {
+            font-weight: 600;
+            color: #022b46;
+            margin-top: 1.2rem;
+        }
+        .section-tag {
+            background: #0f172a;
+            color: white;
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📐 Skoltech ACS · interview preparation</h1>
+<p><strong>Advanced Computational Science · distributed graph analytics · supercomputing</strong></p>
+
+<!-- ============ SECTION 1 ============ -->
+<h2>SECTION 1 – Motivation & fit</h2>
+
+<h3>Q1: “Why ACS over standard CS/DS?”</h3>
+<p><strong>Sample answer:</strong> I chose ACS because it sits exactly at the intersection of high‑performance computing, applied mathematics, and large‑scale data analysis. While standard CS focuses on software engineering and DS on business analytics, ACS offers the computational depth to solve scientific problems at scale. I am drawn to parallel & distributed computing, numerical algorithms, and the opportunity to work on supercomputing architectures. Skoltech’s project‑based model and world‑class facilities make it the ideal place to develop skills for my research interests.</p>
+
+<h3>Q2: “Which research areas interest you most?”</h3>
+<p><strong>Sample answer:</strong> I am particularly interested in <strong>Distributed Graph Analytics on Modern Supercomputing Architectures</strong>. Graphs appear everywhere — social networks, biology, transport — and as datasets grow to billions of nodes, we need algorithms that scale across distributed memory. Modern supercomputers add complexity: hybrid MPI+X, heterogeneous nodes (CPUs+GPUs), deep memory hierarchies. Designing graph algorithms that minimise communication and exploit these architectures is a crucial challenge. I follow frameworks like D‑Galois, Gemini, and MPI‑based graph libraries, and I am also curious about scaling graph neural networks to distributed settings.</p>
+
+<h3>Q3: “What do you want to work on for your master’s thesis?”</h3>
+<p><strong>Sample answer:</strong> Ideally, I would work on distributed graph algorithms for supercomputing. Three directions attract me:<br>
+• <em>Communication‑avoiding graph algorithms</em> – new partitioning or asynchronous models that trade redundant computation for less communication.<br>
+• <em>Heterogeneous graph analytics</em> – using both CPUs and GPUs, work distribution, and memory management for irregular graph structures.<br>
+• <em>Scaling graph neural networks</em> – distributed training, mini‑batch sampling across partitions, and efficient gradient synchronisation.<br>
+I am open to refining these ideas based on Skoltech’s ongoing projects and would love to contribute to research in this area.</p>
+
+<h3>Q4: “Where do you see yourself in 5 years?”</h3>
+<p><strong>Sample answer:</strong> I see myself pursuing a PhD in computational science / computer science, focusing on high‑performance computing and large‑scale graph analytics. The ACS programme will give me the mathematical and research foundation for doctoral studies. Longer term, I aim to develop exascale algorithms for real‑world problems — scientific discovery, infrastructure optimisation, or working at a national laboratory. Alternatively, I could see myself in industrial R&amp;D, building production‑quality parallel graph frameworks. Both paths build on what I would learn at Skoltech.</p>
+
+<hr>
+
+<!-- ============ SECTION 2 ============ -->
+<h2>SECTION 2 – Technical fundamentals</h2>
+
+<h3>└─ A. Mathematics</h3>
+
+<h4>Linear algebra</h4>
+<p class="question">🔹 Geometric interpretation of eigenvectors/eigenvalues</p>
+<p><strong>Answer:</strong> An eigenvector is a direction preserved under a linear transformation — it gets scaled but not rotated. The eigenvalue tells how much scaling occurs: |λ|&gt;1 stretches, |λ|&lt;1 compresses, negative flips, zero collapses to null space. In graph theory, eigenvectors of the Laplacian (e.g. Fiedler vector) give spectral embeddings used for partitioning — directly relevant to distributed graph analytics. In PCA, eigenvectors of the covariance matrix point to directions of maximum variance, with eigenvalues indicating the variance along each component.</p>
+
+<p class="question">🔹 What is matrix decomposition? Why is SVD so important?</p>
+<p><strong>Answer:</strong> A matrix decomposition factors a matrix into simpler pieces that reveal structure or simplify computations — like factoring an integer. SVD (A = UΣVᵀ) is fundamental: U and V are orthonormal bases, Σ contains singular values (sorted). Importance: (1) best low‑rank approximation (PCA, compression), (2) reveals condition number, (3) stable pseudoinverse, (4) latent factors in recommendation, (5) spectral graph analysis (community detection via adjacency SVD). For my interests, SVD is key for partitioning and embedding graphs.</p>
+
+<p class="question">🔹 Condition number – why does it matter?</p>
+<p><strong>Answer:</strong> κ(A) = σ_max/σ_min measures sensitivity of Ax=b to input perturbations. High κ → ill‑conditioned → small rounding errors can explode. In numerical computing it affects: algorithm choice (direct vs iterative), need for preconditioning, trust in solutions. Graph Laplacians often become ill‑conditioned as graphs grow, influencing convergence of iterative solvers for spectral partitioning. Understanding κ helps predict iteration counts and stability.</p>
+
+<h4>Calculus & optimization</h4>
+<p class="question">🔹 Gradient descent, learning rate, stochastic GD</p>
+<p><strong>Answer:</strong> Gradient descent updates parameters θ ← θ – η∇J(θ) to minimise J. Learning rate η controls step size: too small → slow, too large → divergence/oscillation. SGD uses a single random sample (or mini‑batch) per step, introducing noise. Advantages: speed, escapes shallow minima, online learning, implicit regularisation. In distributed settings, variants (sync/async, data/model parallelism) are used to scale training, e.g. for GNNs on massive graphs.</p>
+
+<p class="question">🔹 Lagrange multipliers – concept & uses</p>
+<p><strong>Answer:</strong> Method to optimise f(x) subject to g(x)=c. At optimum, ∇f ∥ ∇g ⇒ ∇f = λ∇g. λ = Lagrange multiplier, measures sensitivity of optimum to constraint relaxation. Used in SVM (dual formulation, support vectors), PCA (variance under orthogonality), graph partitioning (min‑cut with balance → eigenvalue problem), duality theory (distributed optimisation), and information theory (max‑ent distributions).</p>
+
+<h4>Probability & statistics</h4>
+<p class="question">🔹 MLE vs MAP</p>
+<p><strong>Answer:</strong> MLE finds θ maximising P(data|θ) — no prior. MAP maximises posterior P(θ|data) ∝ P(data|θ)P(θ) — includes prior. MAP = MLE + regularisation (Gaussian prior → L2, Laplace → L1). In graph problems, priors can encode smoothness or community size expectations. As data grows, MAP converges to MLE.</p>
+
+<p class="question">🔹 Bias‑variance tradeoff</p>
+<p><strong>Answer:</strong> Expected error = bias² + variance + irreducible noise. Bias: systematic error from simplistic assumptions (underfitting). Variance: sensitivity to training fluctuations (overfitting). Complex models lower bias but raise variance. In distributed graph analytics: GNN depth vs over‑smoothing (bias), graph sampling (variance), communication‑reducing approximations (bias) to lower network variance. Cross‑validation finds the sweet spot.</p>
+
+<p class="question">🔹 Central Limit Theorem – why useful?</p>
+<p><strong>Answer:</strong> CLT: for large samples, the distribution of the sample mean approaches normal, regardless of original distribution. Useful for: confidence intervals, hypothesis testing, Monte Carlo error bounds (error ∝ 1/√n), performance analysis (mean of benchmark runs), distributed aggregation (aggregated stats become normal). In graph sampling, it justifies error estimates when estimating properties from sampled subgraphs.</p>
+
+<h3>└─ B. Computer science & algorithms</h3>
+
+<p class="question">🔹 O(n log n) vs O(n²) – examples</p>
+<p><strong>Answer:</strong> O(n log n) grows much slower (for n=1e6: ~20M vs 1e12 operations). O(n log n) algorithms: merge sort, heap sort, FFT, Dijkstra (binary heap), many sparse graph algorithms (O((n+m)log n)). O(n²) algorithms: bubble sort, naive matrix multiplication, Floyd‑Warshall, all‑pairs checks. For massive graphs (billions of nodes), O(n²) is impossible; we need near‑linear scaling in edges, plus communication awareness in distributed settings.</p>
+
+<p class="question">🔹 Hash table vs list – when to use each</p>
+<p><strong>Answer:</strong> Hash table: O(1) average lookups by key, uniqueness, set ops, counting, caching. List: when order matters, index‑based access, sequential iteration, memory constraints. In distributed graph frameworks, hybrid patterns appear: array for local node data (fast index), hash table for global‑to‑local mapping, adjacency stored as per‑node lists. Example: D‑Galois uses contiguous arrays for partitions + hash for cross‑partition references.</p>
+
+<p class="question">🔹 CNN explained simply</p>
+<p><strong>Answer:</strong> CNN learns hierarchical features from grid data (images) using convolutions (small filters slide, detect edges → textures → objects), parameter sharing (translation invariance), pooling (downsampling). This inspired Graph Neural Networks: graph convolutions aggregate neighbour info, message passing along edges, graph pooling for coarsening. Distributed GNN training on large graphs requires partitioning, handling boundary nodes, and efficient communication – directly related to my interest.</p>
+
+<h3>└─ C. Programming (Python focus)</h3>
+
+<p class="question">🔹 Python proficiency – NumPy, SciPy, PyTorch?</p>
+<p><strong>Answer:</strong> Intermediate‑advanced. Core: data structures, OOP, list comprehensions, generators. NumPy: vectorisation, broadcasting, linear algebra, random. SciPy: sparse matrices (critical for graphs), optimisation, stats. PyTorch/TensorFlow: custom layers, autograd, data loaders, distributed training basics. Graph libraries: NetworkX (prototyping), PyTorch Geometric (conceptual). Strengthening: mpi4py, CUDA, ParMETIS concepts – all for distributed graph analytics.</p>
+
+<p class="question">🔹 List vs tuple – differences</p>
+<p><strong>Answer:</strong> List: mutable, square brackets, slower, overallocates memory. Tuple: immutable, parentheses, faster, less memory, can be dict keys. Use tuples for fixed data (coordinates, edges in prototyping), dict keys (caching). Use lists for dynamic sequences (adjacency builders, BFS queues). Memory efficiency matters for billion‑scale graphs, so fixed structures often use tuples/arrays.</p>
+
+<p class="question">🔹 List comprehension – what and when</p>
+<p><strong>Answer:</strong> Concise syntax: [expr for item in iterable if cond]. Faster and clearer than manual loops for simple transformations/filters. Examples: filtering heavy edges, flattening adjacency, parsing graph input. For massive data, prefer generator expressions (lazy, memory‑efficient). In distributed pipelines, generator expressions avoid materialising large lists when streaming between nodes.</p>
+
+<hr>
+<div class="note">
+    <strong>✎ Note:</strong> Sections 3 (deep dive into your projects) and 4 (thinking‑on‑feet) should be prepared personally – focus on your own code, past research, and reasoning out loud. Use this guide as a skeleton.
+</div>
+
+<!-- end -->
+<p style="text-align:right; color:#4b5563;">— skoltech ACS · distributed graph analytics —</p>
+</body>
+</html>
