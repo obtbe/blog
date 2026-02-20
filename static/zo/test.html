@@ -2,219 +2,415 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematical Problems</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <title>Skoltech ACS – Interview Questions & Answers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phi-m/latin-modern-roman@1.0.1/dist/index.min.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body {
-            font-family: 'Times New Roman', serif;
-            font-size: 12pt;
-            line-height: 1.4;
-            margin: 30px auto;
-            max-width: 700px;
+            font-family: "Latin Modern Roman", serif;
+            font-size: 11pt;
             color: #000;
             background: #fff;
+            margin: 50px auto;
+            max-width: 950px;
+            line-height: 1.6;
+            padding: 0 20px;
         }
-        
-        h1 {
-            text-align: center;
-            font-size: 16pt;
-            margin-bottom: 30px;
-            font-weight: normal;
-        }
-        
-        .problem {
-            margin-bottom: 20px;
-        }
-        
-        .problem-number {
-            font-weight: bold;
-        }
-        
-        .problem-content {
-            margin-left: 15px;
-        }
-        
-        .footer {
-            text-align: center;
-            font-size: 10pt;
-            color: #666;
+
+        .category-box {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 4px 16px;
             margin-top: 40px;
+            margin-bottom: 25px;
+            font-size: 14pt;
+            font-weight: 600;
+            background: #f9f9f9;
+            letter-spacing: 0.3px;
         }
-        
+
+        .question {
+            font-weight: 700;
+            font-size: 12pt;
+            color: #1e3c5c;
+            margin-top: 25px;
+            margin-bottom: 8px;
+        }
+
+        .explanation {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            padding: 10px 16px;
+            background: #fafcff;
+            border-radius: 6px;
+            border: 1px solid #d4e0ec;
+            font-size: 10.8pt;
+        }
+
+        .explanation strong {
+            color: #1e4a6b;
+        }
+
+        ul, ol {
+            margin: 6px 0 10px 18px;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px dashed #aaa;
+            margin: 20px 0;
+        }
+
+        .note {
+            background: #f2f5f9;
+            padding: 6px 12px;
+            border-left: 4px solid #1e3c5c;
+            font-style: italic;
+            margin: 12px 0;
+        }
+
         pre {
-            font-family: 'Courier New', monospace;
-            font-size: 11pt;
-            background: #f8f8f8;
-            padding: 8px;
-            margin: 8px 0;
+            font-family: "Courier New", monospace;
+            background: #f0f3f7;
+            padding: 8px 12px;
+            border-left: 4px solid #1e3c5c;
             overflow-x: auto;
+            font-size: 10pt;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 12px 0;
+            background: #fbfdff;
+            font-size: 10.5pt;
+        }
+        th {
+            background: #e1eaf2;
+            font-weight: 600;
+            padding: 6px;
+        }
+        td {
+            border: 1px solid #b9cfdf;
+            padding: 6px;
         }
     </style>
 </head>
 <body>
 
-<h1>Mathematical Problems</h1>
+<h1 style="font-size:22pt; margin-bottom:10px;">Skoltech ACS – Interview Q&A</h1>
+<p style="font-size:12pt;"><strong>Advanced Computational Science · distributed graph analytics · supercomputing</strong></p>
 
-<div class="problem">
-    <div class="problem-number">Problem 1.</div>
-    <div class="problem-content">
-        Find derivative with respect to \( x \) of the function \( f(x) = x^{\cos^2 x} \).
-    </div>
+<!-- ========== SECTION 1 – MOTIVATION ========== -->
+<div class="category-box">Part 1 – Motivation & personal fit</div>
+
+<div class="question">1. Why did you choose the ACS program over a standard CS or Data Science master?</div>
+<div class="explanation">
+    <strong>Answer:</strong> ACS sits at the intersection of high‑performance computing, applied mathematics, and large‑scale scientific data – unlike standard CS (focused on software engineering) or DS (business analytics). My goal is to build parallel and distributed algorithms that run on supercomputers, solving real scientific problems at scale. Skoltech's project‑based model and world‑class computing facilities are ideal for developing code that scales to thousands of nodes. The program's emphasis on numerical methods and scientific computing directly supports my research interests.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 2.</div>
-    <div class="problem-content">
-        Find the indefinite integral \[ \int \sqrt{x} e^{-\sqrt{x}} dx. \]
-    </div>
+<div class="question">2. Which research area within ACS attracts you most?</div>
+<div class="explanation">
+    <strong>Answer:</strong> I am particularly drawn to <strong>Distributed Graph Analytics on Modern Supercomputing Architectures</strong>. 
+    <ul>
+        <li><strong>Why graphs?</strong> They are everywhere – social networks, biological networks, transportation, the web – and datasets already reach billions of nodes and trillions of edges.</li>
+        <li><strong>Why supercomputing?</strong> Modern machines have hybrid parallelism (MPI+X), heterogeneous nodes (CPUs + GPUs), and deep memory hierarchies. Algorithms must be redesigned to exploit these.</li>
+        <li><strong>Key research questions I find exciting:</strong>
+            <ul>
+                <li>How to partition massive graphs for load balance and minimal communication?</li>
+                <li>Communication‑avoiding or asynchronous graph algorithms – trading redundant computation for less data movement.</li>
+                <li>Scaling graph neural network training across distributed memory – mini‑batch sampling, gradient synchronisation, handling graph dependencies.</li>
+            </ul>
+        </li>
+        <li>I have studied frameworks like D‑Galois, Gemini, and MPI‑based graph libraries, and I am eager to contribute to this area.</li>
+    </ul>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 3.</div>
-    <div class="problem-content">
-        Find the following limit \[ \lim_{x \to 0} \frac{1 - e^{x^2}}{1 - \cos x}. \]
-    </div>
+<div class="question">3. What would you like to work on in your master's thesis?</div>
+<div class="explanation">
+    <strong>Answer:</strong> I have three potential directions:
+    <ul>
+        <li><strong>Communication‑avoiding graph algorithms:</strong> Exploit mathematical structure (e.g., graph partitioning, asynchronous models) to minimise communication – the main bottleneck in distributed systems.</li>
+        <li><strong>Heterogeneous graph analytics:</strong> Design algorithms that effectively use both CPUs and GPUs for irregular graph workloads – work distribution, memory hierarchy management, handling irregular computations.</li>
+        <li><strong>Scaling graph neural networks:</strong> Address challenges in distributed GNN training – sampling across partitions, efficient gradient synchronisation, handling graph dependencies without excessive communication.</li>
+    </ul>
+    I am open to refining these based on Skoltech's ongoing projects and supervisor input – my goal is a publication‑worthy contribution.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 4.</div>
-    <div class="problem-content">
-        Compute the distance from point \( x = (1, -2, 0, 3) \) to the plane \( x_1 + 3x_2 - x_3 + x_4 = 3 \).
-    </div>
+<div class="question">4. Where do you see yourself in five years?</div>
+<div class="explanation">
+    <strong>Answer:</strong> 
+    <ul>
+        <li><strong>Short‑term (after ACS):</strong> Pursue a PhD in computational science, computer science, or HPC at a top international institution. The ACS foundation in mathematics, parallel computing, and research methodology will prepare me well.</li>
+        <li><strong>Long‑term:</strong> Develop exascale algorithms for real‑world problems – scientific discovery, infrastructure optimisation – either at a national laboratory or in deep‑tech R&amp;D.</li>
+        <li><strong>Alternative:</strong> I am also drawn to the intersection of HPC and AI – training massive models on supercomputers, which requires similar distributed algorithms expertise.</li>
+    </ul>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 5.</div>
-    <div class="problem-content">
-        Let \( A, B \) and \( C \) be \( n \times n \) invertible matrices. Simplify the following expression:
-        \[ C^{-1} \left( A^2 B^{-1} \right)^{-3} \left( CA^{-3} \right)^{-2} C^2. \]
-    </div>
+<hr>
+
+<!-- ========== SECTION 2 – TECHNICAL ========== -->
+<div class="category-box">Part 2 – Technical fundamentals</div>
+
+<!-- ===== MATHEMATICS ===== -->
+<h3 style="font-size:13pt; margin-bottom:8px; margin-top:25px;">Mathematics – Linear Algebra</h3>
+
+<div class="question">5. Explain the geometric interpretation of eigenvectors and eigenvalues.</div>
+<div class="explanation">
+    <strong>Answer:</strong> An eigenvector is a direction preserved under a linear transformation – it gets scaled but not rotated. The eigenvalue tells how much scaling occurs.
+    <ul>
+        <li>\(|\lambda| > 1\): vector stretches.</li>
+        <li>\(|\lambda| < 1\): vector compresses.</li>
+        <li>\(\lambda\) negative: vector flips direction.</li>
+        <li>\(\lambda = 0\): vector collapses to zero (null space).</li>
+    </ul>
+    <strong>Physical intuition:</strong> Imagine stretching space – some directions simply lengthen without rotating; those are eigen‑directions.<br>
+    <strong>Graph example:</strong> Eigenvectors of the graph Laplacian reveal structural properties. The Fiedler vector (eigenvector for smallest non‑zero eigenvalue) gives a spectral embedding used for graph partitioning – directly relevant to my research. Number of zero eigenvalues equals number of connected components.<br>
+    <strong>Data science example:</strong> In PCA, eigenvectors of the covariance matrix point to directions of maximum variance; eigenvalues indicate variance explained.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 6.</div>
-    <div class="problem-content">
-        Evaluate \(\displaystyle \int \left( x^7 \log(x^2) + \log(x^2) e^x \right) dx\).
-    </div>
+<div class="question">6. What is a matrix decomposition? Why is SVD so important?</div>
+<div class="explanation">
+    <strong>Answer:</strong> A matrix decomposition factors a matrix into simpler constituent matrices that reveal properties or make computations easier – like factoring an integer into primes.<br>
+    <strong>SVD:</strong> \(A = U \Sigma V^T\) where \(U,V\) are orthonormal, \(\Sigma\) diagonal with singular values (non‑negative, descending).<br>
+    <strong>Why crucial:</strong>
+    <ul>
+        <li><strong>Dimensionality reduction:</strong> Keeping largest \(k\) singular values gives best rank‑\(k\) approximation (Eckart‑Young theorem) – foundation of PCA.</li>
+        <li><strong>Data compression:</strong> Storage reduces from \(m\times n\) to \(k(m+n+1)\).</li>
+        <li><strong>Condition number:</strong> \(\kappa = \sigma_{\max}/\sigma_{\min}\) measures numerical stability.</li>
+        <li><strong>Pseudoinverse:</strong> Stable way to compute Moore‑Penrose pseudoinverse.</li>
+        <li><strong>Recommendation systems:</strong> Uncovers latent factors.</li>
+        <li><strong>Graph analytics:</strong> SVD of adjacency or Laplacian reveals community structure – used in spectral partitioning.</li>
+    </ul>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 7.</div>
-    <div class="problem-content">
-        Find the derivative of \((\cos x)^{\sin x}\).
-    </div>
+<div class="question">7. What is the condition number and why does it matter?</div>
+<div class="explanation">
+    <strong>Answer:</strong> \(\kappa(A) = \sigma_{\max}/\sigma_{\min}\) measures sensitivity of \(Ax=b\) to input errors.
+    <ul>
+        <li>\(\kappa\) close to 1: well‑conditioned – small input changes give small output changes.</li>
+        <li>\(\kappa\) very large: ill‑conditioned – rounding errors or noise get amplified, potentially making solutions meaningless.</li>
+    </ul>
+    <strong>Why it matters:</strong>
+    <ul>
+        <li><strong>Error amplification:</strong> If \(\kappa = 10^6\), you lose ~6 digits of precision.</li>
+        <li><strong>Algorithm selection:</strong> Ill‑conditioned problems may need iterative methods with preconditioning.</li>
+        <li><strong>Preconditioning:</strong> In iterative solvers for large sparse systems (common in graph problems), preconditioners reduce \(\kappa\).</li>
+        <li><strong>Graph Laplacians:</strong> Their condition number grows with graph size, affecting convergence of spectral partitioning solvers.</li>
+    </ul>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 8.</div>
-    <div class="problem-content">
-        Compute \(\displaystyle \int_{-\pi/2}^{\pi/2} e^x \cos x \, dx\).
-    </div>
+<h3 style="font-size:13pt; margin-bottom:8px; margin-top:25px;">Mathematics – Calculus & Optimization</h3>
+
+<div class="question">8. Explain gradient descent, learning rate, and stochastic gradient descent.</div>
+<div class="explanation">
+    <strong>Answer:</strong> Gradient descent: \(\theta_{\text{new}} = \theta_{\text{old}} - \eta \nabla J(\theta_{\text{old}})\) – step downhill in steepest direction.<br>
+    <strong>Learning rate \(\eta\):</strong>
+    <ul>
+        <li>Too small: convergence very slow, may get stuck.</li>
+        <li>Too large: overshoot, diverge, or oscillate.</li>
+        <li>Adaptive methods (Adam, RMSprop) adjust \(\eta\) per parameter.</li>
+    </ul>
+    <strong>Stochastic gradient descent (SGD):</strong> Uses single random sample (or mini‑batch) instead of full dataset.
+    <ul>
+        <li><strong>Advantages:</strong> Much faster per iteration, escapes shallow minima, online learning, implicit regularisation.</li>
+        <li><strong>Disadvantages:</strong> Oscillates around minimum, requires careful learning rate scheduling.</li>
+    </ul>
+    <strong>Distributed training:</strong> Variants include data/model parallelism, sync/async updates – crucial for scaling GNNs on large graphs.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 9.</div>
-    <div class="problem-content">
-        Find \(\displaystyle \lim_{x \to 0} \frac{\tanh\left(\frac{x^2}{2}\right)}{\left(\sin\left(\frac{x}{2}\right)\right)^2}\) where \(\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}\).
-    </div>
+<div class="question">9. What is a Lagrange multiplier? Where is it used?</div>
+<div class="explanation">
+    <strong>Answer:</strong> Technique for optimizing \(f(x)\) subject to equality constraint \(g(x)=c\). At optimum, gradients are parallel: \(\nabla f = \lambda \nabla g\). \(\lambda\) measures sensitivity of optimal value to constraint relaxation.<br>
+    <strong>Applications:</strong>
+    <ul>
+        <li><strong>SVM:</strong> Dual formulation uses Lagrange multipliers; support vectors correspond to non‑zero \(\lambda\).</li>
+        <li><strong>PCA:</strong> Finding directions of maximum variance under orthogonality constraints.</li>
+        <li><strong>Graph partitioning:</strong> Spectral methods derived from optimization with constraints (min‑cut with balance) lead to eigenvalue problems.</li>
+        <li><strong>Duality theory:</strong> Leads to dual problems with computational advantages – used in distributed optimisation.</li>
+        <li><strong>Information theory:</strong> Maximum entropy distributions use Lagrange multipliers.</li>
+    </ul>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 10.</div>
-    <div class="problem-content">
-        Compute the distance from point \(\mathbf{x} = (2, 0, 1, -3)\) to the plane \(3x_1 - 2x_2 + 2x_3 - 4x_4 = 1\).
-    </div>
+<h3 style="font-size:13pt; margin-bottom:8px; margin-top:25px;">Mathematics – Probability & Statistics</h3>
+
+<div class="question">10. Difference between MLE and MAP?</div>
+<div class="explanation">
+    <strong>Answer:</strong> 
+    <ul>
+        <li><strong>MLE:</strong> \(\theta_{\text{MLE}} = \arg\max P(\text{data}|\theta)\) – no prior, only data.</li>
+        <li><strong>MAP:</strong> \(\theta_{\text{MAP}} = \arg\max P(\theta|\text{data}) = \arg\max P(\text{data}|\theta)P(\theta)\) – includes prior (Bayesian point estimate).</li>
+    </ul>
+    <table>
+        <tr><th>Aspect</th><th>MLE</th><th>MAP</th></tr>
+        <tr><td>Prior information</td><td>None</td><td>Incorporated via prior</td></tr>
+        <tr><td>Philosophy</td><td>Frequentist</td><td>Bayesian</td></tr>
+        <tr><td>Regularization</td><td>None</td><td>Prior acts as regularizer</td></tr>
+        <tr><td>Asymptotics</td><td>Converges to true value</td><td>Converges to MLE as data increases</td></tr>
+    </table>
+    <strong>Connection to regularization:</strong> Gaussian prior → L2 (weight decay). Laplace prior → L1 (sparsity).<br>
+    <strong>Graph relevance:</strong> Priors can encode graph structure (smoothness in semi‑supervised learning) or community size expectations.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 11.</div>
-    <div class="problem-content">
-        Let \(A, B, C\) be \(n \times n\) invertible matrices. Simplify \(C^{-1}(A^2B^{-1})^{-2}A^{-2}(CA^{-3})^{-2}(CB^{-1})^2\).
-    </div>
+<div class="question">11. Explain the bias‑variance tradeoff.</div>
+<div class="explanation">
+    <strong>Answer:</strong> Expected error = \(\text{Bias}^2 + \text{Variance} + \text{Irreducible error}\).
+    <ul>
+        <li><strong>Bias:</strong> Error from overly simplistic assumptions – underfitting.</li>
+        <li><strong>Variance:</strong> Error from sensitivity to training fluctuations – overfitting.</li>
+    </ul>
+    As model complexity increases, bias decreases, variance increases – there is an optimal complexity.<br>
+    <strong>Relevance to distributed graph analytics:</strong>
+    <ul>
+        <li><strong>GNNs:</strong> Deep GNNs suffer from over‑smoothing (nodes indistinguishable) – a form of bias.</li>
+        <li><strong>Graph sampling:</strong> Sampling introduces variance – tradeoff between full graph (high compute, low variance) and sampling (lower cost, higher variance).</li>
+        <li><strong>Distributed algorithms:</strong> Communication‑reducing approximations introduce bias to reduce variance from network delays.</li>
+    </ul>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 12.</div>
-    <div class="problem-content">
-        Let \(A = \begin{pmatrix} 4 & 1 & 1 \\ 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\). Find the maximal eigenvalue of \(A^3\).
-    </div>
+<div class="question">12. What is the Central Limit Theorem and why is it useful?</div>
+<div class="explanation">
+    <strong>Answer:</strong> For large random samples from any population with finite mean \(\mu\) and variance \(\sigma^2\), the distribution of sample means approximates normal: \(\bar{X} \approx N(\mu, \sigma^2/n)\).<br>
+    <strong>Why useful:</strong>
+    <ul>
+        <li><strong>Statistical inference:</strong> Confidence intervals, hypothesis tests.</li>
+        <li><strong>Monte Carlo methods:</strong> Error decreases as \(1/\sqrt{n}\).</li>
+        <li><strong>Performance analysis:</strong> Benchmarking parallel algorithms – means from multiple runs become normal, enabling confidence intervals.</li>
+        <li><strong>Distributed computing:</strong> Aggregated results from many nodes become normal – statistical quality control.</li>
+        <li><strong>Graph sampling:</strong> Estimating properties of massive graphs via sampling – CLT justifies normality of estimates and error bounds.</li>
+    </ul>
+    <strong>Example:</strong> Benchmarking a distributed graph algorithm: "Processes 1B edges/sec with 95% confidence interval ±2%".
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 13.</div>
-    <div class="problem-content">
-        Let \(A \in \mathbb{R}^{n \times n}\) be a full rank matrix. If you are allowed to modify any \(m < n\) entries of \(A\), what is the achievable lower-bound on the rank of the modified matrix?
-    </div>
+<h3 style="font-size:13pt; margin-bottom:8px; margin-top:25px;">Computer Science & Algorithms</h3>
+
+<div class="question">13. O(n log n) vs O(n²) – examples and relevance?</div>
+<div class="explanation">
+    <strong>Answer:</strong> For \(n = 10^6\): \(n\log n \approx 20M\) ops (feasible); \(n^2 \approx 10^{12}\) ops (infeasible).<br>
+    <strong>O(n log n) algorithms:</strong> Merge sort, heap sort, FFT, Dijkstra (binary heap), many sparse graph algorithms.<br>
+    <strong>O(n²) algorithms:</strong> Bubble sort, naive matrix multiplication, Floyd‑Warshall, all‑pairs checks.<br>
+    <strong>Relevance:</strong> For massive graphs (billions of nodes), O(n²) is impossible. Must use algorithms that scale linearly (or near‑linearly) in edges, plus communication‑aware distributed designs.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 14.</div>
-    <div class="problem-content">
-        Let \(X_i\) be i.i.d. uniform random variables on \([0,1]\). Find the mean value of \(Y = \max\{X_1, X_2, \dots, X_{2025}\}\).
-    </div>
+<div class="question">14. Hash table (dict) vs list – when to use each?</div>
+<div class="explanation">
+    <strong>Answer:</strong> 
+    <ul>
+        <li><strong>Hash table:</strong> O(1) lookups by key, uniqueness, set ops, counting, caching. Example: global→local node ID mapping.</li>
+        <li><strong>List:</strong> Order matters, index access, sequential iteration, memory compact. Example: local adjacency storage.</li>
+    </ul>
+    <strong>Distributed graph frameworks often hybrid:</strong> array for local nodes (fast index) + hash for cross‑partition references.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 15.</div>
-    <div class="problem-content">
-        A fair coin is tossed repeatedly. Find \(E[l(HH)]\) and \(E[l(HT)]\), where \(l(X)\) is the number of tosses until the first appearance of pattern \(X\).
-    </div>
+<div class="question">15. Explain CNN simply – link to graphs.</div>
+<div class="explanation">
+    <strong>Answer:</strong> CNN learns hierarchical features via:
+    <ul>
+        <li><strong>Convolution:</strong> Small filters slide, detecting edges → textures → objects.</li>
+        <li><strong>Parameter sharing:</strong> Same filter everywhere – translation invariance, fewer parameters.</li>
+        <li><strong>Pooling:</strong> Downsampling to reduce dimensions, prevent overfitting.</li>
+    </ul>
+    <strong>Link to GNNs:</strong> Graph convolutions aggregate neighbour info, message passing, graph pooling. Distributed GNN training requires partitioning, boundary handling, communication minimisation – directly connected to my research.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 16.</div>
-    <div class="problem-content">
-        A traveler starts in city A. Each day: in A, stays with probability 1/3, goes to B or C with probability 1/3 each; in B, goes to A or C with probability 1/2 each. Find the expected number of days to get from A to C.
-    </div>
+<h3 style="font-size:13pt; margin-bottom:8px; margin-top:25px;">Python Programming</h3>
+
+<div class="question">16. Python proficiency – NumPy, SciPy, PyTorch?</div>
+<div class="explanation">
+    <strong>Answer:</strong> Intermediate‑advanced. 
+    <ul>
+        <li><strong>Core:</strong> Data structures, OOP, comprehensions, generators.</li>
+        <li><strong>NumPy:</strong> Vectorisation, broadcasting, linear algebra, random.</li>
+        <li><strong>SciPy:</strong> Sparse matrices (critical for graphs!), optimisation, stats.</li>
+        <li><strong>PyTorch/TF:</strong> Custom layers, autograd, data loaders, basics of distributed training.</li>
+        <li><strong>Graph libs:</strong> NetworkX (prototype), PyG/DGL (conceptual).</li>
+        <li><strong>Strengthening:</strong> mpi4py, CUDA, ParMETIS concepts – for real distributed graph analytics.</li>
+    </ul>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 17.</div>
-    <div class="problem-content">
-        Find the dimension of the space of polynomials of 4 variables with degree not greater than 3.
-    </div>
+<div class="question">17. List vs tuple – when to pick?</div>
+<div class="explanation">
+    <strong>Answer:</strong> 
+    <ul>
+        <li><strong>List:</strong> Mutable, [ ], slower, overallocates – dynamic sequences (adjacency builder, BFS queue).</li>
+        <li><strong>Tuple:</strong> Immutable, ( ), faster, less memory, hashable – fixed coordinates, edge keys for caching.</li>
+    </ul>
+    In billion‑scale graphs, tuples for fixed‑size data reduce memory overhead.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 18.</div>
-    <div class="problem-content">
-        In a graph with \(n = 10\) nodes, each pair is connected with probability \(p = 1/4\). Find the expected number of triangles.
-    </div>
+<div class="question">18. List comprehension – examples?</div>
+<div class="explanation">
+    <strong>Answer:</strong> Syntax: \([expr\ for\ item\ in\ iterable\ if\ condition]\) – concise, fast.
+    <pre>
+# Filter heavy edges
+heavy_edges = [(u,v) for u,v,w in edges if w > threshold]
+
+# Flatten adjacency
+edges = [(node, neighbor) for node, neighbors in enumerate(adjacency) 
+         for neighbor in neighbors if node < neighbor]
+
+# Parse graph input
+edges = [tuple(map(int, line.split())) for line in file if not line.startswith('#')]
+    </pre>
+    For massive data, use generator expressions (lazy) to avoid large intermediates.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 19.</div>
-    <div class="problem-content">
-        Let \(\mathbf{v} = (v_1, \dots, v_n)\) where \(v_i \in \{0,1,\dots,q-1\}\).
-        <br>(a) Total number of such vectors
-        <br>(b) Number differing from \(\mathbf{0}\) in exactly \(t\) positions
-        <br>(c) Number differing from \(\mathbf{0}\) in at most \(t\) positions
-    </div>
+<hr>
+
+<!-- ========== SECTION 3 – ON-THE-FEET ========== -->
+<div class="category-box">Part 3 – On‑the‑feet reasoning</div>
+
+<div class="question">19. 90% accuracy on 90% class A, 10% class B – good model?</div>
+<div class="explanation">
+    <strong>Answer:</strong> Not necessarily – baseline "always A" gives 90% accuracy. Need precision, recall, F1, confusion matrix. For imbalanced data, focus on recall for minority class and ROC‑AUC or PR‑AUC. Example: cancer detection – missing 10% (false negatives) is unacceptable.
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 20.</div>
-    <div class="problem-content">
-        Given \(a_{n+1} = \frac{a_n}{1 + n a_n}\) with \(a_1 = 1\), find \(a_n\) in closed form.
-    </div>
+<div class="question">20. How to detect anomalies in streaming network traffic?</div>
+<div class="explanation">
+    <strong>Answer:</strong> 
+    <ol>
+        <li><strong>Feature extraction:</strong> packet rate, byte rate, protocol mix, entropy of addresses.</li>
+        <li><strong>Statistical methods:</strong> moving average/EWMA, deviation > threshold.</li>
+        <li><strong>Unsupervised ML:</strong> isolation forest, one‑class SVM, autoencoders (reconstruction error).</li>
+        <li><strong>Streaming considerations:</strong> sliding windows, incremental models, alert cooldown.</li>
+        <li><strong>Multi‑stage:</strong> lightweight filter → if suspicious, deep ML → correlation engine → alert.</li>
+    </ol>
 </div>
 
-<div class="problem">
-    <div class="problem-number">Problem 21.</div>
-    <div class="problem-content">
-        What will be the output of:
-        <pre>func = lambda a, b: a if b == 0 else func(b, a%b)
-a = 144
-b = 336
-print(func(a,b))</pre>
-    </div>
+<!-- ========== SECTION 4 – ML ADDED ========== -->
+<div class="category-box">Part 4 – Machine Learning (added topics)</div>
+
+<div class="question">21. Explain log loss (cross‑entropy) for binary classification. Derive from MLE.</div>
+<div class="explanation">
+    <strong>Answer:</strong> Log loss = \(-\frac{1}{n}\sum_{i=1}^n [y_i \log \hat{p}_i + (1-y_i)\log(1-\hat{p}_i)]\).<br>
+    <strong>Derivation:</strong> Assume \(y_i \sim \text{Bernoulli}(\hat{p}_i)\). Likelihood = \(\prod \hat{p}_i^{y_i}(1-\hat{p}_i)^{1-y_i}\). Negative log‑likelihood = \(-\sum [y_i \log \hat{p}_i + (1-y_i)\log(1-\hat{p}_i)]\). Dividing by \(n\) gives average log loss. Minimizing log loss = MLE.<br>
+    <strong>Why used?</strong> Penalises confident wrong predictions heavily (log → -∞ as probability → 0 for true class). Convex, differentiable.
 </div>
 
-<div class="footer">
-    Mathematical Problems Collection
+<div class="question">22. Explain gradient boosting. How differs from AdaBoost?</div>
+<div class="explanation">
+    <strong>Answer:</strong> Gradient boosting builds models sequentially, each new model correcting previous errors by fitting pseudo‑residuals (negative gradient of loss).<br>
+    <strong>Algorithm:</strong>
+    <ol>
+        <li>Start with initial model \(F_0\).</li>
+        <li>For \(m=1\) to \(M\):
+            <ul>
+                <li>Compute pseudo‑residuals \(r_{im} = -\left[\frac{\partial L(y_i, F(x_i))}{\partial F(x_i)}\right]_{F=F_{m-1}}\).</li>
+                <li>Fit weak learner \(h_m\) to residuals.</li>
+                <li>Update \(F_m = F_{m-1} + \nu h_m\) (learning rate \(\nu\)).</li>
+            </ul>
+        </li>
+    </ol>
+    <strong>Difference from AdaBoost:</strong> AdaBoost adjusts sample weights and uses weighted voting; gradient boosting directly fits any differentiable loss. AdaBoost is a special case of gradient boosting with exponential loss. Gradient boosting is more flexible (any loss) and typically uses trees (GBM, XGBoost).
 </div>
+
+<hr>
+<p style="text-align:right; color:#2f4f6f; margin-top:30px;">— prepared for Skoltech ACS interview —</p>
 
 </body>
 </html>
