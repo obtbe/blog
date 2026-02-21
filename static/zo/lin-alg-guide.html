@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Matrix Properties Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+            background-color: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 20px;
+            padding-left: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .property-box {
+            background-color: white;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 1.1em;
+        }
+        .warning {
+            background-color: #fcf8e3;
+            border-left-color: #f39c12;
+        }
+        .note {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #eee;
+        }
+        .category-tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-right: 10px;
+        }
+        .special-matrix {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Complete Matrix Properties Reference</h1>
+    
+    <div class="note">
+        <strong>📌 Quick Legend:</strong> A, B are matrices; c is scalar; I is identity; n is matrix size; λ is eigenvalue
+    </div>
+
+    <!-- Section 1: Fundamental Properties -->
+    <h2>1. 🔢 Fundamental Matrix Properties</h2>
+    
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Rule/Formula</th>
+            <th>Conditions</th>
+        </tr>
+        <tr>
+            <td>Size/Dimensions</td>
+            <td>If A is m×n and B is n×p, then AB is m×p</td>
+            <td>Inner dimensions must match</td>
+        </tr>
+        <tr>
+            <td>Equality</td>
+            <td>A = B iff aᵢⱼ = bᵢⱼ for all i,j</td>
+            <td>Same dimensions required</td>
+        </tr>
+        <tr>
+            <td>Zero Matrix (0)</td>
+            <td>A + 0 = 0 + A = A<br>A·0 = 0·A = 0</td>
+            <td>Dimensions must match for addition</td>
+        </tr>
+        <tr>
+            <td>Identity Matrix (I)</td>
+            <td>AI = IA = A<br>Iⁿ = I<br>det(I) = 1<br>rank(I) = n</td>
+            <td>Square matrix</td>
+        </tr>
+    </table>
+
+    <!-- Section 2: Matrix Operations -->
+    <h2>2. ➕ Matrix Operations Properties</h2>
+    
+    <h3>Addition/Subtraction</h3>
+    <table>
+        <tr>
+            <td>Commutative</td>
+            <td class="formula">A + B = B + A</td>
+            <td>Same dimensions</td>
+        </tr>
+        <tr>
+            <td>Associative</td>
+            <td class="formula">(A + B) + C = A + (B + C)</td>
+            <td>Same dimensions</td>
+        </tr>
+        <tr>
+            <td>Distributive (scalar)</td>
+            <td class="formula">c(A + B) = cA + cB</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h3>Multiplication</h3>
+    <table>
+        <tr>
+            <td>Associative</td>
+            <td class="formula">(AB)C = A(BC)</td>
+            <td>Dimensions compatible</td>
+        </tr>
+        <tr>
+            <td>Distributive</td>
+            <td class="formula">A(B + C) = AB + AC<br>(A + B)C = AC + BC</td>
+            <td>Dimensions compatible</td>
+        </tr>
+        <tr>
+            <td class="warning">⚠️ NOT Commutative</td>
+            <td class="formula">AB ≠ BA (generally)</td>
+            <td>Exception: diagonal matrices, scalar multiples of I</td>
+        </tr>
+    </table>
+
+    <!-- Section 3: Rank Properties -->
+    <h2>3. 📈 Rank Properties</h2>
+    
+    <div class="property-box">
+        <h3>Basic Rank Rules:</h3>
+        <ul>
+            <li><span class="formula">rank(A) ≤ min(rows, columns)</span></li>
+            <li><span class="formula">rank(A) = rank(Aᵀ)</span> - transpose doesn't change rank</li>
+            <li><span class="formula">rank(A) = 0</span> iff A is zero matrix</li>
+            <li><span class="formula">rank(Iₙ) = n</span></li>
+            <li><span class="formula">rank(A + B) ≤ rank(A) + rank(B)</span></li>
+            <li><span class="formula">rank(AB) ≤ min(rank(A), rank(B))</span></li>
+            <li><span class="formula">rank(AB) = rank(B)</span> if A is invertible</li>
+            <li><span class="formula">rank(PAQ) = rank(A)</span> if P,Q invertible</li>
+        </ul>
+    </div>
+
+    <div class="property-box">
+        <h3>Rank-Nullity Theorem:</h3>
+        <p class="formula">rank(A) + nullity(A) = number of columns</p>
+        <p>where nullity = dimension of nullspace = number of free variables</p>
+    </div>
+
+    <!-- Section 4: Determinant Properties -->
+    <h2>4. 🔷 Determinant Properties</h2>
+    
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Formula</th>
+        </tr>
+        <tr>
+            <td>Identity</td>
+            <td class="formula">det(I) = 1</td>
+        </tr>
+        <tr>
+            <td>Zero matrix</td>
+            <td class="formula">det(0) = 0</td>
+        </tr>
+        <tr>
+            <td>Transpose</td>
+            <td class="formula">det(Aᵀ) = det(A)</td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td class="formula">det(AB) = det(A) × det(B)</td>
+        </tr>
+        <tr>
+            <td>Inverse</td>
+            <td class="formula">det(A⁻¹) = 1/det(A)</td>
+        </tr>
+        <tr>
+            <td>Scalar multiplication</td>
+            <td class="formula">det(cA) = cⁿ det(A)</td>
+        </tr>
+        <tr>
+            <td>Similar matrices</td>
+            <td class="formula">det(P⁻¹AP) = det(A)</td>
+        </tr>
+        <tr>
+            <td>Triangular matrix</td>
+            <td class="formula">det = product of diagonal entries</td>
+        </tr>
+        <tr>
+            <td class="warning">⚠️ Warning</td>
+            <td class="formula">det(A + B) ≠ det(A) + det(B)</td>
+        </tr>
+    </table>
+
+    <!-- Section 5: Trace Properties -->
+    <h2>5. 📐 Trace Properties</h2>
+    
+    <table>
+        <tr>
+            <td>Definition</td>
+            <td class="formula">tr(A) = Σ aᵢᵢ (sum of diagonal)</td>
+        </tr>
+        <tr>
+            <td>Linearity</td>
+            <td class="formula">tr(A + B) = tr(A) + tr(B)<br>tr(cA) = c·tr(A)</td>
+        </tr>
+        <tr>
+            <td>Cyclic property</td>
+            <td class="formula">tr(AB) = tr(BA)</td>
+        </tr>
+        <tr>
+            <td>Transpose</td>
+            <td class="formula">tr(Aᵀ) = tr(A)</td>
+        </tr>
+        <tr>
+            <td>Eigenvalues</td>
+            <td class="formula">tr(A) = Σ λᵢ (sum of eigenvalues)</td>
+        </tr>
+    </table>
+
+    <!-- Section 6: Transpose Properties -->
+    <h2>6. ↔️ Transpose Properties</h2>
+    
+    <table>
+        <tr>
+            <td>Double transpose</td>
+            <td class="formula">(Aᵀ)ᵀ = A</td>
+        </tr>
+        <tr>
+            <td>Addition</td>
+            <td class="formula">(A + B)ᵀ = Aᵀ + Bᵀ</td>
+        </tr>
+        <tr>
+            <td>Multiplication</td>
+            <td class="formula">(AB)ᵀ = BᵀAᵀ</td>
+        </tr>
+        <tr>
+            <td>Scalar</td>
+            <td class="formula">(cA)ᵀ = cAᵀ</td>
+        </tr>
+        <tr>
+            <td>Inverse</td>
+            <td class="formula">(A⁻¹)ᵀ = (Aᵀ)⁻¹</td>
+        </tr>
+        <tr>
+            <td>Determinant</td>
+            <td class="formula">det(Aᵀ) = det(A)</td>
+        </tr>
+    </table>
+
+    <!-- Section 7: Inverse Properties -->
+    <h2>7. 🔄 Inverse Properties</h2>
+    
+    <table>
+        <tr>
+            <td>Definition</td>
+            <td class="formula">A⁻¹A = AA⁻¹ = I</td>
+        </tr>
+        <tr>
+            <td>Double inverse</td>
+            <td class="formula">(A⁻¹)⁻¹ = A</td>
+        </tr>
+        <tr>
+            <td>Product inverse</td>
+            <td class="formula">(AB)⁻¹ = B⁻¹A⁻¹</td>
+        </tr>
+        <tr>
+            <td>Transpose inverse</td>
+            <td class="formula">(Aᵀ)⁻¹ = (A⁻¹)ᵀ</td>
+        </tr>
+        <tr>
+            <td>Scalar inverse</td>
+            <td class="formula">(cA)⁻¹ = (1/c)A⁻¹</td>
+        </tr>
+        <tr>
+            <td>Invertibility condition</td>
+            <td class="formula">A invertible ⇔ det(A) ≠ 0 ⇔ rank(A) = n</td>
+        </tr>
+    </table>
+
+    <!-- Section 8: Eigenvalue Properties -->
+    <h2>8. ⚡ Eigenvalue Properties</h2>
+    
+    <table>
+        <tr>
+            <th>If λ is eigenvalue of A:</th>
+            <th>Then:</th>
+        </tr>
+        <tr>
+            <td>Power</td>
+            <td class="formula">λᵏ is eigenvalue of Aᵏ</td>
+        </tr>
+        <tr>
+            <td>Inverse</td>
+            <td class="formula">1/λ is eigenvalue of A⁻¹ (if λ≠0)</td>
+        </tr>
+        <tr>
+            <td>Shift</td>
+            <td class="formula">λ + c is eigenvalue of A + cI</td>
+        </tr>
+        <tr>
+            <td>Scalar</td>
+            <td class="formula">cλ is eigenvalue of cA</td>
+        </tr>
+        <tr>
+            <td>Polynomial</td>
+            <td class="formula">p(λ) is eigenvalue of p(A)</td>
+        </tr>
+        <tr>
+            <td>Sum of eigenvalues</td>
+            <td class="formula">Σ λᵢ = tr(A)</td>
+        </tr>
+        <tr>
+            <td>Product of eigenvalues</td>
+            <td class="formula">Π λᵢ = det(A)</td>
+        </tr>
+    </table>
+
+    <!-- Section 9: Special Matrix Types -->
+    <h2>9. 🏷️ Special Matrix Types & Properties</h2>
+    
+    <div class="special-matrix">
+        <h3>Symmetric Matrix: A = Aᵀ</h3>
+        <ul>
+            <li>All eigenvalues are real</li>
+            <li>Eigenvectors from different eigenvalues are orthogonal</li>
+            <li>Always diagonalizable</li>
+            <li>A is symmetric ⇔ Aᵀ = A</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Skew-Symmetric (Anti-symmetric): Aᵀ = -A</h3>
+        <ul>
+            <li>Diagonal entries are all zero</li>
+            <li>Eigenvalues are purely imaginary or zero</li>
+            <li>For odd dimension, determinant = 0</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Hermitian Matrix: A = A* (Aᴴ = A)</h3>
+        <ul>
+            <li>Generalization of symmetric for complex matrices</li>
+            <li>All eigenvalues are real</li>
+            <li>Eigenvectors orthogonal</li>
+            <li>A = A* where * = conjugate transpose</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Unitary Matrix: U*U = UU* = I</h3>
+        <ul>
+            <li>U⁻¹ = U* (conjugate transpose)</li>
+            <li>Preserves inner product: (Ux, Uy) = (x, y)</li>
+            <li>|det(U)| = 1</li>
+            <li>Columns form orthonormal basis</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Orthogonal Matrix: QᵀQ = QQᵀ = I</h3>
+        <ul>
+            <li>Q⁻¹ = Qᵀ</li>
+            <li>det(Q) = ±1</li>
+            <li>Preserves length: ||Qx|| = ||x||</li>
+            <li>Columns are orthonormal vectors</li>
+            <li>Special orthogonal if det(Q) = 1</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Normal Matrix: A*A = AA*</h3>
+        <ul>
+            <li>Includes Hermitian, unitary, and skew-Hermitian</li>
+            <li>Unitarily diagonalizable</li>
+            <li>A has complete set of orthonormal eigenvectors</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Idempotent Matrix: A² = A</h3>
+        <ul>
+            <li>Eigenvalues are either 0 or 1</li>
+            <li>Projection matrix</li>
+            <li>rank(A) = tr(A)</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Nilpotent Matrix: Aᵏ = 0 for some k</h3>
+        <ul>
+            <li>All eigenvalues are 0</li>
+            <li>det(A) = 0</li>
+            <li>Not diagonalizable (except zero matrix)</li>
+            <li>Trace = 0</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Involutory Matrix: A² = I</h3>
+        <ul>
+            <li>A⁻¹ = A</li>
+            <li>Eigenvalues are ±1</li>
+            <li>det(A) = ±1</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Singular Matrix</h3>
+        <ul>
+            <li>det(A) = 0</li>
+            <li>Not invertible</li>
+            <li>rank(A) < n</li>
+            <li>Has at least one zero eigenvalue</li>
+            <li>Columns/rows are linearly dependent</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Non-singular (Invertible) Matrix</h3>
+        <ul>
+            <li>det(A) ≠ 0</li>
+            <li>rank(A) = n</li>
+            <li>All eigenvalues non-zero</li>
+            <li>Columns/rows linearly independent</li>
+            <li>A⁻¹ exists</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Diagonal Matrix D = diag(d₁, d₂, ..., dₙ)</h3>
+        <ul>
+            <li>Dᵏ = diag(d₁ᵏ, d₂ᵏ, ..., dₙᵏ)</li>
+            <li>det(D) = d₁ × d₂ × ... × dₙ</li>
+            <li>D⁻¹ = diag(1/d₁, 1/d₂, ..., 1/dₙ)</li>
+            <li>Eigenvalues are d₁, d₂, ..., dₙ</li>
+            <li>Commutes with other diagonal matrices</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Upper/Lower Triangular Matrix</h3>
+        <ul>
+            <li>Determinant = product of diagonal entries</li>
+            <li>Eigenvalues are diagonal entries</li>
+            <li>Product of triangular is triangular</li>
+            <li>Inverse of triangular is triangular</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Positive Definite Matrix</h3>
+        <ul>
+            <li>xᵀAx > 0 for all non-zero x</li>
+            <li>All eigenvalues > 0</li>
+            <li>All leading principal minors > 0</li>
+            <li>det(A) > 0</li>
+            <li>Always invertible</li>
+        </ul>
+    </div>
+
+    <div class="special-matrix">
+        <h3>Positive Semi-definite Matrix</h3>
+        <ul>
+            <li>xᵀAx ≥ 0 for all x</li>
+            <li>All eigenvalues ≥ 0</li>
+            <li>det(A) ≥ 0</li>
+            <li>Can be singular</li>
+        </ul>
+    </div>
+
+    <!-- Section 10: Crucial Rules to Remember -->
+    <h2>10. ⚠️ Crucial Rules You MUST Remember</h2>
+    
+    <div class="property-box warning">
+        <h3>🚫 Common Mistakes:</h3>
+        <ul>
+            <li><span class="formula">AB ≠ BA</span> (matrix multiplication not commutative)</li>
+            <li><span class="formula">(A + B)² ≠ A² + 2AB + B²</span> (missing BA term)</li>
+            <li><span class="formula">(AB)⁻¹ = B⁻¹A⁻¹</span> (order reverses)</li>
+            <li><span class="formula">(AB)ᵀ = BᵀAᵀ</span> (order reverses)</li>
+            <li><span class="formula">det(A + B) ≠ det(A) + det(B)</span></li>
+            <li><span class="formula">(A + B)⁻¹ ≠ A⁻¹ + B⁻¹</span></li>
+            <li><span class="formula">e^(A+B) ≠ e^A e^B</span> (unless A,B commute)</li>
+            <li><span class="formula">rank(AB) ≠ rank(A)rank(B)</span></li>
+        </ul>
+    </div>
+
+    <div class="property-box">
+        <h3>✅ Always True:</h3>
+        <ul>
+            <li><span class="formula">(AB)C = A(BC)</span> (associative)</li>
+            <li><span class="formula">A(B + C) = AB + AC</span> (distributive)</li>
+            <li><span class="formula">det(AB) = det(A)det(B)</span></li>
+            <li><span class="formula">(Aᵀ)ᵀ = A</span></li>
+            <li><span class="formula">tr(AB) = tr(BA)</span></li>
+        </ul>
+    </div>
+
+    <!-- Section 11: Matrix Calculus (if needed) -->
+    <h2>11. 📉 Matrix Calculus (Advanced)</h2>
+    
+    <table>
+        <tr>
+            <th>Derivative</th>
+            <th>Formula</th>
+        </tr>
+        <tr>
+            <td>d/dx (Ax)</td>
+            <td class="formula">A</td>
+        </tr>
+        <tr>
+            <td>d/dx (xᵀAx)</td>
+            <td class="formula">(A + Aᵀ)x</td>
+        </tr>
+        <tr>
+            <td>d/dA (trace(A))</td>
+            <td class="formula">I</td>
+        </tr>
+        <tr>
+            <td>d/dA (det(A))</td>
+            <td class="formula">det(A) (A⁻¹)ᵀ</td>
+        </tr>
+        <tr>
+            <td>d/dA (A⁻¹)</td>
+            <td class="formula">-A⁻¹ (dA) A⁻¹</td>
+        </tr>
+    </table>
+
+    <!-- Section 12: Matrix Decompositions -->
+    <h2>12. 🔧 Common Matrix Decompositions</h2>
+    
+    <table>
+        <tr>
+            <th>Decomposition</th>
+            <th>Formula</th>
+            <th>Conditions</th>
+        </tr>
+        <tr>
+            <td>LU Decomposition</td>
+            <td>A = LU</td>
+            <td>L lower triangular, U upper triangular</td>
+        </tr>
+        <tr>
+            <td>Cholesky Decomposition</td>
+            <td>A = LLᵀ</td>
+            <td>A positive definite, L lower triangular</td>
+        </tr>
+        <tr>
+            <td>QR Decomposition</td>
+            <td>A = QR</td>
+            <td>Q orthogonal, R upper triangular</td>
+        </tr>
+        <tr>
+            <td>Eigen decomposition</td>
+            <td>A = PDP⁻¹</td>
+            <td>A diagonalizable, D diagonal of eigenvalues</td>
+        </tr>
+        <tr>
+            <td>Spectral decomposition</td>
+            <td>A = QΛQᵀ</td>
+            <td>A symmetric, Q orthogonal, Λ diagonal</td>
+        </tr>
+        <tr>
+            <td>Singular Value Decomposition (SVD)</td>
+            <td>A = UΣVᵀ</td>
+            <td>U,V orthogonal, Σ diagonal with singular values</td>
+        </tr>
+        <tr>
+            <td>Jordan Decomposition</td>
+            <td>A = PJP⁻¹</td>
+            <td>J Jordan blocks (for non-diagonalizable)</td>
+        </tr>
+        <tr>
+            <td>Polar Decomposition</td>
+            <td>A = UP</td>
+            <td>U orthogonal, P positive semi-definite</td>
+        </tr>
+    </table>
+
+    <!-- Section 13: Matrix Norms -->
+    <h2>13. 📏 Matrix Norms</h2>
+    
+    <table>
+        <tr>
+            <th>Norm</th>
+            <th>Definition</th>
+        </tr>
+        <tr>
+            <td>Frobenius norm</td>
+            <td class="formula">||A||<sub>F</sub> = √(Σ|aᵢⱼ|²) = √(tr(A*A))</td>
+        </tr>
+        <tr>
+            <td>1-norm (max column sum)</td>
+            <td class="formula">||A||<sub>1</sub> = maxⱼ Σᵢ |aᵢⱼ|</td>
+        </tr>
+        <tr>
+            <td>∞-norm (max row sum)</td>
+            <td class="formula">||A||<sub>∞</sub> = maxᵢ Σⱼ |aᵢⱼ|</td>
+        </tr>
+        <tr>
+            <td>2-norm (spectral norm)</td>
+            <td class="formula">||A||<sub>2</sub> = √(max eigenvalue of A*A)</td>
+        </tr>
+    </table>
+
+    <!-- Section 14: Quick Reference Card -->
+    <h2>14. 🃏 Quick Reference Card</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+        <div class="property-box">
+            <strong>Rank:</strong><br>
+            rank(A) ≤ min(m,n)<br>
+            rank(AB) ≤ min(rank(A), rank(B))<br>
+            rank(A+B) ≤ rank(A)+rank(B)
+        </div>
+        <div class="property-box">
+            <strong>Determinant:</strong><br>
+            det(AB) = det(A)det(B)<br>
+            det(A⁻¹) = 1/det(A)<br>
+            det(cA) = cⁿ det(A)
+        </div>
+        <div class="property-box">
+            <strong>Trace:</strong><br>
+            tr(A+B) = tr(A)+tr(B)<br>
+            tr(AB) = tr(BA)<br>
+            tr(A) = sum of eigenvalues
+        </div>
+        <div class="property-box">
+            <strong>Transpose:</strong><br>
+            (AB)ᵀ = BᵀAᵀ<br>
+            (A+B)ᵀ = Aᵀ+Bᵀ<br>
+            (A⁻¹)ᵀ = (Aᵀ)⁻¹
+        </div>
+        <div class="property-box">
+            <strong>Inverse:</strong><br>
+            (AB)⁻¹ = B⁻¹A⁻¹<br>
+            (A⁻¹)⁻¹ = A<br>
+            A invertible ⇔ det(A)≠0
+        </div>
+        <div class="property-box">
+            <strong>Eigenvalues:</strong><br>
+            Sum = tr(A)<br>
+            Product = det(A)<br>
+            Aᵏ has eigenvalue λᵏ
+        </div>
+    </div>
+
+    <!-- Footer with summary -->
+    <div style="margin-top: 40px; padding: 20px; background-color: #2c3e50; color: white; border-radius: 5px; text-align: center;">
+        <p style="font-size: 1.2em; margin: 0;">📚 Complete Matrix Properties Reference v1.0</p>
+        <p style="margin: 5px 0 0 0; opacity: 0.8;">Use this as your go-to guide for all matrix operations and properties</p>
+    </div>
+</body>
+</html>
