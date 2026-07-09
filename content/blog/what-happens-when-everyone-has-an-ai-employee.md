@@ -1,6 +1,6 @@
 ---
 title: "What Happens When Everyone Has an AI Employee?"
-date: 2025-12-09T20:59:00+00:00
+date: 2026-07-09T21:05:00+00:00
 draft: false
 tags: [artificial-intelligence, economics, technology, game-theory]
 ---
@@ -25,9 +25,7 @@ In a world of ubiquitous AI employees, you will not touch this process. Your AI 
 
 "Unacceptable, my human takes a post-lunch nap then. How about Friday at 10 AM?" my agent replies. 
 
-They will negotiate at the speed of light. In fact, a massive chunk of the internet's traffic will just be AI employees politely or efficiently arguing with each other on our behalf. 
-
-**The Pun Intended:** You could say we are moving from a peer-to-peer network to a clear-to-clear network, where the human clutter is finally cleared out of the way. 
+They will negotiate at the speed of light. In fact, a massive chunk of the internet's traffic will just be AI employees politely or efficiently arguing with each other on our behalf. We are moving from a peer-to-peer network to a clear-to-clear network, where the human clutter is finally cleared out of the way. 
 
 ### II. The Science of the "Multiplier Effect"
 
@@ -43,7 +41,7 @@ But science also teaches us about the laws of thermodynamics: energy cannot be c
 
 If everyone has an AI employee capable of writing a flawless 800-word blog post, filming a deepfake video, or coding an app in three seconds, the internet will be flooded with an unprecedented ocean of content. 
 
-An anecdote to illustrate this: A friend of mine recently used an early autonomous agent to scrape data for a market research project. He left it running while he went to grab dinner. When he came back, the agent had accidentally entered a loop, generating 4,000 pages of hyper-specific, perfectly formatted analysis on the global supply chain of rubber ducks. It cost him about $12 in API fees, but it proved a point: AI does not get tired, even when it is doing something completely useless.
+A friend of mine recently used an early autonomous agent to scrape data for a market research project. He left it running while he went to grab dinner. When he came back, the agent had accidentally entered a loop, generating 4,000 pages of hyper-specific, perfectly formatted analysis on the global supply chain of rubber ducks. It cost him about $12 in API fees, but it proved a point: AI does not get tired, even when it is doing something completely useless.
 
 When everyone has an AI worker, the barrier to creation drops to zero. As a result, the value of generic information will plummet. The premium will shift heavily toward curation, authenticity, and physical proof. Which is why you are reading this blog on a trusted domain like obtbe.com, rather than a random pop-up site!
 
@@ -71,7 +69,7 @@ Now, if you will excuse me, I have to go check if my AI employee has finished an
 
 ### Scientific & Conceptual References
 
-1. **The Economics of Artificial Intelligence:** Brynjolfsson, E., & McAfee, A. (2014). *The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies*. (Explores the exponential growth of digital economies and the decoupling of productivity from human labor hours).
-2. **Cognitive Bandwidth & Resource Scarcity:** Mullainathan, S., & Shafir, E. (2013). *Scarcity: Why Having Too Little Means So Much*. (Contextualizes how freeing up mental bandwidth via automation changes human decision-making).
-3. **Game Theory in Multi-Agent Systems:** Wooldridge, M. (2009). *An Introduction to MultiAgent Systems*. John Wiley & Sons. (A foundational look at how autonomous digital entities interact, compete, and cooperate in a shared environment).
-4. **Information Entropy:** Shannon, C. E. (1948). *A Mathematical Theory of Communication*. Bell System Technical Journal. (The underlying science of why unlimited generation leads to signal-to-noise ratio degradation).
+1. **The Economics of Artificial Intelligence:** Brynjolfsson, E., & McAfee, A. (2014). *The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies*.
+2. **Cognitive Bandwidth & Resource Scarcity:** Mullainathan, S., & Shafir, E. (2013). *Scarcity: Why Having Too Little Means So Much*.
+3. **Game Theory in Multi-Agent Systems:** Wooldridge, M. (2009). *An Introduction to MultiAgent Systems*. John Wiley & Sons.
+4. **Information Entropy:** Shannon, C. E. (1948). *A Mathematical Theory of Communication*. Bell System Technical Journal.
