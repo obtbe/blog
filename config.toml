@@ -37,6 +37,10 @@ url = "https://linkedin.com/in/obtbe"
     [markup.goldmark.renderer]
       unsafe = true
 
+[frontmatter]
+    date = ["date", ":publishDate", ":lastmod"]
+    lastmod = ["date", ":publishDate", ":lastmod"]
+
 
 # Main Menu (exactly 8 items, in order)
 [[menu.main]]
