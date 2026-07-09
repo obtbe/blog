@@ -1,6 +1,6 @@
 ---
 title: "What Happens When Everyone Has an AI Employee?"
-date: 2026-07-09T21:05:00+00:00
+date: 2025-12-09T21:05:00+00:00
 draft: false
 tags: [artificial-intelligence, economics, technology, game-theory]
 ---
