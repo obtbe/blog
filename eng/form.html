@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Training Feedback | English Courses</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+
+        .form-container {
+            max-width: 820px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* --- Header --- */
+        .form-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            padding: 40px 50px 30px;
+            color: white;
+            border-bottom: 6px solid #facc15;
+        }
+
+        .form-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-header h1 i {
+            color: #facc15;
+            font-size: 30px;
+        }
+
+        .form-header .subhead {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-top: 8px;
+            font-weight: 300;
+            border-left: 3px solid #facc15;
+            padding-left: 16px;
+        }
+
+        .form-header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 12px;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* --- Body --- */
+        .form-body {
+            padding: 40px 50px 30px;
+        }
+
+        .intro-text {
+            background: #f8fafc;
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin-bottom: 38px;
+            border: 1px solid #e9edf2;
+            font-size: 15px;
+            color: #334155;
+        }
+
+        .intro-text strong {
+            color: #0f172a;
+        }
+
+        /* --- Questions --- */
+        .question-group {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 32px;
+        }
+
+        .question-group:last-of-type {
+            border-bottom: none;
+            margin-bottom: 20px;
+        }
+
+        .q-label {
+            display: block;
+            font-weight: 600;
+            font-size: 17px;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .q-label .required {
+            color: #dc2626;
+            margin-left: 4px;
+        }
+
+        .q-desc {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        /* --- NPS (0-10) --- */
+        .nps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0 8px;
+        }
+
+        .nps-grid input[type="radio"] {
+            display: none;
+        }
+
+        .nps-grid label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: #f1f5f9;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1e293b;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 2px solid transparent;
+        }
+
+        .nps-grid label:hover {
+            background: #dbeafe;
+            transform: scale(1.03);
+        }
+
+        .nps-grid input[type="radio"]:checked + label {
+            background: #1e3a8a;
+            color: white;
+            border-color: #1e3a8a;
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+        }
+
+        .nps-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #64748b;
+            padding: 0 4px;
+            margin-top: 4px;
+        }
+
+        /* --- Standard Grid for Ratings --- */
+        .rating-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+            margin-top: 8px;
+        }
+
+        .rating-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 400;
+            font-size: 15px;
+            color: #1e293b;
+            cursor: pointer;
+        }
+
+        .rating-options input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #1e3a8a;
+            cursor: pointer;
+        }
+
+        /* --- Textareas --- */
+        textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid #d1d9e6;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 15px;
+            resize: vertical;
+            min-height: 90px;
+            transition: 0.2s;
+            background: #fcfcfd;
+            color: #0f172a;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.08);
+            background: white;
+        }
+
+        /* --- Select --- */
+        select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid #d1d9e6;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 15px;
+            background: #fcfcfd;
+            color: #0f172a;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23475569" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.08);
+        }
+
+        /* --- Submit --- */
+        .submit-area {
+            margin-top: 42px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .btn-primary {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 17px;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+        }
+
+        .btn-primary i {
+            font-size: 18px;
+        }
+
+        .btn-primary:hover {
+            background: #1e293b;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .privacy-note {
+            font-size: 13px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .privacy-note i {
+            color: #64748b;
+        }
+
+        /* --- Signature Footer --- */
+        .signature-footer {
+            margin-top: 10px;
+            padding: 20px 50px 30px;
+            border-top: 1px solid #eef2f6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            background: #fafcff;
+            border-radius: 0 0 32px 32px;
+        }
+
+        .signature-footer .signature-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .signature-footer .signature-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #1e3a8a, #0f172a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #facc15;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .signature-footer .signature-text {
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .signature-footer .signature-text .name {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .signature-footer .signature-text .title {
+            font-size: 13px;
+            color: #94a3b8;
+            display: block;
+            margin-top: 1px;
+        }
+
+        .signature-footer .signature-divider {
+            color: #d1d9e6;
+            font-size: 20px;
+            font-weight: 200;
+        }
+
+        .signature-footer .signature-emoji {
+            font-size: 22px;
+            letter-spacing: 2px;
+            color: #64748b;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 680px) {
+            .form-header {
+                padding: 28px 24px 22px;
+            }
+            .form-header h1 {
+                font-size: 22px;
+                flex-wrap: wrap;
+            }
+            .form-body {
+                padding: 28px 20px 20px;
+            }
+            .nps-grid label {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+            .nps-labels {
+                font-size: 11px;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+            .rating-options {
+                gap: 8px 14px;
+            }
+            .submit-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-primary {
+                justify-content: center;
+                padding: 16px 24px;
+            }
+            .privacy-note {
+                justify-content: center;
+            }
+            .signature-footer {
+                padding: 18px 20px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .signature-footer .signature-divider {
+                display: none;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .nps-grid label {
+                width: 34px;
+                height: 34px;
+                font-size: 13px;
+            }
+            .nps-grid {
+                gap: 5px;
+            }
+            .form-header .subhead {
+                font-size: 14px;
+                padding-left: 12px;
+            }
+            .signature-footer .signature-left {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+
+    <!-- HEADER -->
+    <div class="form-header">
+        <h1>
+            <i class="fas fa-pen-fancy"></i>
+            End of Training Feedback
+        </h1>
+        <div class="subhead">
+            We value your professional growth &amp; your honest opinion.
+        </div>
+        <div class="badge">
+            <i class="far fa-calendar-alt" style="margin-right: 6px;"></i> Course Completion
+        </div>
+    </div>
+
+    <!-- FORM BODY -->
+    <div class="form-body">
+
+        <div class="intro-text">
+            <i class="fas fa-comment-dots" style="color: #1e3a8a; margin-right: 10px;"></i>
+            <strong>Thank you for participating</strong> in the English training program. 
+            Your feedback helps us refine the experience for future professionals like you. 
+            Please answer honestly — all responses are confidential and will be used solely to improve our courses.
+        </div>
+
+        <!-- 
+            ============================================================
+            FORMSPREE INTEGRATION:
+            - action="https://formspree.io/f/xdenbydw"
+            - method="POST"
+            - _redirect points to your custom thank-you page
+            ============================================================
+        -->
+        <form action="https://formspree.io/f/xdenbydw" 
+              method="POST"
+              id="feedbackForm">
+
+            <!-- Redirect to your custom thank-you page after submission -->
+            <input type="hidden" name="_redirect" value="https://obtbe.com/eng/thank-you.html">
+
+            <!-- 1. NPS -->
+            <div class="question-group">
+                <span class="q-label">
+                    On a scale of 0–10, how likely are you to recommend this English course to a colleague?
+                    <span class="required">*</span>
+                </span>
+                <div class="q-desc">
+                    <i class="far fa-smile" style="margin-right: 4px;"></i> 0 = Not at all likely &nbsp;|&nbsp; 10 = Extremely likely
+                </div>
+                <div class="nps-grid" id="npsGroup">
+                    <!-- 0 to 10 -->
+                    <input type="radio" name="nps" id="nps0" value="0"><label for="nps0">0</label>
+                    <input type="radio" name="nps" id="nps1" value="1"><label for="nps1">1</label>
+                    <input type="radio" name="nps" id="nps2" value="2"><label for="nps2">2</label>
+                    <input type="radio" name="nps" id="nps3" value="3"><label for="nps3">3</label>
+                    <input type="radio" name="nps" id="nps4" value="4"><label for="nps4">4</label>
+                    <input type="radio" name="nps" id="nps5" value="5"><label for="nps5">5</label>
+                    <input type="radio" name="nps" id="nps6" value="6"><label for="nps6">6</label>
+                    <input type="radio" name="nps" id="nps7" value="7"><label for="nps7">7</label>
+                    <input type="radio" name="nps" id="nps8" value="8"><label for="nps8">8</label>
+                    <input type="radio" name="nps" id="nps9" value="9"><label for="nps9">9</label>
+                    <input type="radio" name="nps" id="nps10" value="10"><label for="nps10">10</label>
+                </div>
+                <div class="nps-labels">
+                    <span>Not likely</span>
+                    <span>Neutral</span>
+                    <span>Very likely</span>
+                </div>
+            </div>
+
+            <!-- 2. Skill improvement (grid) -->
+            <div class="question-group">
+                <span class="q-label">
+                    How much has this course improved your English skills in the following areas?
+                    <span class="required">*</span>
+                </span>
+                <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 16px;">
+
+                    <!-- Speaking -->
+                    <div>
+                        <div style="font-weight: 500; font-size: 15px; margin-bottom: 6px;">
+                            <i class="fas fa-microphone-alt" style="width: 22px; color: #1e3a8a;"></i> Speaking &amp; Fluency
+                        </div>
+                        <div class="rating-options">
+                            <label><input type="radio" name="skill_speaking" value="1"> 1 – No improvement</label>
+                            <label><input type="radio" name="skill_speaking" value="2"> 2</label>
+                            <label><input type="radio" name="skill_speaking" value="3"> 3</label>
+                            <label><input type="radio" name="skill_speaking" value="4"> 4</label>
+                            <label><input type="radio" name="skill_speaking" value="5"> 5 – Significant improvement</label>
+                        </div>
+                    </div>
+
+                    <!-- Writing -->
+                    <div>
+                        <div style="font-weight: 500; font-size: 15px; margin-bottom: 6px;">
+                            <i class="fas fa-pen" style="width: 22px; color: #1e3a8a;"></i> Writing (emails, reports)
+                        </div>
+                        <div class="rating-options">
+                            <label><input type="radio" name="skill_writing" value="1"> 1 – No improvement</label>
+                            <label><input type="radio" name="skill_writing" value="2"> 2</label>
+                            <label><input type="radio" name="skill_writing" value="3"> 3</label>
+                            <label><input type="radio" name="skill_writing" value="4"> 4</label>
+                            <label><input type="radio" name="skill_writing" value="5"> 5 – Significant improvement</label>
+                        </div>
+                    </div>
+
+                    <!-- Listening -->
+                    <div>
+                        <div style="font-weight: 500; font-size: 15px; margin-bottom: 6px;">
+                            <i class="fas fa-headphones" style="width: 22px; color: #1e3a8a;"></i> Listening (meetings, calls)
+                        </div>
+                        <div class="rating-options">
+                            <label><input type="radio" name="skill_listening" value="1"> 1 – No improvement</label>
+                            <label><input type="radio" name="skill_listening" value="2"> 2</label>
+                            <label><input type="radio" name="skill_listening" value="3"> 3</label>
+                            <label><input type="radio" name="skill_listening" value="4"> 4</label>
+                            <label><input type="radio" name="skill_listening" value="5"> 5 – Significant improvement</label>
+                        </div>
+                    </div>
+
+                    <!-- Business vocabulary -->
+                    <div>
+                        <div style="font-weight: 500; font-size: 15px; margin-bottom: 6px;">
+                            <i class="fas fa-briefcase" style="width: 22px; color: #1e3a8a;"></i> Business vocabulary &amp; confidence
+                        </div>
+                        <div class="rating-options">
+                            <label><input type="radio" name="skill_vocab" value="1"> 1 – No improvement</label>
+                            <label><input type="radio" name="skill_vocab" value="2"> 2</label>
+                            <label><input type="radio" name="skill_vocab" value="3"> 3</label>
+                            <label><input type="radio" name="skill_vocab" value="4"> 4</label>
+                            <label><input type="radio" name="skill_vocab" value="5"> 5 – Significant improvement</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Trainer evaluation -->
+            <div class="question-group">
+                <span class="q-label">Trainer &amp; Methodology <span class="required">*</span></span>
+                <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 12px;">
+
+                    <div>
+                        <div style="font-weight: 500; font-size: 15px; margin-bottom: 4px;">The trainer was knowledgeable and engaging.</div>
+                        <div class="rating-options">
+                            <label><input type="radio" name="trainer_engaging" value="1"> Strongly disagree</label>
+                            <label><input type="radio" name="trainer_engaging" value="2"> Disagree</label>
+                            <label><input type="radio" name="trainer_engaging" value="3"> Neutral</label>
+                            <label><input type="radio" name="trainer_engaging" value="4"> Agree</label>
+                            <label><input type="radio" name="trainer_engaging" value="5"> Strongly agree</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="font-weight: 500; font-size: 15px; margin-bottom: 4px;">The course materials and activities were relevant to my work.</div>
+                        <div class="rating-options">
+                            <label><input type="radio" name="trainer_materials" value="1"> Strongly disagree</label>
+                            <label><input type="radio" name="trainer_materials" value="2"> Disagree</label>
+                            <label><input type="radio" name="trainer_materials" value="3"> Neutral</label>
+                            <label><input type="radio" name="trainer_materials" value="4"> Agree</label>
+                            <label><input type="radio" name="trainer_materials" value="5"> Strongly agree</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Logistics -->
+            <div class="question-group">
+                <span class="q-label">Logistics &amp; Environment</span>
+                <div style="margin-top: 10px;">
+                    <select name="logistics" id="logistics">
+                        <option value="" disabled selected>— Please select —</option>
+                        <option value="excellent">Excellent – exceeded expectations</option>
+                        <option value="good">Good – met expectations</option>
+                        <option value="average">Average – could be improved</option>
+                        <option value="poor">Poor – needs significant changes</option>
+                    </select>
+                    <div style="font-size: 13px; color: #64748b; margin-top: 6px;">
+                        <i class="far fa-clock"></i> Includes scheduling, platform/venue, and session duration.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Open ended -->
+            <div class="question-group">
+                <span class="q-label">What did you find most valuable in this training?</span>
+                <div class="q-desc">Share specific topics, activities, or moments that made an impact.</div>
+                <textarea name="most_valuable" placeholder="e.g. The negotiation role-plays, the feedback on my presentation style…"></textarea>
+            </div>
+
+            <div class="question-group">
+                <span class="q-label">What could we improve or change?</span>
+                <div class="q-desc">Constructive criticism is always welcome — we want to make this even better.</div>
+                <textarea name="improve" placeholder="e.g. More focus on technical vocabulary, longer speaking sessions…"></textarea>
+            </div>
+
+            <!-- 6. Future -->
+            <div class="question-group" style="border-bottom: none; padding-bottom: 0;">
+                <span class="q-label">Would you be interested in advanced follow-up sessions?</span>
+                <div style="display: flex; gap: 28px; margin-top: 10px; flex-wrap: wrap;">
+                    <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+                        <input type="radio" name="future" value="yes"> Yes, definitely
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+                        <input type="radio" name="future" value="maybe"> Maybe / depends
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+                        <input type="radio" name="future" value="no"> No, I'm satisfied
+                    </label>
+                </div>
+            </div>
+
+            <!-- SUBMIT -->
+            <div class="submit-area">
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Submit Feedback
+                </button>
+                <div class="privacy-note">
+                    <i class="fas fa-lock"></i> 
+                    Your responses are confidential and anonymized.
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- SIGNATURE FOOTER -->
+    <div class="signature-footer">
+        <div class="signature-left">
+            <div class="signature-icon">
+                <i class="fas fa-feather-alt"></i>
+            </div>
+            <div class="signature-text">
+                <span class="name">Zeid Ombotimbe</span>
+                <span class="title">Course Director &amp; Lead Trainer</span>
+            </div>
+        </div>
+        <div class="signature-divider">|</div>
+        <div class="signature-emoji">
+            <i class="fas fa-heart" style="color: #dc2626;"></i>
+            <i class="fas fa-star" style="color: #facc15;"></i>
+            <i class="fas fa-graduation-cap" style="color: #1e3a8a;"></i>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
