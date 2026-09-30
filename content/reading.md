@@ -10,6 +10,9 @@ date: 2025-04-05T10:00:00+05:30
 
 ## Recently Read
 
+- *[Weapons of Math Destruction](https://www.amazon.com/Weapons-Math-Destruction-Increases-Inequality/dp/0553418815), by [Cathy O'Neil](https://mathbabe.org/)*      
+  A New York Times bestseller that exposes how big data and mathematical models pervade modern life, often reinforcing discrimination and threatening democracy. O'Neil, a former Wall Street quant, reveals the "black box" algorithms that shape our futures—from education and employment to credit and policing—and calls for greater algorithmic accountability.
+
 - *[Fooled by Randomness](https://www.amazon.com/Fooled-Randomness-Hidden-Markets-Incerto/dp/0812975219), by [Nassim Nicholas Taleb](https://www.fooledbyrandomness.com/)*      
   After reading Antifragile, I fell in love with Nassim's wit and insights into randomness and uncertainty. This book delves further into these themes, providing a fascinating exploration of luck, risk, and our understanding of probability.
 
