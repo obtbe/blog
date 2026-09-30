@@ -5,10 +5,16 @@ date: 2025-04-05T10:00:00+05:30
 
 ## Currently Reading
 
+- *[Freakonomics: A Rogue Economist Explores the Hidden Side of Everything](https://www.amazon.com/Freakonomics-Economist-Explores-Hidden-Everything/dp/0060731338), by [Steven D. Levitt](https://en.wikipedia.org/wiki/Steven_Levitt) and [Stephen J. Dubner](https://en.wikipedia.org/wiki/Stephen_J._Dubner)*      
+  A fascinating exploration of the hidden economic forces behind everyday phenomena, using data and unconventional thinking to uncover surprising truths about how the world really works.
+
+## Recently Read
+
 - *[Fooled by Randomness](https://www.amazon.com/Fooled-Randomness-Hidden-Markets-Incerto/dp/0812975219), by [Nassim Nicholas Taleb](https://www.fooledbyrandomness.com/)*      
   After reading Antifragile, I fell in love with Nassim's wit and insights into randomness and uncertainty. This book delves further into these themes, providing a fascinating exploration of luck, risk, and our understanding of probability.
 
-## Recently Read
+- *[One Day in the Life of Ivan Denisovich](https://www.amazon.com/dp/1482563444), by [Aleksandr Solzhenitsyn](https://en.wikipedia.org/wiki/Aleksandr_Solzhenitsyn)*      
+  A powerful and harrowing account of a single day in a Soviet forced labor camp, told through the eyes of prisoner Ivan Denisovich Shukhov. Solzhenitsyn's restrained prose captures the brutal realities of the gulag system while illuminating the resilience of the human spirit.
 
 - *[Storytelling with Data](https://www.amazon.com/Storytelling-Data-Visualization-Business-Professionals/dp/1119002257), by [Cole Nussbaumer Knaflic](https://www.linkedin.com/in/colenussbaumer/)*     
   In this insightful book, Knafic explores the art of data storytelling, offering practical tips and techniques to effectively communicate data. It has reshaped how I present and visualize data in a compelling and understandable manner.
