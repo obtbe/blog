@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ partial "editorial-cover.html" . }}
+  <main class="editorial-index">
+    {{ $posts := .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
+    <h1>Recent posts</h1>
+    {{ partial "editorial-entries.html" $posts.Pages }}
+    {{ if gt $posts.TotalPages 1 }}
+    <nav class="editorial-pages" aria-label="Post pages">
+      {{ with $posts.Prev }}<a href="{{ .URL }}" rel="prev">← Newer posts</a>{{ end }}
+      <span>Page {{ $posts.PageNumber }} of {{ $posts.TotalPages }}</span>
+      {{ with $posts.Next }}<a href="{{ .URL }}" rel="next">Older posts →</a>{{ end }}
+    </nav>
+    {{ end }}
+  </main>
+{{ end }}

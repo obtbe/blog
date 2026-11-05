@@ -1,44 +1,19 @@
-<!DOCTYPE html>
-<html>
-{{ partial "header.html" . }}
-<body>
-	<div class="container wrapper post">
-		{{ partial "head.html" . }}
+{{ define "main" }}
+  {{ if eq .Section "blog" }}
+    {{ partial "editorial-post.html" . }}
+  {{ else }}
+    {{ partial "editorial-cover.html" . }}
+    <main class="editorial-copy editorial-page">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+    </main>
+  {{ end }}
+{{ end }}
 
-		<div class="post-header">
-			<h1 class="title">{{ .Title }}</h1>
-
-			{{ if eq .Section "blog" }}
-				<div class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
-			{{ end }}
-		</div>
-
-		<div class="markdown">
-			{{ .Content }}
-		</div>
-
-		<div class="post-tags">
-			{{ if ne .Type "page" }}
-				{{ if gt .Params.tags 0 }}
-					<nav class="nav tags">
-						<ul class="flat">
-							{{ range .Params.tags }}
-							<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-							{{ end }}
-						</ul>
-					</nav>
-				{{ end }}
-			{{ end }}
-		</div>
-
-		<!-- ONE LINE CTA – CLEAN, WORKS EVERYWHERE -->
-		{{ if eq .Section "blog" }}
-		<p style="margin-top: 3rem; font-size: 0.95rem; color: #555;">
-		  If this made you nod, laugh, or have butterflies in the stomach or elsewhere — <a href="/contact" style="color: #007acc; font-weight: 600; text-decoration: underline;"> tell me about it.</a>
-		</p>
-		{{ end }}
-	</div>
-
-	{{ partial "footer.html" . }}
-</body>
-</html>
+{{ define "footer" }}
+  {{ if eq .Section "blog" }}
+    {{ partial "editorial-post-footer.html" . }}
+  {{ else }}
+    {{ partial "editorial-social-footer.html" . }}
+  {{ end }}
+{{ end }}

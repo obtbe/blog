@@ -1,0 +1,25 @@
+  <main>
+    <article>
+      <header class="editorial-cover">
+        <div class="editorial-masthead">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          <a class="editorial-wordmark" href="{{ "/" | relURL }}" aria-label="obtbe home">obtbe</a>
+          <a class="editorial-byline" href="{{ "about/" | relURL }}">{{ .Site.Title }}</a>
+        </div>
+        <div class="editorial-rule" aria-hidden="true"></div>
+        {{ if .Draft }}<p class="editorial-draft">Draft</p>{{ end }}
+        <h1>{{ .Title }}</h1>
+      </header>
+      <div class="editorial-copy">
+        {{ .Content }}
+      </div>
+      <footer class="editorial-end">
+        {{ with (.GetTerms "tags") }}
+        <ul aria-label="Article tags">
+          {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}
+        </ul>
+        {{ end }}
+        <p>If this made you nod, laugh, or have butterflies in the stomach or elsewhere — <a href="{{ "contact/" | relURL }}">tell me about it.</a></p>
+      </footer>
+    </article>
+  </main>

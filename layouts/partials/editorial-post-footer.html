@@ -1,0 +1,8 @@
+  <footer class="editorial-site-footer">
+    <nav aria-label="Site navigation">
+      <ul>
+        {{ range .Site.Menus.main }}<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>{{ end }}
+      </ul>
+    </nav>
+    <small>{{ .Site.Copyright }}</small>
+  </footer>

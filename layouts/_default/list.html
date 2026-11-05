@@ -1,0 +1,8 @@
+{{ define "main" }}
+  {{ partial "editorial-cover.html" . }}
+  <main class="editorial-index">
+    <h1>{{ if eq .Kind "term" }}Posts tagged {{ .Title }}{{ else }}{{ .Title }}{{ end }}</h1>
+    {{ with .Content }}<div class="editorial-list-intro">{{ . }}</div>{{ end }}
+    {{ partial "editorial-entries.html" .RegularPages }}
+  </main>
+{{ end }}

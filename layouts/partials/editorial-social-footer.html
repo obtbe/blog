@@ -1,0 +1,6 @@
+  <footer class="editorial-site-footer">
+    <ul aria-label="Social links">
+      {{ range .Site.Params.social }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}
+    </ul>
+    <small>{{ .Site.Copyright }}</small>
+  </footer>

@@ -1,0 +1,14 @@
+  <header class="editorial-cover{{ if not .IsHome }} editorial-cover-compact{{ end }}">
+    <div class="editorial-masthead">
+      <span class="editorial-edition">Personal blog</span>
+      <a class="editorial-wordmark" href="{{ "/" | relURL }}" aria-label="obtbe home">obtbe</a>
+      <a class="editorial-byline" href="{{ "about/" | relURL }}">{{ .Site.Title }}</a>
+    </div>
+    <div class="editorial-rule" aria-hidden="true"></div>
+    {{ if .IsHome }}<p class="editorial-subtitle">{{ .Site.Params.subtitle }}</p>{{ end }}
+    <nav class="editorial-menu" aria-label="Site navigation">
+      <ul>
+        {{ range .Site.Menus.main }}<li><a href="{{ .URL | relURL }}"{{ if eq (strings.TrimSuffix "/" .URL) (strings.TrimSuffix "/" $.RelPermalink) }} aria-current="page"{{ end }}>{{ .Name }}</a></li>{{ end }}
+      </ul>
+    </nav>
+  </header>

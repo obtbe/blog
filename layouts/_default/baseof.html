@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ with .Site.Params.subtitle }} - {{ . }}{{ end }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+  {{ if .IsPage }}<link rel="canonical" href="{{ .Permalink }}">{{ end }}
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
+  {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">{{ end }}
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/editorial.css" | relURL }}">
+</head>
+<body class="editorial{{ if .IsHome }} editorial-home{{ end }}">
+  {{ block "main" . }}{{ end }}
+  {{ block "footer" . }}
+    {{ partial "editorial-social-footer.html" . }}
+  {{ end }}
+</body>
+</html>

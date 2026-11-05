@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ partial "editorial-cover.html" . }}
+  <main class="editorial-index">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="editorial-list-intro">{{ . }}</div>{{ end }}
+    <ul class="editorial-tag-index">
+      {{ range .Data.Terms.Alphabetical }}
+        <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> <span>{{ .Count }}</span></li>
+      {{ end }}
+    </ul>
+  </main>
+{{ end }}

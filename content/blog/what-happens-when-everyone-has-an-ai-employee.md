@@ -9,7 +9,7 @@ Imagine waking up, pouring a cup of coffee, and opening your laptop to find that
 
 Now imagine that this employee doesn't require a salary, never sleeps, and has a literal hive-mind connection to the sum of human knowledge. 
 
-Welcome to the near future, where the ultimate status symbol isn't a luxury car or a corner office. It is an AI agent, or rather, a team of them, dedicated entirely to you. 
+Welcome to the near future, where the ultimate status symbol isn't a luxury car or a corner office. <mark>It is an AI agent, or rather, a team of them, dedicated entirely to you.</mark>
 
 We are rapidly moving past the era of chatbots where we have to poke and prod ChatGPT with perfect prompts. We are entering the era of autonomous AI agents. But what happens when everyone on Earth suddenly gets their own tireless, hyper-intelligent digital workforce? Let us dive into the science, the economics, and the downright bizarre consequences of a world run by billions of algorithms.
 

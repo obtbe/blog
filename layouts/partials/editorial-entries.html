@@ -1,0 +1,13 @@
+    <ol class="editorial-posts">
+      {{ range . }}
+      <li>
+        <article class="editorial-entry">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          <div>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <p>{{ .Description | default (.Summary | plainify | htmlUnescape) }}</p>
+          </div>
+        </article>
+      </li>
+      {{ end }}
+    </ol>
