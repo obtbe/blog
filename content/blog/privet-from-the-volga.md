@@ -1,5 +1,5 @@
 ---
-title: "So You Think This Is a Tech Blog?"
+title: "Privet from the Volga"
 date: 2026-09-20
 description: "Russia, Cheboksary, and why life is more than just code and computers"
 tags: ["life", "travel", "russia"]
