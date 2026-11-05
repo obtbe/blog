@@ -143,6 +143,40 @@ body.editorial {
     justify-self: center;
     margin-bottom: .5rem;
   }
+
+  .editorial article > .editorial-cover {
+    padding-top: 1.25rem;
+  }
+
+  .editorial article > .editorial-cover .editorial-masthead {
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    justify-content: center;
+    gap: .65rem .85rem;
+    font-size: .8rem;
+  }
+
+  .editorial article > .editorial-cover .editorial-wordmark {
+    font-size: clamp(3.25rem, 12vw, 4rem);
+    margin-bottom: 0;
+  }
+
+  .editorial article > .editorial-cover .editorial-masthead time {
+    text-align: end;
+  }
+
+  .editorial article > .editorial-cover .editorial-byline {
+    justify-self: start;
+    text-align: start;
+  }
+
+  .editorial article > .editorial-cover :is(time, .editorial-byline)::before {
+    display: none;
+  }
+
+  .editorial article > .editorial-cover .editorial-rule {
+    width: 6.6rem;
+    margin-top: 1rem;
+  }
 }
 
 .editorial-edition {
