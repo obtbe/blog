@@ -1,7 +1,7 @@
 ---
 title: "So You Think This Is a Tech Blog?"
 date: 2026-10-20
-description: "Russia, Cheboksary, and why life is more than just code and systems"
+description: "Russia, Cheboksary, and why life is more than just code and computers"
 tags: ["life", "travel", "russia"]
 ---
 
