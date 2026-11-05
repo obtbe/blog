@@ -132,15 +132,12 @@ body.editorial {
 
 .editorial-site-footer { padding-bottom: 2.5rem; }
 
-.editorial-edition {
-  color: var(--muted);
+.editorial-site-masthead .editorial-wordmark {
+  grid-column: 2;
 }
 
-.editorial-edition::before {
-  content: "+";
-  display: block;
-  color: #81776d;
-  margin-bottom: .35rem;
+.editorial-site-masthead .editorial-byline {
+  grid-column: 3;
 }
 
 .editorial-subtitle {
@@ -334,7 +331,7 @@ body.editorial {
     font-size: clamp(3.25rem, 12vw, 4rem);
   }
 
-  .editorial-masthead :is(time, .editorial-edition) {
+  .editorial-masthead time {
     text-align: end;
   }
 
@@ -343,7 +340,13 @@ body.editorial {
     text-align: start;
   }
 
-  .editorial-masthead :is(time, .editorial-edition, .editorial-byline)::before {
+  .editorial .editorial-site-masthead .editorial-byline {
+    grid-column: 1 / -1;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .editorial-masthead :is(time, .editorial-byline)::before {
     display: none;
   }
 
